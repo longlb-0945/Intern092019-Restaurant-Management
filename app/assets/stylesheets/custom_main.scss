@@ -1,0 +1,76 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'color_main';
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+//flash
+.alert{
+  float: right;
+  text-align: center;
+  font-size: 12px;
+}
+
+//form
+form {
+  border: 1px;
+  margin: 50px 0px 50px 0px;
+  color: $black;
+}
+input, textarea, select, .uneditable-input {
+  border: 1px solid $gray;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: $red;
+  ul {
+    color: $red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+//search_box
+.has-search {
+  width: 40%;
+  display: inline-block;
+  margin-top: 10px;
+}
+.form-control-feedback {
+  right: initial;
+  left: 0;
+  color: $solid-white;
+}
+.has-search .form-control {
+  border: 0px;
+  padding-right: 12px;
+  padding-left: 34px;
+  background-color: transparent;
+  color: $white;
+}
+
+//profile
+.profile{
+  padding-right: 10%;
+  white-space: nowrap;
+}
+.dropdown > p{
+  padding-top: 20%;
+}
