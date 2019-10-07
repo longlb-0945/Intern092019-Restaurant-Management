@@ -1,2 +1,27 @@
 en:
   app_title: Restaurant Manager
+  create_table_suc: successfully create table
+  made_with: Made with
+  by: by
+  sunner: Sunner
+  allright: 2019. All Rights Reserved
+  data: load data here
+  serving: SERVING MORE THAN JUST BURGERS SINCE 1998
+  check_addr: Check out our opening hours and location address below.
+  thanks: Thanks for choosing us
+  sun_quote: Make awesome things that matter.
+  contact: Contact Us
+  addr1: 9F
+  addr2: 434 Tran Khat Chan
+  addr3: Hanoi
+  error: error
+  contain: Contain
+  home: Home
+  intro: -introducing-
+  intro_burger: FATTY BURGER
+  new_table_title: New Table
+  manage_banner: -Manage-
+  create_table_banner: Create table
+  number_table: Table number
+  table_size: Table size
+  submit: Submit

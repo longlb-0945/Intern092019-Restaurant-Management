@@ -3,4 +3,5 @@ class User < ApplicationRecord
   enum status: {enable: 0, disable: 1}
 
   has_many :rates, dependent: :nullify
+  has_one :picture, as: :target, dependent: :destroy
 end

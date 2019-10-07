@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= t "app_title" %></title>
+    <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag Settings.bs3_css %>
+    <%= stylesheet_link_tag Settings.awesome_font %>
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag Settings.jquery_1 %>
+    <%= javascript_include_tag Settings.bs3_js %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/loader" %>
+
+    <nav class="navbar navbar-default bootsnav no-background navbar-fixed black">
+      <%= render "layouts/nav" %>
+    </nav>
+
+    <header id="top_header">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= render "layouts/top_header" %>
+    </header>
+
+    <section id="block">
+      <%= yield %>
+    </section>
+
+    <footer>
+      <%= render "layouts/footer" %>
+    </footer>
+
+    <%= render "layouts/scrollup" %>
   </body>
 </html>
