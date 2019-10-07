@@ -16,3 +16,5 @@ caro_big_img: "large_slider_img.jpg"
 min_table_number: 1
 max_table_size: 12
 min_table_size: 2
+icon_table: "table-icon.png"
+pagenate_tables: 9

@@ -1,0 +1,19 @@
+<% provide :title, t("new_table_title") %>
+<% provide :small_banner, t("manage_banner") %>
+<% provide :big_banner, t("show_table_banner") %>
+<div class="row note_table">
+  <button class="btn btn-primary create_table_button">
+    <%= link_to t("create_table"), new_table_path %>
+  </button>
+  <p><%= t "note" %>:
+    <span class="note_available"><%= t "available" %></span>
+    <span class="note_occupied"><%= t "occupied" %></span>
+    <span class="note_disable"><%= t "disable" %></span>
+  </p>
+</div>
+<div class="row list_table">
+  <%= render @tables %>
+</div>
+<div class = "row paginate_row" >
+  <%= paginate @tables%>
+</div>

@@ -74,3 +74,90 @@ input {
 .dropdown > p{
   padding-top: 20%;
 }
+
+//table list
+.list_table {
+  margin: 0% 9% 0% 9%;
+}
+.table_btn_list{
+  margin: 20px 5px 0px 5px;
+  width: 32%;
+  float: left;
+  text-align: center;
+}
+.table_button{
+  width: 180px;
+  font-size: 25px;
+}
+.table-icon{
+  height: 50%;
+  width: 60%;
+}
+.btn-default{
+  background-color: $dimgray;
+}
+.note_table{
+  color: $black;
+  text-align: right;
+  margin-right: 17%;
+  margin-top: 25px;
+}
+.note_table .note_available{
+  background-color: $success-color;
+}
+.note_table .note_occupied{
+  background-color: $info-color;
+}
+.note_table .note_disable{
+  background-color: $dimgray;
+}
+.create_table_button{
+  a{
+    color: $white !important;
+  }
+  float: left;
+  margin-left: 21%;
+}
+
+//paginate
+.pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: $white;
+  border: 1px solid $solid-white-2;
+  border-left-width: 0;
+}
+.paginate_row{
+  text-align: center;
+}
+.pagination {
+  border-left: 1px solid $solid-white-3;
+  color: $black;
+  .first{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .prev {
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .page{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .next{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .last{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+}
