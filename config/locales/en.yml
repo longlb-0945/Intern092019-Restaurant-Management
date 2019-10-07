@@ -25,3 +25,9 @@ en:
   number_table: Table number
   table_size: Table size
   submit: Submit
+  note: Note
+  available: Available
+  occupied: Occupied
+  disable: Disabled
+  show_table_banner: Listing Tables
+  create_table: Create table
