@@ -1,6 +1,9 @@
 class TablesController < ApplicationController
+  before_action :load_table, except: %i(index new create))
+
   def index
-    @tables = Table.page(params[:page]).per Settings.pagenate_tables
+    @tables = Table.order_number.page(params[:page])
+                   .per Settings.pagenate_tables
   end
 
   def new
@@ -13,13 +16,46 @@ class TablesController < ApplicationController
       flash[:success] = t "create_table_suc"
       redirect_to tables_path
     else
+      flash[:danger] = t "create_table_fail"
       render :new
     end
   end
 
-  private
+  def edit; end
 
+  def update
+    if @table.update table_params
+      flash[:success] = t "update_table_suc"
+      redirect_to tables_path
+    else
+      flash[:danger] = t "update_table_fail"
+      render :edit
+    end
+  end
+
+  def destroy
+    if @table.destroy
+      flash[:success] = t "delete_table_suc"
+    else
+      flash[:danger] = t "delete_table_fail"
+    end
+    redirect_to tables_path
+  end
+
+  def show
+    respond_to :js
+  end
+
+  private
   def table_params
     params.require(:table).permit Table::TABLE_PARAMS
+  end
+
+  def load_table
+    @table = Table.find_by id: params[:id]
+    return if @table
+
+    flash[:danger] = t "table_not_found"
+    redirect_to tables_path
   end
 end
