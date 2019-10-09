@@ -10,6 +10,6 @@ module TableHelper
   end
 
   def status_mapping
-    Table.statuses.keys.map {|w| [w.humanize, w]}
+    Table.statuses.keys.map{|w| [w.humanize, w]}
   end
 end

@@ -1,5 +1,5 @@
 class TablesController < ApplicationController
-  before_action :load_table, except: %i(index new create))
+  before_action :load_table, except: %i(index new create)
 
   def index
     @tables = Table.order_number.page(params[:page])

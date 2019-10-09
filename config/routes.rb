@@ -3,5 +3,6 @@ Rails.application.routes.draw do
     root "static_pages#home"
 
     resources :tables
+    resources :orders
   end
 end

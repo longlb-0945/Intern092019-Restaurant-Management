@@ -46,3 +46,18 @@ en:
   table_number: Table number
   max_size: Max size
   status: Status
+  book: Book
+  new_reservation_title: New reservation
+  booking: -Booking-
+  create_order_suc: Order created successfully
+  phone: Phone number
+  address: Address
+  person_number: Number of person
+  name: Name
+  show_order_banner: Listing Orders
+  create_order: Create order
+  person_count: Person count
+  status: Status
+  details: Details
+  order: Order
+  create_order_fail: Create order failed!

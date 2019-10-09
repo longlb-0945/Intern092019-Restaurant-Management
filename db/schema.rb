@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2019_10_04_005906) do
     t.bigint "table_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id", "table_id"], name: "index_order_tables_on_order_id_and_table_id", unique: true
     t.index ["order_id"], name: "index_order_tables_on_order_id"
     t.index ["table_id"], name: "index_order_tables_on_table_id"
   end
@@ -46,7 +47,8 @@ ActiveRecord::Schema.define(version: 2019_10_04_005906) do
     t.string "phone"
     t.string "address"
     t.integer "status", default: 0
-    t.integer "total_amount"
+    t.integer "person_number"
+    t.integer "total_amount", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"
