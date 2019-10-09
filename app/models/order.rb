@@ -1,13 +1,21 @@
 class Order < ApplicationRecord
+  ORDER_PARAMS = %i(customer_id staff_id name phone address
+                 status person_number total_amount).freeze
   enum status: {pending: 0, accepted: 1, cancel: 2, paid: 3}
 
   belongs_to :customer, foreign_key: :customer_id,
-    class_name: User.name, inverse_of: :orders
+    class_name: User.name, inverse_of: :customer_orders, optional: true
   belongs_to :staff, foreign_key: :staff_id,
-    class_name: User.name, inverse_of: :orders
+    class_name: User.name, inverse_of: :staff_orders, optional: true
 
   has_many :order_tables, dependent: :nullify
   has_many :tables, through: :order_tables
   has_many :order_details, dependent: :nullify
   has_many :products, through: :order_details
+
+  validates :name, presence: true
+  validates :person_number, presence: true,
+    numericality: {greater_than_or_equal_to: Settings.min_book_size,
+                   only_integer: true}
+  validates :status, presence: true
 end

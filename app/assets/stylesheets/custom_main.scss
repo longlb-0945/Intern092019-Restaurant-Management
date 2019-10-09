@@ -21,6 +21,7 @@ form {
   margin: 50px 0px 50px 0px;
   color: $black;
 }
+
 input, textarea, select, .uneditable-input {
   border: 1px solid $gray;
   width: 100%;
@@ -53,11 +54,13 @@ input {
   display: inline-block;
   margin-top: 10px;
 }
+
 .form-control-feedback {
   right: initial;
   left: 0;
   color: $solid-white;
 }
+
 .has-search .form-control {
   border: 0px;
   padding-right: 12px;
@@ -71,6 +74,7 @@ input {
   padding-right: 10%;
   white-space: nowrap;
 }
+
 .dropdown > p{
   padding-top: 20%;
 }
@@ -79,38 +83,47 @@ input {
 .list_table {
   margin: 0% 9% 0% 9%;
 }
+
 .table_btn_list{
   margin: 20px 5px 0px 5px;
   width: 32%;
   float: left;
   text-align: center;
 }
+
 .table_button{
   width: 180px;
   font-size: 25px;
 }
+
 .table-icon{
   height: 50%;
   width: 60%;
 }
+
 .btn-default{
   background-color: $dimgray;
 }
+
 .note_table{
   color: $black;
   text-align: right;
   margin-right: 17%;
   margin-top: 25px;
 }
+
 .note_table .note_available{
   background-color: $success-color;
 }
+
 .note_table .note_occupied{
   background-color: $info-color;
 }
+
 .note_table .note_disable{
   background-color: $dimgray;
 }
+
 .create_table_button{
   a{
     color: $white !important;
@@ -129,9 +142,12 @@ input {
   border: 1px solid $solid-white-2;
   border-left-width: 0;
 }
+
 .paginate_row{
   text-align: center;
+  margin: 0 2%;
 }
+
 .pagination {
   border-left: 1px solid $solid-white-3;
   color: $black;
@@ -172,4 +188,124 @@ input {
 
 .modal-body{
   text-align: center;
+}
+
+//book button
+.button_book{
+  padding: 0% 1%;
+  width: 15%;
+  display: inline-block;
+}
+
+.book_table{
+  font-size: 20px;
+  width: 100%;
+}
+
+.reservation_icon {
+  height: 30px;
+  width: 30px;
+}
+
+.button_book_text {
+  color: $white;
+}
+
+//create_book_form
+.create_order{
+  margin-top: 10px;
+  background: url(book-frame.png) no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.create_order_form{
+  padding: 2% 7%;
+}
+
+.create_order_form > form, .create_order_form > form > input, .create_order_form > form > .field_with_errors > input{
+  text-align: center;
+}
+
+.new_order > #error_explanation > .alert {
+  float: none;
+}
+
+//list order
+.note_order{
+  color: $black;
+  text-align: center;
+  margin: 0% 9%;
+  margin-top: 25px;
+}
+
+.create_order_button{
+  a{
+    color: $white !important;
+  }
+}
+
+.order_list{
+  text-align: center;
+}
+
+.order_card_list{
+  margin: 20px 2.5% 0px 2.5%;
+  width: 20%;
+  float: left;
+  color: $black;
+  hr {
+    border-top: 1px solid $palegreen;
+  }
+  div {
+    h3, h5 {
+      font-family: "Times New Roman", Times, serif !important;
+    }
+    h5{
+      color: $blue;
+    }
+  }
+}
+
+.order_name{
+  height: 45px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 $box-shadow;
+  padding: 16px;
+  text-align: center;
+  background-color: $light;
+}
+
+.order_name{
+  vertical-align: middle;
+}
+
+.order_name > p {
+  overflow: hidden;
+}
+.status-pending{
+  background-color: $gold;
+  line-height: 180%;
+}
+
+
+.status-accepted{
+  background-color: $success-color;
+  line-height: 180%;
+}
+
+.status-cancel{
+  background-color: $red;
+  line-height: 180%;
+}
+
+.status-paid{
+  background-color: $gray-light;
+  line-height: 180%;
+}
+
+.status-item{
+  background-color: $coral;
 }

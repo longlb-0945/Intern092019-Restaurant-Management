@@ -7,7 +7,8 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.string :phone
       t.string :address
       t.integer :status, default: 0
-      t.integer :total_amount
+      t.integer :person_number
+      t.integer :total_amount, default: 0
 
       t.timestamps
     end
