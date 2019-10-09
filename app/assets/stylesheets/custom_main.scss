@@ -161,3 +161,15 @@ input {
       border: none;
   }
 }
+
+#my-modal{
+  color: $black;
+}
+
+#modal-status{
+  background-color: $success-color;
+}
+
+.modal-body{
+  text-align: center;
+}

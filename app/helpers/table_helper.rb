@@ -8,4 +8,8 @@ module TableHelper
       "btn-default"
     end
   end
+
+  def status_mapping
+    Table.statuses.keys.map {|w| [w.humanize, w]}
+  end
 end

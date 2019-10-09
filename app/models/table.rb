@@ -13,4 +13,6 @@ class Table < ApplicationRecord
                    greater_than_or_equal_to: Settings.min_table_size,
                    only_integer: true}
   validates :status, presence: true
+
+  scope :order_number, ->{order table_number: :asc}
 end
