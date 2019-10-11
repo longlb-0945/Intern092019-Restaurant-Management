@@ -45,3 +45,7 @@ Order.create!(id: 1, customer_id: 1,
 
 OrderTable.create!(order_id: 1,
   table_id: 1)
+OrderTable.create!(order_id: 1,
+  table_id: 2)
+OrderTable.create!(order_id: 1,
+  table_id: 3)

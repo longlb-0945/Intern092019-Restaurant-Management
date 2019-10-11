@@ -290,7 +290,6 @@ input {
   line-height: 180%;
 }
 
-
 .status-accepted{
   background-color: $success-color;
   line-height: 180%;
@@ -308,4 +307,36 @@ input {
 
 .status-item{
   background-color: $coral;
+}
+
+.btn-order-edit{
+  color: $white;
+  &:hover{
+    color: $gold;
+  }
+}
+
+.row{
+  color: $black;
+}
+
+.edit-order-row-1, .edit-order-row-2, .edit-order-row-3, .edit-order-table-list{
+  width: 80%;
+  text-align: left;
+  margin-left: 15%;
+  margin-bottom: 15px;
+  label{
+    margin: 10px;
+  }
+  input{
+    text-align: center;
+  }
+}
+
+.edit-order-table-list{
+  h1{
+    font-family: sans-serif;
+    font-size: 25px;
+    text-align: center;
+  }
 }

@@ -1,0 +1,10 @@
+<% if @order.cancel? %>
+  $('#edit-order-btn-cancel').remove();
+  $('#edit-order-btn-accept').remove();
+  $('#edit-order-status').text('<%= t "cancel" %>');
+  $('#edit-order-status').attr('class', 'status-cancel');
+<% elsif @order.accepted? %>
+  $('#edit-order-btn-accept').remove();
+  $('#edit-order-status').text('<%= t "accept" %>');
+  $('#edit-order-status').attr('class', 'status-accepted');
+<% end %>

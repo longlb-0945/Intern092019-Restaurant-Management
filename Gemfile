@@ -6,6 +6,7 @@ ruby "2.6.3"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap-sass"
 gem "config"
+gem "i18n-js"
 gem "jbuilder", "~> 2.7"
 gem "kaminari"
 gem "mysql2", ">= 0.4.4"
