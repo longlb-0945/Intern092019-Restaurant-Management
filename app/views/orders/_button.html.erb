@@ -1,0 +1,6 @@
+<% if @order.pending? %>
+  <span class="btn btn-danger" id="edit-order-btn-cancel" data-id="<%= @order.id %>"><%= t "cancel" %></span>
+  <span class="btn btn-success" id="edit-order-btn-accept" data-id="<%= @order.id %>"><%= t "accept" %></span>
+<% elsif @order.accepted? %>
+  <span class="btn btn-danger" id="edit-order-btn-cancel" data-id="<%= @order.id %>"><%= t "cancel" %></span>
+<% end %>

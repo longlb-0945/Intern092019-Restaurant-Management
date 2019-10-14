@@ -24,7 +24,7 @@ en:
   create_table_banner: Create table
   create_table_fail: Create table failed!
   number_table: Table number
-  table_size: Table size
+  table_size: Size
   submit: Submit
   note: Note
   available: Available
@@ -33,10 +33,11 @@ en:
   show_table_banner: Listing Tables
   create_table: Create table
   table_info: Table infomation
+  table_list: 'Table lists'
   edit: Edit
   delete: Delete
   delete_confirm: Delete?
-  edit_table_title: "Edit table"
+  edit_table_title: 'Edit table'
   status: Status
   table_not_found: Can't find table
   update_table_suc: Update table success
@@ -49,7 +50,6 @@ en:
   book: Book
   new_reservation_title: New reservation
   booking: -Booking-
-  create_order_suc: Order created successfully
   phone: Phone number
   address: Address
   person_number: Number of person
@@ -60,4 +60,13 @@ en:
   status: Status
   details: Details
   order: Order
+  edit_order_title: Edit order
   create_order_fail: Create order failed!
+  order_not_found: Can't find order!
+  order_create_suc: Create order successed!
+  order_create_fail: Create order failed!
+  order_update_suc: Update order successed!
+  order_update_fail: Update order failed!
+  cancel: Cancel
+  accept: Accepted
+  pick_table_placeholder: Pick your table!

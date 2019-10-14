@@ -1,6 +1,8 @@
 class Order < ApplicationRecord
-  ORDER_PARAMS = %i(customer_id staff_id name phone address
-                 status person_number total_amount).freeze
+  ORDER_PARAMS = [:customer_id, :staff_id, :name, :phone, :address, :status,
+    :person_number, :total_amount,
+    table_ids: [], order_tables_attributes: [:order_id, :table_id]].freeze
+
   enum status: {pending: 0, accepted: 1, cancel: 2, paid: 3}
 
   belongs_to :customer, foreign_key: :customer_id,
@@ -18,4 +20,7 @@ class Order < ApplicationRecord
     numericality: {greater_than_or_equal_to: Settings.min_book_size,
                    only_integer: true}
   validates :status, presence: true
+
+  accepts_nested_attributes_for :order_tables, reject_if: :all_blank,
+  allow_destroy: true
 end

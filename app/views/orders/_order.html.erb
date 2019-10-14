@@ -11,6 +11,8 @@
   </div>
   <hr>
   <div class="card-footer">
-    <button class="btn btn-primary"><%= t "details" %></button>
+    <button class="btn btn-primary">
+      <%= link_to t("details"), edit_order_path(order), class: "btn-order-edit" %>
+    </button>
   </div>
 </div>

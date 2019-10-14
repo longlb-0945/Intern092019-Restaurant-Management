@@ -10,6 +10,10 @@ $('document').ready(function(){
       $(this).children('.dropdown-toggle').first().click();
     }
   });
+
+  $('#order-table-select').select2({
+    placeholder: I18n.t("pick_table_placeholder")
+  });
 });
 
 window.showModal = function(table_id){

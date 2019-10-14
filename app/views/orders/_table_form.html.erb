@@ -1,0 +1,7 @@
+<% if @order.accepted? || @order.paid? %>
+  <h1><%= t "table_list" %>:</h1>
+  <%= fs.select :table_ids, load_order_table, {include_hidden: false, selected: load_order_preselected(@order)}, id: "order-table-select", multiple: true %>
+  <% if @order.accepted? %>
+    <%= fs.submit t("submit"), class: "btn btn-primary" %>
+  <% end %>
+<% end %>

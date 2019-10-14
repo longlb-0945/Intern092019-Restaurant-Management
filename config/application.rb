@@ -11,5 +11,7 @@ module Intern092019RestaurantManagement
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     config.i18n.available_locales = [:en, :vi]
     config.i18n.default_locale = :en
+    config.middleware.use I18n::JS::Middleware
+    I18n::JS.export_i18n_js_dir_path = "app/javascript/packs"
   end
 end

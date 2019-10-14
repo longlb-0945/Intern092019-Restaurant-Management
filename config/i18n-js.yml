@@ -1,0 +1,4 @@
+translations:
+- file: 'app/javascript/packs/en.js'
+  only: '*'
+  
