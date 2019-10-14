@@ -14,6 +14,12 @@ $('document').ready(function(){
   $('#order-table-select').select2({
     placeholder: I18n.t("pick_table_placeholder")
   });
+
+  $('#list-products').select2({
+    placeholder: I18n.t("pick_product"),
+  });
+
+  $(".table_product").DataTable();
 });
 
 window.showModal = function(table_id){

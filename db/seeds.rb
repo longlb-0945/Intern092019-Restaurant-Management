@@ -43,9 +43,16 @@ Order.create!(id: 1, customer_id: 1,
   person_number: 10,
   total_amount: 10000)
 
+Category.create(name: "abc")
+
 OrderTable.create!(order_id: 1,
   table_id: 1)
 OrderTable.create!(order_id: 1,
   table_id: 2)
 OrderTable.create!(order_id: 1,
   table_id: 3)
+
+20.times do |n|
+
+  Product.create(name: "product_" + n.to_s, category_id: 1, price: 1000 + n, stock: 10 + n).build_picture(storage: "default.png").save
+end
