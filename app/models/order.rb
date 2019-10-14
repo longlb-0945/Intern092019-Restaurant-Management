@@ -15,6 +15,10 @@ class Order < ApplicationRecord
   has_many :order_details, dependent: :nullify
   has_many :products, through: :order_details
 
+  validates :customer_id, numericality: {only_integer: true}, allow_nil: true
+  validates :staff_id, numericality: {only_integer: true}, allow_nil: true
+  validates :phone, numericality: {only_integer: true}, allow_nil: true
+  validates :total_amount, numericality: {only_integer: true}, allow_nil: true
   validates :name, presence: true
   validates :person_number, presence: true,
     numericality: {greater_than_or_equal_to: Settings.min_book_size,

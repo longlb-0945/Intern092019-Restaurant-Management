@@ -340,3 +340,109 @@ input {
     text-align: center;
   }
 }
+
+//order_product table
+.add_product{
+  margin: 0% 9%;
+}
+
+#list-products{
+  width: 50%;
+  display: inline-block;
+  color: $black;
+}
+
+.select2-dropdown{
+  color: $black;
+}
+
+.add_product_btn{
+  width: 10%;
+  display: inline-block;
+}
+
+.list_order_product{
+  margin: 0%;
+  width: 100%;
+
+  table {
+    counter-reset: rowNumber;
+    width: 100%;
+  }
+
+  table th {
+    color: $black;
+    background-color: $gray;
+    text-align: center;
+  }
+
+  table .trow {
+    counter-increment: rowNumber;
+  }
+
+  table .trow td {
+    color: $black;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  table .trow td:first-child::before {
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
+  }
+
+  table.table-bordered{
+    border:1px solid $gray-light;
+    margin-top:20px;
+  }
+
+  table.table-bordered > thead > tr > th{
+      border:1px solid $gray-light;
+  }
+
+  table.table-bordered > tbody > tr > td{
+      border:1px solid $gray-light;
+  }
+}
+
+.detail_num{
+  width: 5%;
+}
+
+.detail_name{
+  width: 35%;
+}
+
+.detail_price{
+  width: 15%;
+}
+
+.detail_count{
+  width: 10%;
+}
+
+.detail_total{
+  width: 20%;
+}
+
+.detail_btn{
+  width: 15%;
+}
+
+.product_img{
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+.product_name{
+  width: 100px;
+  display: inline-block;
+}
+
+.dataTables_wrapper{
+  width: 82%;
+  margin: 0% 9%;
+  color: $black;
+}
