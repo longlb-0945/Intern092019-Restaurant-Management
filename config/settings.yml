@@ -28,6 +28,7 @@ pagenate_orders: 8
 paid_img: "paid.png"
 min_quantily: 1
 currency: VND
+pagenate_products: 3
 min_price_allow: 1000
 min_stock_allow: 0
 min_price_choosen: 1

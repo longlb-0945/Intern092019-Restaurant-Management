@@ -536,7 +536,7 @@ input[type=number]{
   }
 }
 
-  //create_category
+//create_category
 .list_category{
   margin: 1% 20%;
   width: 60%;
@@ -668,4 +668,34 @@ input[type=number]{
 
 .edit_cate{
   background: none;
+}
+
+.container-fluid{
+  color: $black;
+}
+.product-index-top{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.product-index-support{
+  margin: 10px;
+  #product_search{
+    margin: 0;
+    width: 150px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    &:focus{
+      width: 250px;
+    }
+  }
+}
+
+.product_mini_img, .product_mini_name{
+  display: inline-block;
+}
+
+.product_mini_img{
+  width: 40px;
+  height: 40px;
 }

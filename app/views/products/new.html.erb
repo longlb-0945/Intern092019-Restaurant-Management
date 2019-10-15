@@ -1,6 +1,9 @@
 <% provide :title, t("new_product_title") %>
 <% provide :small_banner, t("manage_banner") %>
 <% provide :big_banner, t("new_product_title") %>
+<div class="row product-index-top">
+    <%= link_to t("list_product_title"), products_path, class: "btn btn-primary"%>
+</div>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for @product do |f| %>
@@ -15,8 +18,8 @@
       <%= f.label t "category" %>
       <%= f.select(:category_id, load_categories, {include_hidden: false}) %>
 
-      <%= f.label t "price" %> <span><%= t "currency" %></span>
-      <%= f.number_field :price, min: Settings.min_price_allow, class: "form-control" %>
+      <%= f.label t "price" %><span><%= t "currency" %></span>
+      <%= f.number_field :price, min: Settings.min_price_allow, class: "form-control", step: Settings.min_price_allow %>
 
       <%= f.label t "stock" %>
       <%= f.number_field :stock, min: Settings.min_price_choosen, class: "form-control" %>

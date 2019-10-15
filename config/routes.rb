@@ -13,7 +13,12 @@ Rails.application.routes.draw do
       end
     end
     resources :order_tables
-    resources :products
+    resources :products do
+      collection do
+        get :sort, to: "products#sort"
+        get :search, to: "products#search"
+      end
+    end
     resources :categories do
       collection do
         get :search, to: "categories#search"
