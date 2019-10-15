@@ -1,6 +1,8 @@
 <% if @order.pending? %>
   <span class="btn btn-danger" id="edit-order-btn-cancel" data-id="<%= @order.id %>"><%= t "cancel" %></span>
-  <span class="btn btn-success" id="edit-order-btn-accept" data-id="<%= @order.id %>"><%= t "accept" %></span>
+  <%= link_to edit_order_path(@order), method: :get do %>
+    <span class="btn btn-success" id="edit-order-btn-accept" data-id="<%= @order.id %>"><%= t "accept" %></span>
+  <% end %>
 <% elsif @order.accepted? %>
   <span class="btn btn-danger" id="edit-order-btn-cancel" data-id="<%= @order.id %>"><%= t "cancel" %></span>
 <% end %>

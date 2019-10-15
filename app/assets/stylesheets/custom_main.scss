@@ -343,7 +343,7 @@ input {
 }
 
 #list-products{
-  width: 50%;
+  width: 60%;
   display: inline-block;
   color: $black;
 }
@@ -358,7 +358,7 @@ input {
 }
 
 .list_order_product{
-  margin: 0%;
+  margin: 1% 0%;
   width: 100%;
 
   table {
@@ -441,4 +441,32 @@ input {
   width: 82%;
   margin: 0% 9%;
   color: $black;
+}
+
+//pay
+.new_order_detail{
+  display: inline-block;
+  width: 85%;
+}
+
+.pay{
+  height: 50px;
+  width: 10%;
+  display: inline-block;
+}
+
+.btn_pay{
+  height: 100%;;
+  width: 100%;
+}
+
+.paid{
+  margin-top: 2%;
+  height: 10%;
+  width: 15%;
+}
+
+.paid_img{
+  height: 100%;
+  width: 100%;
 }

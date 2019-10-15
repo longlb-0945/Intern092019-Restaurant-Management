@@ -55,7 +55,7 @@ en:
   person_number: Number of person
   name: Name
   show_order_banner: Listing Orders
-  create_order: Create order
+  create_reservation: Create reservation
   person_count: Person count
   status: Status
   details: Details
@@ -84,3 +84,4 @@ en:
   total_price: Total price
   stock: Stock
   order_detail_not_found: Order details not found!
+  paying: Pay

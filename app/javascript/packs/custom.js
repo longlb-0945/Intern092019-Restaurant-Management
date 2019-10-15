@@ -24,6 +24,6 @@ $('document').ready(function(){
 
 window.showModal = function(table_id){
   $.ajax({
-    url: 'tables/' + table_id
+    url: '/tables/' + table_id
   });
 }

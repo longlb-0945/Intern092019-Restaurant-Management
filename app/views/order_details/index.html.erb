@@ -1,15 +1,9 @@
 <% provide :title, t("show_order_details_banner") %>
 <% provide :small_banner, t("manage_banner") %>
 <% provide :big_banner, t("show_order_details_banner") %>
-<div class="row add_product">
-  <%= form_for @order_detail_product, url: order_order_details_path, method: :post, remote: true do |f| %>
-    <%= render "shared/error_messages", object: f.object %>
 
-    <%= f.select(:product_id, load_product_select(params[:order_id]), {include_hidden: false}, id: "list-products") %>
-    <%= f.hidden_field :order_id, value: params[:order_id] %>
-    <%= f.submit t("add"), class: "btn btn-primary add_product_btn", remote: true %>
-  <% end %>
-</div>
+<%= render "add_detail" %>
+
 <div class="row list_order_product">
   <table class="table table-bordered table-hover table_product table-sm">
     <thead class="thead-dark">
@@ -25,3 +19,4 @@
     <%= render @order_details %>
   </table>
 </div>
+<%= javascript_pack_tag "edit_order" %>
