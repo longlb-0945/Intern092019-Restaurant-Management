@@ -4,7 +4,7 @@ class CreateOrderDetails < ActiveRecord::Migration[6.0]
       t.references :order
       t.references :product
       t.integer :price
-      t.integer :quantily
+      t.integer :quantily, default: 1
       t.integer :amount
 
       t.timestamps

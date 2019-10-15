@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     root "static_pages#home"
     resources :tables
     resources :orders do
+      resources :order_details
       member do
         get :order_status, to: "orders#order_status_change"
       end

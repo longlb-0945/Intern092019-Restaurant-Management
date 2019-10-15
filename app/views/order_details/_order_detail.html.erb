@@ -1,0 +1,14 @@
+<tr class="trow">
+  <td></td>
+  <td>
+    <%= image_tag order_detail.product_picture_storage, alt: "", class: "product_img" %>
+    <p class="product_name"><%= order_detail.product_name %></p>
+  </td>
+  <td><%= order_detail.price %></td>
+  <td><%= order_detail.quantily %></td>
+  <td><%= order_detail.amount %></td>
+  <td>
+    <button class="btn btn-primary"><%= t "edit" %></button>
+    <button class="btn btn-danger"><%= t "delete" %></button>
+  </td>
+</tr>

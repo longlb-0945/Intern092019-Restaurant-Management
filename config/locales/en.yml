@@ -70,3 +70,17 @@ en:
   cancel: Cancel
   accept: Accepted
   pick_table_placeholder: Pick your table!
+  reservation: Reservation
+  show_order_details_banner: Order Detail
+  create_order_detail_suc: Add product successed!
+  create_order_detail_fail: Add product failed!
+  pick_product: Pick your product
+  edit: Edit
+  delete: Delete
+  add: Add
+  name: Name
+  price: Price
+  count: Count
+  total_price: Total price
+  stock: Stock
+  order_detail_not_found: Order details not found!
