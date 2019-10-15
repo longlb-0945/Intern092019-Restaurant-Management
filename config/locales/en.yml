@@ -33,17 +33,18 @@ en:
   show_table_banner: Listing Tables
   create_table: Create table
   table_info: Table infomation
-  table_list: 'Table lists'
+  table_list: Table lists
   edit: Edit
-  delete: Delete
+  disable: Disable
+  restore: Restore
   delete_confirm: Delete?
   edit_table_title: 'Edit table'
   status: Status
   table_not_found: Can't find table
   update_table_suc: Update table success
   update_table_fail: Update table failed!
-  delete_table_suc: Delete table success
-  delete_table_fail: Can't delete table! Something wrong!
+  disable_table_suc: Disabled table!
+  disable_table_fail: Can't disable this table! Something wrong!
   table_number: Table number
   max_size: Max size
   status: Status
@@ -85,3 +86,10 @@ en:
   stock: Stock
   order_detail_not_found: Order details not found!
   paying: Pay
+  order_list: Order lists
+  access_denied: Access denied!
+  del_order_pro_suc: Delete product success!
+  del_order_pro_fail: Delete product fails! something wrong!
+  order_detail_not_found: Can't find order detail
+  update_total_create_order_detail_fail: Update total amount failed! Something wrong!
+  new_table: New table

@@ -8,8 +8,9 @@ module OrderDetailsHelper
   end
 
   def check_order_paid id
-    o = Order.find_by(id: id)
-    return !o.paid? if o
+    order = Order.find_by(id: id)
+    return !order.paid? if order
+
     flash[:danger] = t "order_not_found"
     redirect_to orders_path
   end

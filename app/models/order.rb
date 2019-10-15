@@ -10,9 +10,9 @@ class Order < ApplicationRecord
   belongs_to :staff, foreign_key: :staff_id,
     class_name: User.name, inverse_of: :staff_orders, optional: true
 
-  has_many :order_tables, dependent: :nullify
+  has_many :order_tables, dependent: :destroy
   has_many :tables, through: :order_tables
-  has_many :order_details, dependent: :nullify
+  has_many :order_details, dependent: :destroy
   has_many :products, through: :order_details
 
   validates :customer_id, numericality: {only_integer: true}, allow_nil: true

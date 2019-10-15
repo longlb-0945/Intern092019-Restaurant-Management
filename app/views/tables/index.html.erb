@@ -31,11 +31,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-info btn-modal-edit">
-          <%= link_to t("edit"), "#", id: "modal-edit-link" %>
-        </button>
-        <button type="button" class="btn btn-danger btn-modal-delete">
-          <%= link_to t("delete"), "#", id: "modal-delete-link", method: :delete,
-            data: {confirm: t("delete_confirm")} %>
+          <%= link_to t("edit"), "#", id: "modal-edit-link", "data-turbolinks-track": "reload" %>
         </button>
       </div>
     </div>
