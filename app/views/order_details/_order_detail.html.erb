@@ -7,8 +7,5 @@
   <td><%= order_detail.price %></td>
   <td><%= order_detail.quantily %></td>
   <td><%= order_detail.amount %></td>
-  <td>
-    <button class="btn btn-primary"><%= t "edit" %></button>
-    <button class="btn btn-danger"><%= t "delete" %></button>
-  </td>
+  <%= render "button_detail" %>
 </tr>

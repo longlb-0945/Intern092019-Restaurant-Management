@@ -13,3 +13,8 @@ $('#edit-order-btn-accept').on('click', function(){
   let id = $('#edit-order-btn-accept').attr('data-id');
   update_status(id, 1);
 });
+
+$('.btn_pay').on('click', function(){
+  let id = $('.btn_pay').attr('data-id');
+  update_status(id, 3);
+});
