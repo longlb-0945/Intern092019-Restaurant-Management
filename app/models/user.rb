@@ -10,4 +10,9 @@ class User < ApplicationRecord
     class_name: Order.name, dependent: :destroy,
     inverse_of: :staff
   has_one_attached :image
+
+  validates :image, content_type: {in: %w(image/jpeg image/gif image/png),
+                                   message: I18n.t("valid_type_img")},
+    size: {less_than: Settings.imgsize5.megabytes,
+           message: I18n.t("valid_size_img")}
 end

@@ -102,3 +102,19 @@ en:
   create_product_fail: Create product failed! Something wrong!
   show_product_title: Show product
   currency: VND
+  new_category_title: New category
+  create_category_suc: Category created successfully!
+  create_category_fail: Fail to create category
+  show_category_banner: Showing categories
+  image: Image
+  valid_type_img: must be a valid image format
+  valid_size_img: should be less than 5MB
+  update_category_suc: Category updated successfully!
+  update_category_fail: Fail to update category
+  default: Default
+  name_asc: Name A->Z
+  name_desc: Name Z->A
+  create_at_desc: Newest
+  create_at_asc: Oldest
+  search: Search
+  cannot_sort: Can't sort by selected type

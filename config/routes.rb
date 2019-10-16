@@ -14,5 +14,11 @@ Rails.application.routes.draw do
     end
     resources :order_tables
     resources :products
+    resources :categories do
+      collection do
+        get :search, to: "categories#search"
+        get :sort, to: "categories#sort"
+      end
+    end
   end
 end

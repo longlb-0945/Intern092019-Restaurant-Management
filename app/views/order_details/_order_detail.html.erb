@@ -1,6 +1,7 @@
 <tr class="trow">
   <td></td>
   <td>
+    <%= image_tag order_detail.product_image, alt: "", class: "product_img" if order_detail.product_image.attached? %>
     <p class="product_name"><%= order_detail.product_name %></p>
   </td>
   <td><%= order_detail.price %></td>

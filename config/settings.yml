@@ -31,3 +31,6 @@ currency: VND
 min_price_allow: 1000
 min_stock_allow: 0
 min_price_choosen: 1
+pagenate_categories: 12
+imgsize5: 5
+pagenate_category: 5
