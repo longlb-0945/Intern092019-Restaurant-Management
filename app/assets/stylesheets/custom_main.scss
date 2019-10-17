@@ -500,3 +500,36 @@ input[type=number]{
   margin-top: 20px;
   color: $black;
 }
+
+.product-show-image{
+  text-align: center;
+  .product-image{
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+    padding: 2px;
+  }
+}
+
+.product-show-info{
+  color: $black;
+  margin-top: 20px;
+  table{
+    td[class=content]{
+      width: 80%;
+    }
+  }
+  div{
+    float: right;
+  }
+  fieldset{
+    border: 1px solid $palegreen;
+    legend{
+      width: 24%;
+    }
+    p{
+      text-align: justify;
+      text-indent: 20px;
+    }
+  }
+}

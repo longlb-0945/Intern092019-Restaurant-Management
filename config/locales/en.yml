@@ -81,7 +81,9 @@ en:
   add: Add
   name: Name
   price: Price
+  stock: Stock
   count: Count
+  rate: Rate
   total_price: Total price
   stock: Stock
   order_detail_not_found: Order details not found!
@@ -93,3 +95,10 @@ en:
   order_detail_not_found: Can't find order detail
   update_total_create_order_detail_fail: Update total amount failed! Something wrong!
   new_table: New table
+  short_description: Description
+  category: Category
+  new_product_title: New product
+  create_product_suc: Create product successed!
+  create_product_fail: Create product failed! Something wrong!
+  show_product_title: Show product
+  currency: VND

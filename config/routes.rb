@@ -13,5 +13,6 @@ Rails.application.routes.draw do
       end
     end
     resources :order_tables
+    resources :products
   end
 end

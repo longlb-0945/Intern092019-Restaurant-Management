@@ -76,15 +76,6 @@ ActiveRecord::Schema.define(version: 2019_10_17_023414) do
     t.index ["staff_id"], name: "index_orders_on_staff_id"
   end
 
-  create_table "pictures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "storage"
-    t.string "target_type"
-    t.bigint "target_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["target_type", "target_id"], name: "index_pictures_on_target_type_and_target_id"
-  end
-
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.text "short_description"

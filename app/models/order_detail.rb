@@ -4,7 +4,7 @@ class OrderDetail < ApplicationRecord
   belongs_to :order
   belongs_to :product, inverse_of: :order_details
 
-  delegate :name, :picture_storage, to: :product, prefix: true, allow_nil: true
+  delegate :name, to: :product, prefix: true, allow_nil: true
 
   validates :order_id, presence: true, numericality: {only_integer: true}
   validates :product_id, presence: true, numericality: {only_integer: true}
