@@ -7,7 +7,7 @@
     </div>
   </td>
   <td>
-    <%= link_to t("edit"), edit_category_path(category.id), class: "btn btn-primary btn_edit" %>
-    <button class="btn btn-danger btn_delete"><%= t "delete" %></button>
+    <%= link_to t("edit"), edit_category_path(category.id), class: "btn btn-primary btn_edit", method: :get %>
+    <%= link_to t("delete"), category, class: "btn btn-danger btn_delete", method: :delete, data: { confirm: t("cate_confirm") } %>
   </td>
 </tr>

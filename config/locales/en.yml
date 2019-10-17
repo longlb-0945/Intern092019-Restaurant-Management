@@ -118,3 +118,6 @@ en:
   create_at_asc: Oldest
   search: Search
   cannot_sort: Can't sort by selected type
+  cate_deleted: Category successfully deleted!
+  cate_deleted_fail: Fail to delete category!
+  cate_confirm: Are you sure you want to delete this category
