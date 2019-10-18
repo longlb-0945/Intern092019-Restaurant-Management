@@ -470,3 +470,33 @@ input {
   height: 100%;
   width: 100%;
 }
+
+.edit-order-detail-top-row{
+  text-align: center;
+  a{
+    button{
+      margin: 10px;
+    }
+  }
+}
+
+.total-amount{
+  text-align: center;
+  color: $black;
+}
+
+input[type=number]{
+  text-align: center;
+  border-radius: 5px;
+}
+
+.edit-oder-show-row{
+  width: 50%;
+  text-align: center;
+}
+
+.table-top-banner, .order-top-banner{
+  margin-left: 330px;
+  margin-top: 20px;
+  color: $black;
+}

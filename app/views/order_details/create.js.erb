@@ -1,2 +1,3 @@
-$('tbody tr:first').before('<%= j render(@order_detail)%>');
+$('tbody tr:first').before('<%= j render(@order_detail) %>');
 $('option[value=<%= params[:order_detail][:product_id] %>]').remove();
+$('#order-total-amount').html(<%= @order_detail.order.total_amount %>);

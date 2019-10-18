@@ -33,15 +33,6 @@ class TablesController < ApplicationController
     end
   end
 
-  def destroy
-    if @table.destroy
-      flash[:success] = t "delete_table_suc"
-    else
-      flash[:danger] = t "delete_table_fail"
-    end
-    redirect_to tables_path
-  end
-
   def show
     respond_to :js
   end

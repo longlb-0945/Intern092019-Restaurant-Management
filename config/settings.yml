@@ -26,3 +26,4 @@ min_book_size: 1
 img_book_frame: "book-frame.png"
 pagenate_orders: 8
 paid_img: "paid.png"
+min_quantily: 1

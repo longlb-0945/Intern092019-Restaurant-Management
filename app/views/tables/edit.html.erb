@@ -1,6 +1,10 @@
 <% provide :title, t("edit_table_title") %>
 <% provide :small_banner, t("manage_banner") %>
 <% provide :big_banner, t("edit_table_title") %>
+<div class="row table-top-banner">
+  <%= link_to t("table_list"), tables_path, class: "stretched-link" %>
+  <span>-> <%= t("edit") %></span>
+</div>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for @table do |f| %>

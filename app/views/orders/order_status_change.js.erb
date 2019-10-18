@@ -3,6 +3,7 @@
   $('#edit-order-btn-accept').remove();
   $('#edit-order-status').text('<%= t "cancel" %>');
   $('#edit-order-status').attr('class', 'status-cancel');
+  $('.edit-order-table-list').remove();
 <% elsif @order.accepted? %>
   $('#edit-order-btn-accept').remove();
   $('#edit-order-status').text('<%= t "accept" %>');

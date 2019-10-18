@@ -1,6 +1,5 @@
 $('#modal-table-number').text('<%= "#{t "table_number"}: #{@table.table_number}" %>');
 $('#modal-max_size').text('<%= "#{t "max_size"}: #{@table.max_size}" %>');
 $('#modal-status').text('<%= "#{t "status"}: #{@table.status}" %>');
-$('#modal-edit-link').attr({'href': '<%= edit_table_url(@table) %>'});
-$('#modal-delete-link').attr({'href': '<%= "tables/#{@table.id}" %>'});
+$('#modal-edit-link').attr('href', '<%= edit_table_url(@table) %>');
 $('#my-modal').modal('show');

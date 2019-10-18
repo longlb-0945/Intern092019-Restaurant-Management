@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
   def edit; end
 
   def update
+    @order.tables.each(&:available!)
     if @order.update order_params
       flash[:success] = t "order_update_suc"
       redirect_to orders_path
@@ -37,6 +38,7 @@ class OrdersController < ApplicationController
   def order_status_change
     @order.update status: params[:do_what].to_i
     respond_to :js
+    update_order_status if @order.cancel? || @order.paid?
   end
 
   private
@@ -50,5 +52,11 @@ class OrdersController < ApplicationController
 
     flash[:danger] = t "order_not_found"
     redirect_to orders_path
+  end
+
+  def update_order_status
+    @order.tables.each(&:available!)
+    OrderTable.where(order_id: @order.id).destroy_all
+    OrderDetail.where(order_id: @order.id).destroy_all if @order.cancel?
   end
 end

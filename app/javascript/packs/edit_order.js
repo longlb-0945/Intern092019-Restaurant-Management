@@ -15,6 +15,11 @@ $('#edit-order-btn-accept').on('click', function(){
 });
 
 $('.btn_pay').on('click', function(){
+  total_amount = $('#order-total-amount').text();
+  if(Number(total_amount) <= 0){
+    alert("You don't have any product!");
+    return;
+  }
   let id = $('.btn_pay').attr('data-id');
   update_status(id, 3);
 });

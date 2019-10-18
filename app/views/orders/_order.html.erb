@@ -12,14 +12,12 @@
   <hr>
   <div class="card-footer">
     <%= link_to edit_order_path(order), class: "btn-order-edit", method: :get do %>
-      <button class="btn btn-primary">
-        <%= t "details" %>
-      </button>
+      <button class="btn btn-primary"><%= t "details" %></button>
     <% end %>
-    <%= link_to order_order_details_path(order), class: "btn-order-edit", method: :get do %>
-      <button class="btn btn-success">
-        <%= t "order" %>
-      </button>
+    <% if order.accepted? || order.paid? %>
+      <%= link_to order_order_details_path(order), class: "btn-order-edit", method: :get do %>
+        <button class="btn btn-success"><%= t "order" %></button>
+      <% end %>
     <% end %>
   </div>
 </div>

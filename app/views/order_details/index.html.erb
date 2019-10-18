@@ -1,8 +1,19 @@
 <% provide :title, t("show_order_details_banner") %>
 <% provide :small_banner, t("manage_banner") %>
 <% provide :big_banner, t("show_order_details_banner") %>
-
+<div class="row edit-order-detail-top-row">
+  <%= link_to orders_path do %>
+    <button class="btn btn-info"><%= t "order_list" %></button>
+  <% end %>
+  <%= link_to tables_path do %>
+    <button class="btn btn-danger"><%= t "table_list" %></button>
+  <% end %>
+</div>
 <%= render "add_detail" %>
+
+<div class="row total-amount">
+  <%= t "total_price" %>: <span class="label label-info" id="order-total-amount"><%= @order.total_amount %></span>
+</div>
 
 <div class="row list_order_product">
   <table class="table table-bordered table-hover table_product table-sm">

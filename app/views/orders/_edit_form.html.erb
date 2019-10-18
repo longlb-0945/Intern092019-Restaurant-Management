@@ -1,0 +1,53 @@
+<% if @order.accepted? %>
+<div class="row edit-order-row-1">
+  <div class="form-group">
+    <%= fs.label t "name" %>
+    <%= fs.text_field :name, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= fs.label t "phone" %>
+    <%= fs.telephone_field :phone, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= fs.label t "address" %>
+    <%= fs.text_field :address, class: "form-control" %>
+  </div>
+</div>
+
+<div class="row edit-order-row-2">
+  <div class="form-group">
+    <%= fs.label t "person_number" %>
+    <%= fs.number_field :person_number, min: Settings.min_book_size, class: "form-control", require: true %>
+  </div>
+
+  <div class="form-group">
+    <%= fs.label t "status" %>
+    <span class="<%= check_order_status(@order) %>" id="edit-order-status"><%= @order.status %></span>
+  </div>
+</div>
+<% else %>
+<div class="container edit-order-show-row">
+  <div class="row">
+    <%= fs.label t "name" %>
+    <span class="label label-success"><%= @order.name %></span>
+  </div>
+  <div class="row">
+    <%= fs.label t "phone" %>
+    <span class="label label-success"><%= @order.phone %></span>
+  </div>
+  <div class="row">
+    <%= fs.label t "address" %>
+    <span class="label label-success"><%= @order.address %></span>
+  </div>
+  <div class="row">
+    <%= fs.label t "person_number" %>
+    <span class="label label-success"><%= @order.person_number %></span>
+  </div>
+  <div class="row">
+    <%= fs.label t "status" %>
+    <span class="<%= check_order_status(@order) %>"><%= @order.status %></span>
+  </div>
+</div>
+<% end %>

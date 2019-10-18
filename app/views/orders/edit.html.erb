@@ -1,39 +1,18 @@
 <% provide :title, t("edit_order_title") %>
 <% provide :small_banner, t("manage_banner") %>
 <% provide :big_banner, t("edit_order_title") %>
+<div class="row edit-order-detail-top-row">
+  <%= link_to orders_path do %>
+    <button class="btn btn-info"><%= t "order_list" %></button>
+  <% end %>
+  <%= link_to tables_path do %>
+    <button class="btn btn-danger"><%= t "table_list" %></button>
+  <% end %>
+</div>
 <%= form_for @order, html: {class: "form-inline"} do |f| %>
   <div class="container-fluid">
     <%= render "shared/error_messages", object: f.object %>
-
-    <div class="row edit-order-row-1">
-      <div class="form-group">
-        <%= f.label t "name" %>
-        <%= f.text_field :name, class: "form-control", required: true %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label t "phone" %>
-        <%= f.telephone_field :phone, class: "form-control", required: true %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label t "address" %>
-        <%= f.text_field :address, class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="row edit-order-row-2">
-      <div class="form-group">
-        <%= f.label t "person_number" %>
-        <%= f.number_field :person_number, min: Settings.min_book_size, class: "form-control", require: true %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label t "status" %>
-        <span class="<%= check_order_status(@order) %>" id="edit-order-status"><%= @order.status %></span>
-      </div>
-    </div>
-
+    <%= render partial: "edit_form", locals: {fs: f} %>
     <div class="row edit-order-row-3">
       <%= render "button" %>
     </div>
