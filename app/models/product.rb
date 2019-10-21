@@ -11,7 +11,7 @@ class Product < ApplicationRecord
                      "Stock low to high": "order_stock_asc",
                      "Stock high to low": "order_stock_desc"}.freeze
   ORDER_SORT_LIST = %w(order_name_asc order_name_desc
-    order_price_asc order_price_desc order_stock_asc order_stock_desc)
+    order_price_asc order_price_desc order_stock_asc order_stock_desc).freeze
   PRODUCT_PARAMS = %i(name short_description category_id price stock).freeze
 
   enum status: {enable: 0, disable: 1}

@@ -127,11 +127,44 @@ en:
   default: Default
   name_asc: Name A->Z
   name_desc: Name Z->A
-  create_at_desc: Newest
-  create_at_asc: Oldest
+  created_at_desc: Newest
+  created_at_asc: Oldest
   search: Search
   cannot_sort: Can't sort by selected type
   cate_deleted: Category successfully deleted!
   cate_deleted_fail: Fail to delete category!
   cate_confirm: Are you sure you want to delete this category
   cancel_order_fail: Can't do this! OOP!
+  sign_up: Sign up
+  welcome: Welcome to out restaurant!
+  invalid: Invalid email/password combination
+  login: Login
+  logout: Logout
+  profile: Profile
+  history: History
+  password: Password
+  remember: Remember password
+  newuser: Didn't have account?
+  email: Email
+  name: Name
+  confirmation: Password confirmation
+  new_acc: I'm so hungry. Make me a new account right now!
+  user_not_found: Can't find user
+  show_profile: User Profile
+  created_at: Join date
+  updated_at: Profile updated at
+  change_pass: Change password
+  list_user_banner: Listing users
+  create_user: New user
+  join: Join date
+  role: Role
+  status: Status
+  email_asc: Email A->Z
+  email_desc: Email Z->A
+  role: Role
+  status_asc: Status A->Z
+  status_desc: Status Z->A
+  new_acc_admin: Create new account
+  create_user_succ: User created!
+  user_confirm: Are you sure you want to delete this user?
+  disable: Disable

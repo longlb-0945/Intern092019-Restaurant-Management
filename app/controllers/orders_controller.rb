@@ -12,10 +12,10 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new order_params
     if @order.save
-      flash[:success] = t "order_create_suc"
+      flash.now[:success] = t "order_create_suc"
       redirect_to orders_path
     else
-      flash[:danger] = t "order_create_fail"
+      flash.now[:danger] = t "order_create_fail"
       render :new
     end
   end

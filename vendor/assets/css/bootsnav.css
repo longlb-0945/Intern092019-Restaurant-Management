@@ -522,7 +522,6 @@ body.on-side .wrap-sticky nav.navbar.bootsnav.sticked{
     }
 
     nav.navbar.bootsnav ul.nav > li > a{
-        padding: 30px 15px;
         font-weight: 600;
     }
 
