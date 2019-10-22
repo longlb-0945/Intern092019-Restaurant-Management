@@ -1,3 +1,18 @@
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('.preview_img')
+        .attr('src', e.target.result)
+        .width(150)
+        .height(150);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
 $('document').ready(function(){
   $('.dropdown-toggle').on('mouseenter', function () {
     if (!$(this).parent().hasClass('show')) {
@@ -30,6 +45,14 @@ $('document').ready(function(){
     let data = $(this).data('id').split('-');
     update_amount(data[0], data[1]);
   });
+
+  $('.upload_img').on('change', function() {
+    readURL(this);
+  });
+
+  $('#sort_select').on('change', function() {
+    this.form.submit();
+ });
 });
 
 function show_modal(table_id){

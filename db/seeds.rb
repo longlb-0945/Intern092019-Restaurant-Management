@@ -54,5 +54,7 @@ OrderTable.create!(order_id: 1,
 
 20.times do |n|
 
-  Product.create(name: "product_" + n.to_s, category_id: 1, price: 1000 + n, stock: 10 + n).build_picture(storage: "default.png").save
+  p = Product.create(name: "product_" + n.to_s, category_id: 1, price: 1000 + n, stock: 10 + n)
+  p.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.png")), filename: "default.png")
+  p.save
 end

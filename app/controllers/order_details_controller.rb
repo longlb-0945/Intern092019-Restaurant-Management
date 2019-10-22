@@ -5,7 +5,9 @@ class OrderDetailsController < ApplicationController
   def index
     access_denied if @order.pending? || @order.cancel?
     @order_detail_product = OrderDetail.new
-    return if @order_details = @order.order_details.includes(product: :picture)
+    return if @order_details = @order.order_details
+                                     .includes(product:
+                                      {image_attachment: :blob})
 
     flash[:danger] = t "order_detail_not_found"
     redirect_to orders_path
@@ -23,7 +25,6 @@ class OrderDetailsController < ApplicationController
 
   def destroy
     destroy_order_detail_transaction
-    flash[:danger] = t "del_order_pro_fail"
     redirect_to order_order_details_path
   rescue StandardError
     flash.now[:danger] = t "create_order_detail_fail"

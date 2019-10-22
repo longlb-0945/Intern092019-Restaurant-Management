@@ -473,6 +473,7 @@ input {
 
 .edit-order-detail-top-row{
   text-align: center;
+  margin: 0% 9%;
   a{
     button{
       margin: 10px;
@@ -483,6 +484,7 @@ input {
 .total-amount{
   text-align: center;
   color: $black;
+  margin: 0% 9%;
 }
 
 input[type=number]{
@@ -532,4 +534,134 @@ input[type=number]{
       text-indent: 20px;
     }
   }
+}
+
+  //create_category
+.list_category{
+  margin: 1% 20%;
+  width: 60%;
+
+  table {
+    counter-reset: rowNumber;
+    width: 100%;
+  }
+
+  table th {
+    color: $black;
+    background-color: $gray;
+    text-align: center;
+  }
+
+  table .trow {
+    counter-increment: rowNumber;
+  }
+
+  table .trow td {
+    color: $black;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  table .trow td:first-child::before {
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
+  }
+
+  table.table-bordered{
+    border: 1px solid $gray-light;
+    margin-top: 20px;
+  }
+
+  table.table-bordered > thead > tr > th{
+    border: 1px solid $gray-light;
+  }
+
+  table.table-bordered > tbody > tr > td{
+    border: 1px solid $gray-light;
+  }
+
+  .cate_name_content{
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: left;
+  }
+}
+
+.cate_name{
+  display: inline-block;
+}
+
+.cates_num{
+  width: 10%;
+}
+
+.cates_name{
+  width: 60%;
+}
+
+.cates_btn{
+  width: 30%;
+}
+
+.cate_img{
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+.add_cate{
+  margin: 2% 30%;
+  text-align: center;
+}
+
+.add_cate_btn{
+  color: $white;
+}
+
+.btn_edit{
+  display: inline-block;
+}
+
+.btn_delete{
+  display: inline-block;
+}
+
+.preview_img{
+  height: 150px;
+  width: 150px;
+  margin-bottom: 1%;
+  display: flex;
+  background: url(not_found_img.jpg) no-repeat;
+  background-size: cover;
+}
+
+// custom search
+.form_sort{
+  display: inline-block;
+  width: 49%;
+  text-align: right;
+  margin: 0%;
+}
+
+#sort_select{
+  width: 50%;
+}
+
+.form_search{
+  width: 50%;
+  margin: 0%;
+  display: inline-block;
+}
+
+.search_box{
+  width: 40%;
+  height: 100% !important;
+  display: inline-block;
+  margin: 0%;
+}
+
+.btn_search_box{
+  width: 20%;
+  display: inline-block;
 }
