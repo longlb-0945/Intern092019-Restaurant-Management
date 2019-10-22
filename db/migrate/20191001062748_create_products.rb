@@ -7,7 +7,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.integer :price
       t.integer :status, default: 0
       t.integer :stock
-      t.float :total_rate
+      t.float :total_rate, default: 0
 
       t.timestamps
     end
