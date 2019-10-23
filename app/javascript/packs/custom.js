@@ -35,6 +35,10 @@ $('document').ready(function(){
     placeholder: I18n.t('pick_product'),
   });
 
+  $('#product_sort_type').on('change', function(){
+    this.form.submit();
+  });
+
   $('.table_product').DataTable();
 
   $(document).on('click', '.table_button', function(){

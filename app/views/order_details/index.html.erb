@@ -27,7 +27,9 @@
         <th class="detail_btn"></th>
       </tr>
     </thead>
-    <%= render @order_details %>
+    <tbody>
+      <%= render @order_details %>
+    </tbody>
   </table>
 </div>
 <%= javascript_pack_tag "edit_order" %>

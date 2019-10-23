@@ -37,7 +37,7 @@ en:
   edit: Edit
   disable: Disable
   restore: Restore
-  delete_confirm: Delete?
+  delete_confirm: Are you sure?
   edit_table_title: 'Edit table'
   status: Status
   table_not_found: Can't find table
@@ -79,11 +79,13 @@ en:
   edit: Edit
   delete: Delete
   add: Add
+  id: "ID"
   name: Name
   price: Price
   stock: Stock
   count: Count
   rate: Rate
+  image: Image
   total_price: Total price
   stock: Stock
   order_detail_not_found: Order details not found!
@@ -101,6 +103,17 @@ en:
   create_product_suc: Create product successed!
   create_product_fail: Create product failed! Something wrong!
   show_product_title: Show product
+  list_product_title: List product
+  new_product: New product
+  product_not_found: Can't found product
+  edit_product: Edit product
+  product_update_suc: Update product sucessed!
+  product_update_fail: Update product failed!
+  product_disable_suc: Disable product sucessed!
+  product_disable_fail: Disable product failed!
+  sort: Sort
+  product_sort_param_fail: Param sent not match! Try some!
+  product_search_fail: Search for product name failed!
   currency: VND
   new_category_title: New category
   create_category_suc: Category created successfully!
@@ -121,3 +134,4 @@ en:
   cate_deleted: Category successfully deleted!
   cate_deleted_fail: Fail to delete category!
   cate_confirm: Are you sure you want to delete this category
+  cancel_order_fail: Can't do this! OOP!

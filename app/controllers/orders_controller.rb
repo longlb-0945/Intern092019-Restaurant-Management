@@ -27,6 +27,7 @@ class OrdersController < ApplicationController
   def update
     @order.tables.each(&:available!)
     if @order.update order_params
+      update_order_table if params[:order][:table_ids]
       flash[:success] = t "order_update_suc"
       redirect_to orders_path
     else
@@ -39,6 +40,9 @@ class OrdersController < ApplicationController
     @order.update status: params[:do_what].to_i
     respond_to :js
     update_order_status if @order.cancel? || @order.paid?
+  rescue StandardError
+    flash[:danger] = t "cancel_order_fail"
+    redirect_to :index
   end
 
   private
@@ -55,7 +59,11 @@ class OrdersController < ApplicationController
   end
 
   def update_order_status
-    @order.tables.each(&:available!)
+    ActiveRecord::Base.transaction do
+      @order.tables.each do |table|
+        raise StandardError unless table.available!
+      end
+    end
     OrderTable.where(order_id: @order.id).destroy_all
     OrderDetail.where(order_id: @order.id).destroy_all if @order.cancel?
   end
