@@ -79,6 +79,9 @@ function update_amount(order_id, order_detail_id){
     success: function(result){
       $(id_amount).html(result.amount);
       $('#order-total-amount').html(result.total_amount);
+    },
+    error: function(){
+      location.reload(true);
     }
   });
 }

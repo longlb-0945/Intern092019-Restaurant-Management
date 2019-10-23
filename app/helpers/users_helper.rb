@@ -4,10 +4,10 @@ module UsersHelper
   end
 
   def check_user_status user
-    user.status if user
+    user.status if user&.status
   end
 
   def check_user_role user
-    user.role if user
+    user.role if user&.status
   end
 end

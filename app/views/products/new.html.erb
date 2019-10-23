@@ -25,8 +25,11 @@
       <%= f.number_field :stock, min: Settings.min_price_choosen, class: "form-control" %>
 
       <span class="image">
-        <%= f.file_field :image %>
+        <%= f.file_field :image, class: "form-control upload_img" %>
       </span>
+      <div>
+        <%= image_tag "book-frame.png", alt: "", class: "preview_img edit_cate" %>
+      </div>
 
       <%= f.submit t("submit"), class: "btn btn-primary" %>
     <% end %>

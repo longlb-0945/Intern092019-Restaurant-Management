@@ -23,3 +23,4 @@ $('.btn_pay').on('click', function(){
   let id = $('.btn_pay').attr('data-id');
   update_status(id, 3);
 });
+
