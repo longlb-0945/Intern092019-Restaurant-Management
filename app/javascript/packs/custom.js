@@ -6,7 +6,8 @@ function readURL(input) {
       $('.preview_img')
         .attr('src', e.target.result)
         .width(150)
-        .height(150);
+        .height(150)
+        .css('background-image', 'none');
     };
 
     reader.readAsDataURL(input.files[0]);

@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :load_category, except: %i(index new create search sort)
+
   def index
     @categories = Category.page(params[:page]).per Settings.pagenate_category
   end
@@ -17,6 +19,28 @@ class CategoriesController < ApplicationController
       flash[:danger] = t "create_category_fail"
       render :new
     end
+  end
+
+  def edit; end
+
+  def update
+    if @category.update category_params
+      attach_image
+      flash[:success] = t "update_category_suc"
+      redirect_to categories_path
+    else
+      flash[:danger] = t "update_category_fail"
+      render :edit
+    end
+  end
+
+  def destroy
+    if @category.destroy
+      flash[:success] = t "cate_deleted"
+    else
+      flash[:danger] = t "cate_deleted_fail"
+    end
+    redirect_to categories_url
   end
 
   def search
@@ -41,13 +65,23 @@ class CategoriesController < ApplicationController
     params.require(:category).permit :name
   end
 
+  def load_category
+    @category = Category.find_by id: params[:id]
+    return if @category
+
+    flash[:danger] = t "category_not_found"
+    redirect_to categories_path
+  end
+
   def attach_image
     if params[:category][:image].blank?
-      @category.image.attach(io: File.open(Rails.root
-        .join("app", "assets", "images", "category.png")),
-        filename: "category.png")
+      if params[:action].eql? "create"
+        @category.image.attach(io: File.open(Rails.root
+          .join("app", "assets", "images", "category.png")),
+          filename: "category.png")
+      end
     else
-      @category.image.attach(params[:category][:image])
+      @category.image.attach params[:category][:image]
     end
   end
 end
