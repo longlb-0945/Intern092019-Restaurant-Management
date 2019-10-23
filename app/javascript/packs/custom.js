@@ -58,6 +58,8 @@ $('document').ready(function(){
   $('#sort_select').on('change', function() {
     this.form.submit();
  });
+
+  $('a').attr('data-turbolinks', 'false');
 });
 
 function show_modal(table_id){

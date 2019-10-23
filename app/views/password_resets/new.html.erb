@@ -1,0 +1,14 @@
+<% provide :title, t("forgot") %>
+<% provide :small_banner, t("user_banner") %>
+<% provide :big_banner, t("reset_mail_reset") %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for :password_reset, url: password_resets_path do |f| %>
+      <%= f.label t "email" %>
+      <%= f.email_field :email, class: "form-control" %>
+
+      <%= f.submit t("submit"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

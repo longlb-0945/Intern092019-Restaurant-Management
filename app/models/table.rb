@@ -15,7 +15,7 @@ class Table < ApplicationRecord
   validates :status, presence: true
 
   scope :order_number, ->{order table_number: :asc}
-  scope :usefull, ->{where.not(status: 2)}
+  scope :usefull, ->{where(status: 0)}
 
   def order? order
     order == orders.first

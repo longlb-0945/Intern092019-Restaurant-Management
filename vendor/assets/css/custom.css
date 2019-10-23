@@ -292,6 +292,7 @@ nav.navbar.bootsnav {
 .hover-menu .fa {
   color: #fff;
   font-size: 28px;
+  cursor: pointer;
 }
 
 /* Banner */
@@ -1141,7 +1142,7 @@ address,.subscribe > p {
   color: #5e000e;
 }
 .menu-item > p {
-  padding-top: 5%;
+  padding-top: 9%;
   padding-bottom: 2%;
   margin-bottom: 0px;
 }

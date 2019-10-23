@@ -23,11 +23,14 @@
   </td>
   <td class="user_status_content">
     <div class="user_status_content">
-      <p class="user_status status_<%= check_user_status user %>"><%= user.status %></p>
+      <p class="user_status status_<%= check_user_status user %>" id="user_status_<%= user.id %>"><%= user.status %></p>
     </div>
   </td>
   <td>
-    <%= link_to t("edit"), edit_user_path(user.id), class: "btn btn-primary btn_edit", method: :get %>
-    <%= link_to t("disable"), user, class: "btn btn-danger btn_delete", method: :delete, data: { confirm: t("user_confirm") } %>
+    <%= link_to t("edit"), edit_user_path(user.id), class: "btn btn-primary btn_edit" %>
+    <% if !user.disable? %>
+      <%= link_to t("disable"), user, class: "btn btn-danger btn_delete", id: "btn_disable_#{user.id}",
+        method: :delete, data: { confirm: t("user_confirm") }, remote: true %>
+    <% end %>
   </td>
 </tr>

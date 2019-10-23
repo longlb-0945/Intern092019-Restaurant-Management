@@ -31,6 +31,7 @@ Rails.application.routes.draw do
         get :sort, to: "users#sort"
       end
     end
+    resources :password_resets, except: %i(show index destroy)
 
     get "/signup", to: "users#new"
     get "/login", to: "sessions#new"

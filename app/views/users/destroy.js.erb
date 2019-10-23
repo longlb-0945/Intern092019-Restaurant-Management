@@ -1,0 +1,3 @@
+$('#user_status_<%= @user.id %>').attr('class', 'user_status status_<%= check_user_status @user %>');
+$('#user_status_<%= @user.id %>').text('<%= @user.status %>');
+$('#btn_disable_<%= @user.id %>').remove();
