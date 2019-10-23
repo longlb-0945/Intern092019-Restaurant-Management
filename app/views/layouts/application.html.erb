@@ -19,13 +19,17 @@
     </nav>
 
     <header id="top_header">
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
       <%= render "layouts/top_header" %>
     </header>
 
     <section id="block">
+      <div class="error_msg">
+        <div class="error_msg_content">
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>"><p><%= message %></p></div>
+          <% end %>
+        </div>
+      </div>
       <%= yield %>
     </section>
 

@@ -34,23 +34,9 @@ end
      status: 2)
 end
 
-User.create!(id: 1, name: "CUSTOMER")
-User.create!(id: 2, name: "STAFF", role: 1)
-
-Order.create!(id: 1, customer_id: 1,
-  staff_id: 2,
-  name: "aaaa",
-  person_number: 10,
-  total_amount: 10000)
-
-Category.create(name: "abc")
-
-OrderTable.create!(order_id: 1,
-  table_id: 1)
-OrderTable.create!(order_id: 1,
-  table_id: 2)
-OrderTable.create!(order_id: 1,
-  table_id: 3)
+u = User.create!(id: 1, name: "admin", email: "abc@gmail.com", role: 0, password: "111111", password_confirmation: "111111")
+u.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "default_user.png")), filename: "category.png")
+u.save
 
 20.times do |n|
 

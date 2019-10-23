@@ -25,5 +25,18 @@ Rails.application.routes.draw do
         get :sort, to: "categories#sort"
       end
     end
+    resources :users do
+      collection do
+        get :search, to: "users#search"
+        get :sort, to: "users#sort"
+      end
+    end
+
+    get "/signup", to: "users#new"
+    get "/login", to: "sessions#new"
+
+    post "/login", to: "sessions#create"
+
+    delete "/logout", to: "sessions#destroy"
   end
 end

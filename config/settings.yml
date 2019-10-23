@@ -35,3 +35,8 @@ min_price_choosen: 1
 pagenate_categories: 12
 imgsize5: 5
 pagenate_category: 5
+maximum_name_length: 50
+email_regex: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i'
+maximum_email_length: 255
+minimum_password_length: 6
+pagenate_user: 10
