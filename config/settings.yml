@@ -42,3 +42,11 @@ minimum_password_length: 6
 pagenate_user: 10
 awesome_icon: "https://use.fontawesome.com/releases/v5.7.0/css/all.css"
 expired_time: 2
+factories:
+  products:
+    price_min_invalid: 999
+    stock_min_invalid: -1
+    price_faker: 10000
+    status_faker: 0
+    stock_faker: 10
+    total_rate_faker: 0

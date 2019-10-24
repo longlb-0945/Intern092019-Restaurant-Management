@@ -203,3 +203,5 @@ en:
   created_at_desc: Newest
   created_at_asc: Oldest
   forgoted: (forgot password)
+  errors_blank: can't be blank
+  errors_not_a_number: is not a number
