@@ -10,7 +10,7 @@ class Product < ApplicationRecord
                      "Price high to low": "order_price_desc",
                      "Stock low to high": "order_stock_asc",
                      "Stock high to low": "order_stock_desc"}.freeze
-  ORDER_SORT_LIST = %w(order_name_asc order_name_desc
+  ORDER_SORT_LIST_SCOPE = %w(order_name_asc order_name_desc
     order_price_asc order_price_desc order_stock_asc order_stock_desc).freeze
   PRODUCT_PARAMS = %i(name short_description category_id price stock).freeze
 
@@ -40,9 +40,10 @@ class Product < ApplicationRecord
                                    greater_than_or_equal_to:
                                     Settings.min_stock_allow}
 
-  ORDER_SORT_LIST.each do |sort|
+  ORDER_SORT_LIST_SCOPE.each do |sort|
     sort_split = sort.split("_")
     scope sort, ->{order("#{sort_split[1]} #{sort_split[2]}")}
+    scope "order_name_asc", ->{order("name asc")}
   end
   scope :order_category_asc, ->{joins(:category).order("categories.name ASC")}
   scope :order_category_desc, ->{joins(:category).order("categories.name DESC")}
