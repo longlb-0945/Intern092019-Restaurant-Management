@@ -169,3 +169,4 @@ en:
   user_confirm: Are you sure you want to delete this user?
   disable: Disable
   no_permision: You don't have permision to do this!
+  please_login: Please login!

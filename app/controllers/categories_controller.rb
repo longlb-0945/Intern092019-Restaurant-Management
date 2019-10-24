@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :not_login
+  before_action :check_admin
   before_action :load_category, except: %i(index new create search sort)
 
   def index

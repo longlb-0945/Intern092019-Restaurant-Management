@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :not_login, except: :show
+  before_action :check_admin, except: :show
   before_action :load_product, only: %i(show edit update destroy)
 
   def index

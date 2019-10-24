@@ -43,10 +43,10 @@ class Product < ApplicationRecord
   ORDER_SORT_LIST_SCOPE.each do |sort|
     sort_split = sort.split("_")
     scope sort, ->{order("#{sort_split[1]} #{sort_split[2]}")}
-    scope "order_name_asc", ->{order("name asc")}
   end
   scope :order_category_asc, ->{joins(:category).order("categories.name ASC")}
   scope :order_category_desc, ->{joins(:category).order("categories.name DESC")}
   scope :search_by_name,
         ->(text){where("LOWER(name) LIKE ?", "%" << text.downcase << "%")}
+  scope :available, ->{where("status = 0 AND stock > 0")}
 end
