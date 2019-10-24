@@ -2,9 +2,11 @@
 <% provide :small_banner, t("manage_banner") %>
 <% provide :big_banner, t("show_table_banner") %>
 <div class="row note_table">
-  <button class="btn btn-primary create_table_button">
-    <%= link_to t("create_table"), new_table_path %>
-  </button>
+  <% if current_user.admin? %>
+    <button class="btn btn-primary create_table_button">
+      <%= link_to t("create_table"), new_table_path %>
+    </button>
+  <% end %>
   <p><%= t "note" %>:
     <span class="note_available"><%= t "available" %></span>
     <span class="note_occupied"><%= t "occupied" %></span>

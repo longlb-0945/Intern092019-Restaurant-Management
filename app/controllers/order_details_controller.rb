@@ -1,4 +1,6 @@
 class OrderDetailsController < ApplicationController
+  before_action :not_login
+  before_action :guest_not_allow
   before_action :load_order_detail, only: %i(update_amount destroy)
   before_action :load_order, only: %i(index)
 
@@ -100,7 +102,7 @@ class OrderDetailsController < ApplicationController
 
     current_stock = product.stock
     raise StandardError unless product.update(stock: current_stock + operation)
-    raise StandardError if product.stock.nagative?
+    raise StandardError if product.stock.negative?
   end
 
   def destroy_update_total_amount

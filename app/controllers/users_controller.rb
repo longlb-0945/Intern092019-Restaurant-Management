@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :not_log, except: %i(new create)
+  before_action :check_admin, except: :show
   before_action :find_user, except: %i(index new create search sort)
 
   def index
@@ -18,12 +20,11 @@ class UsersController < ApplicationController
     if @user.save
       if logged_in? && current_user.admin?
         flash[:success] = t "create_user_succ"
-        render :index
       else
         log_in @user
         flash[:success] = t "welcome"
-        redirect_to root_path
       end
+      redirect_to root_path
     else
       render :new
     end
@@ -67,13 +68,6 @@ class UsersController < ApplicationController
     return if @user = User.find_by(id: params[:id])
 
     flash[:danger] = t "user_not_found"
-    redirect_to root_path
-  end
-
-  def check_admin
-    return true if current_user.admin?
-
-    flash[:danger] = t "access_denied"
     redirect_to root_path
   end
 end

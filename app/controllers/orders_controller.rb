@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :not_login
+  before_action :guest_not_allow, except: %i(new create)
   before_action :load_order, except: %i(index new create)
 
   def index
@@ -19,8 +21,6 @@ class OrdersController < ApplicationController
       render :new
     end
   end
-
-  def show; end
 
   def edit; end
 
@@ -62,9 +62,10 @@ class OrdersController < ApplicationController
     ActiveRecord::Base.transaction do
       @order.tables.each do |table|
         raise StandardError unless table.available!
+
+        OrderTable.where(order_id: @order.id).destroy_all
+        OrderDetail.where(order_id: @order.id).destroy_all if @order.cancel?
       end
     end
-    OrderTable.where(order_id: @order.id).destroy_all
-    OrderDetail.where(order_id: @order.id).destroy_all if @order.cancel?
   end
 end

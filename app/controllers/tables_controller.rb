@@ -1,9 +1,15 @@
 class TablesController < ApplicationController
+  before_action :check_admin, except: %i(index show)
   before_action :load_table, except: %i(index new create)
 
   def index
-    @tables = Table.order_number.page(params[:page])
-                   .per Settings.pagenate_tables
+    @tables = if current_user&.admin?
+                Table.order_number.page(params[:page])
+                     .per Settings.pagenate_tables
+              else
+                Table.usefull.order_number.page(params[:page])
+                     .per Settings.pagenate_tables
+              end
   end
 
   def new
