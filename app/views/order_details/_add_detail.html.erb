@@ -8,7 +8,7 @@
       <%= f.submit t("add"), class: "btn btn-primary add_product_btn", remote: true %>
     <% end %>
     <div class="pay">
-      <%= link_to order_order_details_path, method: :get do %>
+      <%= link_to order_order_details_path do %>
         <button class="btn btn-success btn_pay" data-id="<%= params[:order_id] %>">
           <%= t "paying" %>
         </button>

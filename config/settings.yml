@@ -28,15 +28,17 @@ pagenate_orders: 8
 paid_img: "paid.png"
 min_quantily: 1
 currency: VND
-pagenate_products: 3
+pagenate_products: 10
 min_price_allow: 1000
 min_stock_allow: 0
 min_price_choosen: 1
-pagenate_categories: 12
+pagenate_categories: 3
 imgsize5: 5
-pagenate_category: 5
+pagenate_category: 3
 maximum_name_length: 50
 email_regex: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i'
 maximum_email_length: 255
 minimum_password_length: 6
 pagenate_user: 10
+awesome_icon: "https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+expired_time: 2

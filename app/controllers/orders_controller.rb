@@ -27,12 +27,26 @@ class OrdersController < ApplicationController
   def update
     @order.tables.each(&:available!)
     if @order.update order_params
-      update_order_table if params[:order][:table_ids]
+      update_order_table
       flash[:success] = t "order_update_suc"
       redirect_to orders_path
     else
       flash[:danger] = t "order_update_fail"
       render :edit
+    end
+  rescue StandardError
+    flash[:danger] = t "update_table_fail"
+    redirect_to orders_path
+  end
+
+  def update_order_table
+    t_ids = params[:order][:table_ids]
+    return false if t_ids.empty?
+
+    ActiveRecord::Base.transaction do
+      Table.where(id: t_ids).each do |table|
+        raise StandardError unless table.occupied!
+      end
     end
   end
 

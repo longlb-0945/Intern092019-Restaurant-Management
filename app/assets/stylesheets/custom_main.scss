@@ -9,20 +9,15 @@
 }
 
 //flash
-.alert{
-  margin-top: 10px;
-  text-align: center;
-  z-index: 1000;
+.alert-top{
+  margin-top: 25%;
 }
 
-.error_msg{
-  width: 100%;
-  margin-right: 2%;
+.alert{
+  float: right;
   text-align: center;
-  .error_msg_content {
-    width: auto;
-    margin: 0% 25%;
-  }
+  font-size: 18px;
+  z-index:99;
 }
 
 //form
@@ -52,7 +47,7 @@ input {
 }
 
 .field_with_errors {
-  @extend .has-error;
+
   .form-control {
     color: $state-danger-text;
   }
@@ -970,4 +965,22 @@ input[type=number]{
 .status_disable{
   background-color: $gray-light;
   color: $dark-white;
+}
+
+//other
+.new_category, .create_order, .create_product, .create_table, .create_user {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.order-top-banner, .product-index-top, .table-top-banner{
+  margin-right: 0px !important;
+}
+
+.fas{
+  width: 20px;
+}
+
+.edit_user{
+  height: fit-content;
 }

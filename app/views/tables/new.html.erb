@@ -5,7 +5,7 @@
   <%= link_to t("table_list"), tables_path, class: "stretched-link" %>
   <span>-> <%= t("new_table") %></span>
 </div>
-<div class="row">
+<div class="row create_table">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for @table do |f| %>
       <%= render "shared/error_messages", object: f.object %>

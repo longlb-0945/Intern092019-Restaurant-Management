@@ -8,6 +8,7 @@ gem "bcrypt"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap-sass"
 gem "config"
+gem "figaro"
 gem "i18n-js"
 gem "jbuilder", "~> 2.7"
 gem "kaminari"
@@ -15,7 +16,6 @@ gem "mysql2", ">= 0.4.4"
 gem "puma", "~> 3.11"
 gem "rails", "~> 6.0.0"
 gem "sass-rails", "~> 5"
-gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
 
 group :development, :test do

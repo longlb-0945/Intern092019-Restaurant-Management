@@ -14,8 +14,8 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new product_params
+    product_image_attach
     if @product.save
-      product_image_attach
       flash[:success] = t "create_product_suc"
       redirect_to product_path(@product)
     else
@@ -37,7 +37,9 @@ class ProductsController < ApplicationController
     else
       flash[:dander] = t "product_update_fail"
     end
-    redirect_to products_path
+    respond_to do |format|
+      format.js{render js: "location.reload();"}
+    end
   end
 
   def destroy

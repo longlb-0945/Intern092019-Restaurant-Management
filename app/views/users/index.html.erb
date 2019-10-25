@@ -9,11 +9,11 @@
   <% end %>
 </div>
 <div class="row list_user search_row">
-  <%= form_tag search_users_path, method: :get, class: "form_search" do %>
+  <%= form_tag search_users_path, class: "form_search", method: :get do %>
     <%= text_field_tag :search, params[:search], class: "search_box" %>
     <%= submit_tag t("search"), class: "btn btn-primary btn_search_box" %>
   <% end %>
-  <%= form_tag sort_users_path, method: :get, class: "form_sort" do %>
+  <%= form_tag sort_users_path, class: "form_sort", method: :get do %>
     <%= select_tag :sort, options_for_select(user_sort_opt, params[:sort]) , id: "sort_select" %>
   <% end %>
 </div>

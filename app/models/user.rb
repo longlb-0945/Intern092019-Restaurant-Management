@@ -5,7 +5,7 @@ class User < ApplicationRecord
   enum role: {admin: 0, staff: 1, guest: 2}
   enum status: {enable: 0, disable: 1}
   enum sort_enum: {default: 0, name_asc: 1, name_desc: 2,
-                   email_asc: 3, email_desc: 4, role: 5, status_asc: 6,
+                   email_asc: 3, email_desc: 4, role_asc: 5, status_asc: 6,
                    status_desc: 7, created_at_asc: 8, created_at_desc: 9}
 
   has_many :rates, dependent: :nullify
@@ -24,7 +24,7 @@ class User < ApplicationRecord
   scope :created_at_desc, ->{order created_at: :desc}
   scope :created_at_asc, ->{order created_at: :asc}
   scope :default, ->{order id: :asc}
-  scope :role, ->{order role: :asc}
+  scope :role_asc, ->{order role: :asc}
   scope :search,
         ->(data){where "name LIKE ? or email LIKE ?", "%#{data}%", "%#{data}%"}
 
@@ -69,10 +69,11 @@ class User < ApplicationRecord
     update remember_digest: User.digest(remember_token)
   end
 
-  def authenticated? remember_token
-    return false if remember_digest.blank?
+  def authenticated? attribute, token
+    digest = send "#{attribute}_digest"
+    return false if digest.blank?
 
-    BCrypt::Password.new remember_digest.is_password? remember_token
+    BCrypt::Password.new(digest).is_password? token
   end
 
   def forget

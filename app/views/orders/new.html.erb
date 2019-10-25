@@ -2,7 +2,7 @@
 <% provide :small_banner, t("booking") %>
 <% provide :big_banner, t("new_reservation_title") %>
 <div class="row order-top-banner">
-  <%= link_to t("order_list"), orders_path, class: "stretched-link" %>
+  <%= link_to t("order_list"), orders_path, class: "stretched-link", data: {turbolinks: "false"} %>
   <span>-> <%= t("new") %></span>
 </div>
 <div class="row create_order">

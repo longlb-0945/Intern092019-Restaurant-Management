@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-  before_action :not_log, except: %i(new create)
-  before_action :check_admin, except: :show
   before_action :find_user, except: %i(index new create search sort)
+  before_action :correct_user, only: %i(show edit update)
 
   def index
     @users = User.page(params[:page]).per Settings.pagenate_user
@@ -20,13 +19,43 @@ class UsersController < ApplicationController
     if @user.save
       if logged_in? && current_user.admin?
         flash[:success] = t "create_user_succ"
+        redirect_to users_path
       else
         log_in @user
         flash[:success] = t "welcome"
+        redirect_to root_path
       end
-      redirect_to root_path
     else
       render :new
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @user.update user_params
+      if current_user.admin?
+        set_role
+      else
+        flash[:success] = t "user_update_success"
+        redirect_to @user
+      end
+    else
+      flash[:danger] = t "user_update_fail"
+      render :edit
+    end
+  end
+
+  def correct_user
+    redirect_to root_path unless current_user&.admin? || current_user?(@user)
+  end
+
+  def destroy
+    if @user.disable!
+      respond_to :js
+    else
+      flash[:danger] = t "user_delete_failed"
+      redirect_to users_path
     end
   end
 
@@ -69,5 +98,22 @@ class UsersController < ApplicationController
 
     flash[:danger] = t "user_not_found"
     redirect_to root_path
+  end
+
+  def check_admin
+    return true if current_user&.admin?
+
+    flash[:danger] = t "access_denied"
+    redirect_to root_path
+  end
+
+  def set_role
+    if params[:user][:role].present? &&
+       @user.update(role: params[:user][:role].to_i)
+      flash[:success] = t "edit_user_succ"
+    else
+      flash[:danger] = t "user_update_fail"
+    end
+    redirect_to users_path
   end
 end

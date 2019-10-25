@@ -3,8 +3,10 @@ module OrdersHelper
     return "status-" + order.status if order
   end
 
-  def load_order_table _order
-    Table.usefull.reduce([]){|a, e| a << array_table_item(e)}
+  def load_order_table order
+    result = []
+    Table.usefull.reduce(result){|a, e| a << array_table_item(e)}
+    order.tables.reduce(result){|a, e| a << array_table_item(e)}
   end
 
   def array_table_item table

@@ -90,7 +90,7 @@ en:
   stock: Stock
   order_detail_not_found: Order details not found!
   paying: Pay
-  order_list: Order lists
+  order_list: Reservation list
   access_denied: Access denied!
   del_order_pro_suc: Delete product success!
   del_order_pro_fail: Delete product fails! something wrong!
@@ -127,8 +127,8 @@ en:
   default: Default
   name_asc: Name A->Z
   name_desc: Name Z->A
-  created_at_desc: Newest
-  created_at_asc: Oldest
+  create_at_desc: Newest
+  create_at_asc: Oldest
   search: Search
   cannot_sort: Can't sort by selected type
   cate_deleted: Category successfully deleted!
@@ -161,7 +161,7 @@ en:
   status: Status
   email_asc: Email A->Z
   email_desc: Email Z->A
-  role: Role
+  role_asc: Role
   status_asc: Status A->Z
   status_desc: Status Z->A
   new_acc_admin: Create new account
@@ -170,3 +170,36 @@ en:
   disable: Disable
   no_permision: You don't have permision to do this!
   please_login: Please login!
+  user_update_success: Update user successfully
+  user_update_fail: Update user failed
+  user_deleted: User deleted
+  user_delete_failed: Fail to delete user
+  edit_user: Edit profile
+  edit_acc: Confirm edit
+  edit_user_succ: User updated!
+  categories: Categories
+  orders: Orders
+  reservations: Reservations
+  products: Products
+  tables: Tables
+  users: Users
+  product_list: List products
+  reset: Password reset
+  send: Email sent with password reset instructions
+  email_not_found: Email address not found
+  empty_password: can't be empty
+  success_reset: Password has been reset.
+  user_invalid: User invalid
+  expired: Password reset has expired.
+  reset_mail_click: To reset your password click the link below
+  reset_mail_expire: This link will expire in two hours.
+  reset_mail_ignore: If you did not request your password to be reset, please ignore this email and your password will stay as it is.
+  reset_mail_reset: Password
+  forgot: Change password
+  reset_mail_reset: Password reset
+  password_confirm: Password confirm
+  password_update: Update password
+  user_banner: User settings
+  created_at_desc: Newest
+  created_at_asc: Oldest
+  forgoted: (forgot password)
