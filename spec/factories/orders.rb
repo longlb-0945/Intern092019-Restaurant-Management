@@ -6,5 +6,6 @@ FactoryBot.define do
     status {Settings.factories.orders.status_faker}
     person_number {Settings.factories.orders.person_number_faker}
     total_amount {Settings.factories.orders.total_amount_faker}
+    association :user
   end
 end
