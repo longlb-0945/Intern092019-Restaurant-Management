@@ -6,7 +6,7 @@ class Table < ApplicationRecord
   has_many :orders, through: :order_tables
 
   validates :table_number, presence: true, uniqueness: true,
-    numericality: {greater_than_or_equal_to: Settings.min_table_num,
+    numericality: {greater_than_or_equal_to: Settings.min_table_number,
                    only_integer: true}
   validates :max_size, presence: true,
     numericality: {less_than_or_equal_to: Settings.max_table_size,
