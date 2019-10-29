@@ -9,7 +9,7 @@ RSpec.describe Product, type: :model do
     it {expect(subject.image).to be_attached}
   end
 
-  describe "Association" do
+  describe "Associations" do
     it {expect(subject).to belong_to :category}
   end
 
