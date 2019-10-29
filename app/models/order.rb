@@ -17,13 +17,13 @@ class Order < ApplicationRecord
 
   validates :customer_id, numericality: {only_integer: true}, allow_nil: true
   validates :staff_id, numericality: {only_integer: true}, allow_nil: true
-  validates :phone, numericality: {only_integer: true}, allow_nil: true
-  validates :total_amount, numericality: {only_integer: true}, allow_nil: true
   validates :name, presence: true
+  validates :phone, presence: true
+  validates :address, presence: true
+  validates :total_amount, numericality: {only_integer: true}, allow_nil: true
   validates :person_number, presence: true,
     numericality: {greater_than_or_equal_to: Settings.min_book_size,
                    only_integer: true}
-  validates :status, presence: true
 
   accepts_nested_attributes_for :order_tables, reject_if: :all_blank,
   allow_destroy: true

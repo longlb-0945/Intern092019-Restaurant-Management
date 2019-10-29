@@ -50,3 +50,9 @@ factories:
     status_faker: 0
     stock_faker: 10
     total_rate_faker: 0
+  orders:
+    status_faker: 0
+    person_number_faker: 6
+    total_amount_faker: 0
+    person_number_min_invalid: 0
+default_password: "123456"
