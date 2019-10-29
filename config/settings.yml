@@ -55,4 +55,8 @@ factories:
     person_number_faker: 6
     total_amount_faker: 0
     person_number_min_invalid: 0
+  order_details:
+    random_price_faker: 1000
+    random_quantily_faker: 100
+    random_amount_faker: 100000
 default_password: "123456"
