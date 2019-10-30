@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :not_login
   before_action :check_admin
-  before_action :load_category, except: %i(index new create search sort)
+  before_action :load_category, only: %i(edit update destroy)
 
   def index
     @categories = Category.page(params[:page]).per Settings.pagenate_category
@@ -42,7 +42,7 @@ class CategoriesController < ApplicationController
     else
       flash[:danger] = t "cate_deleted_fail"
     end
-    redirect_to categories_url
+    redirect_to categories_path
   end
 
   def search
