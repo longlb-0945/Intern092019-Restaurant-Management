@@ -205,11 +205,5 @@ en:
   forgoted: (forgot password)
   errors_blank: can't be blank
   errors_not_a_number: is not a number
-  activerecord:
-    errors:
-      models:
-        category:
-          attributes:
-            name:
-              blank: Name can't be blank
-              taken: Name has been taken
+  errors_taken: has already been taken
+  invalid_errors: is invalid

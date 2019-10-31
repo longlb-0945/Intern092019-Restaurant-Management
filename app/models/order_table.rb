@@ -6,7 +6,7 @@ class OrderTable < ApplicationRecord
 
   validates :order_id, presence: true
   validates :table_id, presence: true
-  
+
   private
   def table_to_occupied
     table.occupied!

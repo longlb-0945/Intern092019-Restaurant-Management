@@ -64,4 +64,10 @@ factories:
     max_size_greater_invalid: 1
     max_size_less_invalid: 13
     table_number_unique: 10
-default_password: "123456"
+  user:
+    name_max_length_invalid: 100
+    password_min_length_invalid: 5
+    fake_remember: "abcdef"
+default_password: "111111"
+remember_digest_size: 60
+fake_email: "ABCD@gmail.com"

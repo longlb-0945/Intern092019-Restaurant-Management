@@ -14,9 +14,9 @@ RSpec.describe Category, type: :model do
 
   describe "Validations" do
     it { is_expected.to validate_presence_of(:name)
-      .with_message(I18n.t("activerecord.errors.models.category.attributes.name.blank")) }
+      .with_message(I18n.t("errors_blank")) }
     it { is_expected.to validate_uniqueness_of(:name)
-      .with_message(I18n.t("activerecord.errors.models.category.attributes.name.taken")) }
+      .with_message(I18n.t("errors_taken")) }
 
     context "name invalid" do
       before {subject.name = nil}
