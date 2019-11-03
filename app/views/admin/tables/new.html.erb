@@ -1,0 +1,22 @@
+<% provide :title, t("new_table_title") %>
+<% provide :small_banner, t("manage_banner") %>
+<% provide :big_banner, t("create_table_banner") %>
+<div class="row table-top-banner">
+  <%= link_to t("table_list"), admin_tables_path, class: "stretched-link" %>
+  <span>-> <%= t("new_table") %></span>
+</div>
+<div class="row create_table">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [:admin, @table] do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+
+      <%= f.label t "number_table" %>
+      <%= f.number_field :table_number, min: Settings.min_table_number, class: "form-control" %>
+
+      <%= f.label t "table_size" %>
+      <%= f.number_field :max_size, min: Settings.min_table_size, max: Settings.max_table_size, class: "form-control" %>
+
+      <%= f.submit t("submit"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

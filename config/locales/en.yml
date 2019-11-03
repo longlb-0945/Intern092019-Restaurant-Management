@@ -1,4 +1,5 @@
 en:
+  restaurant_name: HUST & SUN
   app_title: Restaurant Manager
   create_table_suc: successfully create table
   made_with: Made with
@@ -38,7 +39,7 @@ en:
   disable: Disable
   restore: Restore
   delete_confirm: Are you sure?
-  edit_table_title: 'Edit table'
+  edit_table_title: Edit table
   status: Status
   table_not_found: Can't find table
   update_table_suc: Update table success
@@ -54,7 +55,6 @@ en:
   phone: Phone number
   address: Address
   person_number: Number of person
-  name: Name
   show_order_banner: Listing Orders
   create_reservation: Create reservation
   person_count: Person count
@@ -79,7 +79,7 @@ en:
   edit: Edit
   delete: Delete
   add: Add
-  id: "ID"
+  id: ID
   name: Name
   price: Price
   stock: Stock
@@ -104,7 +104,6 @@ en:
   create_product_fail: Create product failed! Something wrong!
   show_product_title: Show product
   list_product_title: List product
-  new_product: New product
   product_not_found: Can't found product
   edit_product: Edit product
   product_update_suc: Update product sucessed!
@@ -130,6 +129,7 @@ en:
   create_at_desc: Newest
   create_at_asc: Oldest
   search: Search
+  searched: Searched
   cannot_sort: Can't sort by selected type
   cate_deleted: Category successfully deleted!
   cate_deleted_fail: Fail to delete category!
@@ -146,7 +146,6 @@ en:
   remember: Remember password
   newuser: Didn't have account?
   email: Email
-  name: Name
   confirmation: Password confirmation
   new_acc: I'm so hungry. Make me a new account right now!
   user_not_found: Can't find user
@@ -180,7 +179,7 @@ en:
   categories: Categories
   orders: Orders
   reservations: Reservations
-  products: Products
+  product: Product
   tables: Tables
   users: Users
   product_list: List products
@@ -207,3 +206,15 @@ en:
   errors_not_a_number: is not a number
   errors_taken: has already been taken
   invalid_errors: is invalid
+  dashboard: Dashboard
+  category_name: Category name
+  search_with_result_cate: "Searched category: [%{search_text}] with %{count} results."
+  search_with_result_product: "Searched category: [%{search_text}] with %{count} results."
+  no_result_found_cate: "No results found with category: [%{search_text}] !!!"
+  no_result_found_product: "No results found with product: [%{search_text}] !!!"
+  edit_category: Edit Category
+  list_category: List Category
+  create_category: Create Category
+  control: Control
+  create_product: Create Product
+  admin: Admin

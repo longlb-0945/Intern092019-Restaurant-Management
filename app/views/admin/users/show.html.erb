@@ -1,0 +1,36 @@
+<% provide :title, t("show_profile") %>
+<% provide :big_banner, t("show_profile") %>
+<div class="row show_user show_user_header">
+  <%= image_tag @user.image, alt: "", class: "show_user_icon" if @user.image.attached? %>
+  <hr class="image_divider">
+</div>
+<div class="row show_user">
+  <table class="table table-responsive show_user_table">
+    <tr>
+      <td class="show_user_label"><b><%= t "name" %>:</b></td>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <td class="show_user_label"><b><%= t "email" %>:</b></td>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <td class="show_user_label"><b><%= t "created_at" %>:</b></td>
+      <td><%= time_tag @user.created_at %></td>
+    </tr>
+    <tr>
+      <td class="show_user_label"><b><%= t "updated_at" %>:</b></td>
+      <td><%= time_tag @user.updated_at %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><hr class="table_divider"></td>
+    </tr>
+    <tr>
+      <td colspan="2" class="td_btn_show_profile">
+
+        <%= link_to t("change_pass"), new_password_reset_path, class: "btn btn-primary" %>
+        <%= link_to t("edit"), edit_admin_user_path, class: "btn btn-primary" %>
+      </td>
+    </tr>
+  </table>
+</div>

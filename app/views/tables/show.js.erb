@@ -1,9 +1,0 @@
-$('#modal-table-number').text('<%= "#{t "table_number"}: #{@table.table_number}" %>');
-$('#modal-max_size').text('<%= "#{t "max_size"}: #{@table.max_size}" %>');
-$('#modal-status').text('<%= "#{t "status"}: #{@table.status}" %>');
-<% if current_user&.admin? %>
-  $('#modal-edit-link').attr('href', '<%= edit_table_url(@table) %>');
-<% else %>
-  $('#modal-edit-link').parent().remove();
-<% end %>
-$('#my-modal').modal('show');

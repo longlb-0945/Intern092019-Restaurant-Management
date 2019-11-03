@@ -16,6 +16,7 @@ gem "mysql2", ">= 0.4.4"
 gem "puma", "~> 3.11"
 gem "rails", "~> 6.0.0"
 gem "sass-rails", "~> 5"
+gem "turbolinks", "~> 5.2.0"
 gem "webpacker", "~> 4.0"
 
 group :development, :test do

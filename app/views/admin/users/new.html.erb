@@ -1,0 +1,27 @@
+<% provide :title, t("sign_up") %>
+<% provide :big_banner, t("sign_up") %>
+<div class="row create_user">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [:admin, @user] do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+
+      <%= f.label t"name" %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label t"email" %>
+      <%= f.email_field :email, class: "form-control" %>
+
+      <%= f.label t"password" %>
+      <%= f.password_field :password, class: "form-control" %>
+
+      <%= f.label t"confirmation" %>
+      <%= f.password_field :password_confirmation, class: "form-control" %>
+
+      <% if logged_in? && current_user.admin? %>
+        <%= f.submit t("new_acc_admin"), class: "btn btn-primary" %>
+      <% else %>
+        <%= f.submit t("new_acc"), class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

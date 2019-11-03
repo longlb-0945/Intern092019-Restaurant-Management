@@ -1,0 +1,38 @@
+<% provide :title, t("list_user_banner") %>
+<% provide :small_banner, t("manage_banner") %>
+<% provide :big_banner, t("list_user_banner") %>
+<div class="row add_cate">
+  <%= link_to new_admin_user_path do %>
+    <button class="btn btn-primary add_cate_btn">
+      <%= t "create_user" %>
+    </button>
+  <% end %>
+</div>
+<div class="row list_user search_row">
+  <%= form_tag search_admin_users_path, class: "form_search", method: :get do %>
+    <%= text_field_tag :search, params[:search], class: "search_box" %>
+    <%= submit_tag t("search"), class: "btn btn-primary btn_search_box" %>
+  <% end %>
+  <%= form_tag sort_admin_users_path, class: "form_sort", method: :get do %>
+    <%= select_tag :sort, options_for_select(user_sort_opt, params[:sort]) , id: "sort_select" %>
+  <% end %>
+</div>
+<div class="row list_user">
+  <table class="table table-bordered table-hover table_index table_cates table-sm">
+    <thead class="thead-dark">
+      <tr>
+        <th class="users_num"></th>
+        <th class="users_name"><%= t "name" %></th>
+        <th class="users_email"><%= t "email" %></th>
+        <th class="users_join"><%= t "join" %></th>
+        <th class="users_role"><%= t "role" %></th>
+        <th class="users_status"><%= t "status" %></th>
+        <th class="users_btn"></th>
+      </tr>
+    </thead>
+    <%= render @users %>
+  </table>
+  <div class = "row paginate_row" >
+    <%= paginate @users %>
+  </div>
+</div>
