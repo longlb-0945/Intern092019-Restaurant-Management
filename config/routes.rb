@@ -5,7 +5,11 @@ Rails.application.routes.draw do
     get "admin/dashboard", to: "admin#dashboard"
 
     namespace :admin do
-      resources :tables
+      resources :tables do
+        collection do
+          get :sort, to: "tables#sort"
+        end
+      end
       resources :orders do
         resources :order_details do
           member do

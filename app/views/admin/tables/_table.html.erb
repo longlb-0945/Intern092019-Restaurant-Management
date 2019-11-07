@@ -1,6 +1,18 @@
-<div class="table_btn_list">
-  <button class="<%= "btn table_button " + check_table_status(table) %>" data-id="<%= table.id %>">
-    <%= table.table_number %><br>
-    <%= image_tag Settings.icon_table, alt: "", class: "table-icon" %>
-  </button>
-</div>
+<tr class="trow">
+  <td></td>
+  <td>
+    <span class="btn-sm bg-danger table-col-table-num"><%= table.table_number %></span>
+  </td>
+  <td>
+    <span class="btn-sm btn-default"><%= table.max_size %></span>
+  </td>
+  <td>
+    <span class="btn <%= check_table_status(table) %>"><%= table.status.humanize %></span>
+  </td>
+  <td>
+    <%= link_to t("edit"), edit_admin_table_path(table), class: "btn btn-info" %>
+    <%= form_tag admin_table_path(table), method: :delete, class: "control-action-form" do %>
+      <%= render partial: "button", locals: {table: table} %>
+    <% end %>
+  </td>
+</tr>

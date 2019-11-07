@@ -66,7 +66,7 @@ class Admin::CategoriesController < AdminController
     if Category.sort_enums.keys.include? params[:sort]
       @categories = @categories.send params[:sort]
     else
-      flash.now[:danger] = t "cannot_sort"
+      flash.now[:danger] = t "sort_param_fail"
     end
     @categories = @categories.page(params[:page]).per Settings.pagenate_category
     render :index

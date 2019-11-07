@@ -24,7 +24,7 @@
     <div class="card-body">
       <div class="form-group row">
         <div class="col-2 col-form-label">
-          <%= f.label t "name" %>
+          <%= f.label t "name" %><span class="input-require">*</span>
         </div>
         <div class="col-10">
           <%= f.text_field :name, class: "form-control", placeholder: t("name") %>

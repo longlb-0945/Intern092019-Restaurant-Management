@@ -57,7 +57,7 @@ class Admin::ProductsController < AdminController
                          .page(params[:page]).per Settings.pagenate_products
       render :index
     else
-      flash[:danger] = t "product_sort_param_fail"
+      flash[:danger] = t "sort_param_fail"
       redirect_to admin_products_path
     end
   end
