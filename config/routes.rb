@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     root "static_pages#home"
 
     get "admin/dashboard", to: "admin#dashboard"
-    devise_for :users, controllers: { registrations: "users/registrations" }
+    devise_for :users, controllers: {registrations: "users/registrations"}
     resources :users, only: [:show, :edit, :update]
     resources :orders, only: [:new, :create]
 
@@ -19,11 +19,15 @@ Rails.application.routes.draw do
             get :update_amount, to: "order_details#update_amount"
           end
         end
+        collection do
+          get :search
+          get :sort, to: "orders#sort"
+        end
         member do
           get :order_status, to: "orders#order_status_change"
+          post :order_update_table, to: "orders#order_update_table"
         end
       end
-      resources :order_tables
       resources :products do
         collection do
           get :sort, to: "products#sort"

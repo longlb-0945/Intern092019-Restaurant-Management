@@ -24,7 +24,7 @@
     <div class="card-body">
       <div class="form-group row">
         <div class="col-2 col-form-label">
-          <%= f.label t "name" %><span class="input-require">*</span>
+          <%= f.label t "name", class: "input-require" %>
         </div>
         <div class="col-10">
           <%= f.text_field :name, class: "form-control", placeholder: t("name"), required: true %>
@@ -35,12 +35,12 @@
           <%= f.label t "short_description" %>
         </div>
         <div class="col-10">
-         <%= f.text_field :short_description, class: "form-control", placeholder: t("short_description"), required: true %>
+         <%= f.text_field :short_description, class: "form-control", placeholder: t("short_description") %>
         </div>
       </div>
       <div class="form-group row">
         <div class="col-2 col-form-label">
-          <%= f.label t "category" %><span class="input-require">*</span>
+          <%= f.label t "category", class: "input-require" %>
         </div>
         <div class="col-10">
           <%= f.select(:category_id, load_categories, {include_hidden: false}, class: "form-control") %>
@@ -48,7 +48,7 @@
       </div>
       <div class="form-group row">
         <div class="col-2 col-form-label">
-           <%= f.label t "price" %> (<span><%= t "currency" %></span>)<span class="input-require">*</span>
+           <%= f.label t "price", class: "input-require" %> (<span><%= t "currency" %></span>)
         </div>
         <div class="col-10">
           <%= f.number_field :price, min: Settings.min_price_allow, class: "form-control", placeholder: t("price"), step: Settings.min_price_allow, required: true %>
@@ -56,7 +56,7 @@
       </div>
       <div class="form-group row">
         <div class="col-2 col-form-label">
-          <%= f.label t "stock" %><span class="input-require">*</span>
+          <%= f.label t "stock", class: "input-require" %>
         </div>
         <div class="col-10">
           <%= f.number_field :stock, min: Settings.min_stock_allow, class: "form-control", placeholder: t("stock"), required: true %>
