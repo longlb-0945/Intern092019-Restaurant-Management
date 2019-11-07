@@ -1,5 +1,5 @@
-class CategoriesController < ApplicationController
-  before_action :not_login
+class Admin::CategoriesController < AdminController
+  before_action :authenticate_user!
   before_action :check_admin
   before_action :load_category, only: %i(edit update destroy)
 
@@ -56,7 +56,7 @@ class CategoriesController < ApplicationController
     if Category.sort_enums.keys.include? params[:sort]
       @categories = @categories.send params[:sort]
     else
-      flash[:danger] = t "cannot_sort"
+      flash.now[:danger] = t "sort_param_fail"
     end
     @categories = @categories.page(params[:page]).per Settings.pagenate_category
     render :index

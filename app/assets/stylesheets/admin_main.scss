@@ -1,0 +1,159 @@
+@import 'color_main';
+
+.input-require{
+  color: $red;
+  margin-left: 5px;
+}
+
+// custom form error
+#error_explanation{
+  color: $red;
+}
+
+// admin flash message
+.admin-flash-message{
+  width: 400px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+// paginate
+.pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: $white;
+  border: 1px solid $solid-white-2;
+  border-left-width: 0;
+}
+
+.paginate_row{
+  text-align: center;
+  margin: 0 2%;
+}
+
+.pagination {
+  margin: 8px auto;
+  border-left: 1px solid $solid-white-3;
+  color: $black;
+  .first{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .prev {
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .page{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .next{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .last{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+}
+
+// table index
+table {
+  counter-reset: rowNumber;
+  width: 100%;
+}
+
+table .trow {
+  counter-increment: rowNumber;
+}
+
+table .trow td:first-child::before {
+  content: counter(rowNumber);
+  min-width: 1em;
+  margin-right: 0.5em;
+}
+
+// category index
+.category-name{
+  display: inline-block;
+}
+
+.category-img{
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+.top-index-new{
+  margin-bottom: 10px;
+}
+
+.div-top-search{
+  width: 200px;
+}
+
+// category new
+.preview-img{
+  width: 250px;
+  height: 250px;
+  &:hover{
+    border: 2px solid $palegreen;
+    width: 220px;
+    height: 220px;
+  }
+}
+
+.form-category-new{
+  width: 80%;
+  margin: 0 auto;
+}
+
+// product index
+.product-img{
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+}
+
+// product new
+.form-product-new{
+  width: 90%;
+  margin: 0 auto;
+}
+
+// product show
+.product-show-wrap-img{
+  padding: 5px;
+  padding-top: 10px;
+  img{
+    max-width: 500px;
+    height: 280px;
+    &:hover{
+      height: 320px;
+      border: 2px solid $aqua;
+      max-width: 500px;
+    }
+  }
+}
+
+// table index
+.table-col-table-num{
+  width: 2em !important;
+}
+
+.control-action-form{
+  display: inline;
+}
+
+// table new
+.form-table-new{
+  width: 70%;
+  margin: 0 auto;
+}

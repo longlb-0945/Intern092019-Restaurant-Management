@@ -1,0 +1,14 @@
+<% provide :title, t("show_order_banner") %>
+<% provide :small_banner, t("manage_banner") %>
+<% provide :big_banner, t("show_order_banner") %>
+<div class="row note_order">
+  <button class="btn btn-primary create_order_button">
+    <%= link_to t("create_reservation"), new_admin_order_path %>
+  </button>
+</div>
+<div class="row list_table order_list">
+  <%= render @orders %>
+</div>
+<div class = "row paginate_row" >
+  <%= paginate @orders %>
+</div>

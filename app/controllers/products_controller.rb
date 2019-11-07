@@ -1,5 +1,5 @@
-class ProductsController < ApplicationController
-  before_action :not_login, except: :show
+class Admin::ProductsController < AdminController
+  before_action :authenticate_user!, except: :show
   before_action :check_admin, except: :show
   before_action :load_product, only: %i(show edit update destroy)
 
@@ -57,8 +57,8 @@ class ProductsController < ApplicationController
                          .page(params[:page]).per Settings.pagenate_products
       render :index
     else
-      flash[:danger] = t "product_sort_param_fail"
-      redirect_to products_path
+      flash[:danger] = t "sort_param_fail"
+      redirect_to admin_products_path
     end
   end
 

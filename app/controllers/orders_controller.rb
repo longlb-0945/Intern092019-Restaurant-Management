@@ -1,5 +1,5 @@
-class OrdersController < ApplicationController
-  before_action :not_login
+class Admin::OrdersController < AdminController
+  before_action :authenticate_user!, except: %i(new create)
   before_action :guest_not_allow, except: %i(new create)
   before_action :load_order, except: %i(index new create)
 

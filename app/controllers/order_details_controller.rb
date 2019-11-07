@@ -1,5 +1,5 @@
-class OrderDetailsController < ApplicationController
-  before_action :not_login
+class Admin::OrderDetailsController < AdminController
+  before_action :authenticate_user!
   before_action :guest_not_allow
   before_action :load_order_detail, only: %i(update_amount destroy)
   before_action :load_order, only: %i(index)

@@ -1,0 +1,29 @@
+<% provide :title, t("change_pass") %>
+<% provide :big_banner, t("change_pass") %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.hidden_field :reset_password_token %>
+
+      <div class="field">
+        <%= f.label t "new_pass" %><br />
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> <%= t "minimum_pass_length" %>)</em><br />
+        <% end %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label t "confirm_new_pass" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit t("change_pass"), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
+    <%= render "users/shared/links" %>
+  </div>
+</div>
