@@ -5,7 +5,7 @@ OrderTable.delete_all
 
 
 3.times do |n|
-  table_number = n
+  table_number = n + 1
   max_size = 5
   Table.create!(
   id: n+1,
@@ -15,7 +15,7 @@ OrderTable.delete_all
 end
 
 3.times do |n|
-  table_number = n + 3
+  table_number = n + 4
   max_size = 5
   Table.create!(
     id: n+4,
@@ -25,7 +25,7 @@ end
 end
 
 3.times do |n|
-  table_number = n + 6
+  table_number = n + 7
   max_size = 5
   Table.create!(
     id: n+7,

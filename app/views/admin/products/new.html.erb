@@ -1,0 +1,82 @@
+<% provide :title, t("new_product_title") %>
+<% content_for :content_header do %>
+  <div class="row mb-2">
+    <div class="col-sm-6">
+      <h1 class="m-0 text-dark"><%= t("create_product").upcase %></h1>
+    </div>
+    <div class="col-sm-6">
+      <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item">
+          <%= link_to t("dashboard"), admin_dashboard_path %>
+        </li>
+        <li class="breadcrumb-item">
+          <%= link_to t("list_product_title"), admin_products_path %>
+        </li>
+        <li class="breadcrumb-item active"><%= t "create_product" %></li>
+      </ol>
+    </div>
+  </div>
+<% end %>
+
+<%= form_for [:admin, @product], html: {class: "form-horizontal form-product-new"} do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group row">
+        <div class="col-2 col-form-label">
+          <%= f.label t "name" %>
+        </div>
+        <div class="col-10">
+          <%= f.text_field :name, class: "form-control", placeholder: t("name"), required: true %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-2 col-form-label">
+          <%= f.label t "short_description" %>
+        </div>
+        <div class="col-10">
+         <%= f.text_field :short_description, class: "form-control", placeholder: t("short_description"), required: true %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-2 col-form-label">
+          <%= f.label t "category" %>
+        </div>
+        <div class="col-10">
+          <%= f.select(:category_id, load_categories, {include_hidden: false}, class: "form-control") %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-2 col-form-label">
+           <%= f.label t "price" %> (<span><%= t "currency" %></span>)
+        </div>
+        <div class="col-10">
+          <%= f.number_field :price, min: Settings.min_price_allow, class: "form-control", placeholder: t("price"), step: Settings.min_price_allow, required: true %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-2 col-form-label">
+          <%= f.label t "stock" %>
+        </div>
+        <div class="col-10">
+          <%= f.number_field :stock, min: Settings.min_stock_allow, class: "form-control", placeholder: t("stock"), required: true %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-2 col-form-label">
+          <%= f.label t "image" %>
+        </div>
+        <div class="col-10">
+          <%= f.file_field :image, class: "form-control upload-img" %>
+        </div>
+      </div>
+      <div class="row">
+        <%= image_tag "product_default.png", class: "rounded mx-auto d-block preview-img" %>
+      </div>
+    </div>
+
+    <div class="card-footer text-center">
+      <%= f.submit t("submit"), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

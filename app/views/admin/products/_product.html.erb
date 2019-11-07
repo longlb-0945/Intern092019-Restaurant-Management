@@ -1,0 +1,23 @@
+<tr class="trow">
+  <td></td>
+  <td>
+    <%= image_tag product.image, class: "product-img" if product.image.attached? %>
+    <%= link_to product.name, admin_product_path(product) %>
+  </td>
+  <td><%= product.category_name %></td>
+  <td><%= product.price %></td>
+  <td><%= product.stock %></td>
+  <td>
+    <label class="badge bg-<%= product_status_check(product) %>"><%= product.status.humanize %></label>
+  </td>
+  <td>
+    <label class="badge bg-<%= product_status_check(product) %>"><%= product.total_rate %></label>
+  </td>
+  <td>
+    <%= link_to t("edit"), edit_admin_product_path(product), class: "btn btn-info", remote: true %>
+    <% if product.enable? %>
+      <%= link_to t("disable"), admin_product_path(product), method: :delete, class: "btn btn-danger",
+        data: {confirm: t("delete_confirm")} %>
+    <% end %>
+  </td>
+</tr>

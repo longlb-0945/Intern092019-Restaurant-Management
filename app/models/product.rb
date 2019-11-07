@@ -46,6 +46,8 @@ class Product < ApplicationRecord
   end
   scope :order_category_asc, ->{joins(:category).order("categories.name ASC")}
   scope :order_category_desc, ->{joins(:category).order("categories.name DESC")}
+  scope :created_at_desc, ->{order("created_at DESC")}
+  scope :updated_at_desc, ->{order("updated_at DESC")}
   scope :search_by_name,
         ->(text){where("LOWER(name) LIKE ?", "%" << text.downcase << "%")}
   scope :available, ->{where("status = 0 AND stock > 0")}
