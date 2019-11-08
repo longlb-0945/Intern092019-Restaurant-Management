@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
   SCOPE_SORT = %w(name_asc name_desc email_asc
     email_desc status_asc status_desc).freeze
 
@@ -28,8 +33,6 @@ class User < ApplicationRecord
   scope :search,
         ->(data){where "name LIKE ? or email LIKE ?", "%#{data}%", "%#{data}%"}
 
-  attr_accessor :remember_token, :reset_token
-
   VALID_EMAIL_REGEX = Settings.email_regex
 
   before_save :downcase_email
@@ -44,10 +47,6 @@ class User < ApplicationRecord
     length: {maximum: Settings.maximum_email_length},
     format: {with: VALID_EMAIL_REGEX},
     uniqueness: {case_sensitive: false}
-  validates :password, presence: true,
-    length: {minimum: Settings.minimum_password_length}, allow_nil: true
-
-  has_secure_password
 
   class << self
     def digest string

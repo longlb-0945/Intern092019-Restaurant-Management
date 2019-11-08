@@ -1,0 +1,13 @@
+<tr class="trow">
+  <td></td>
+  <td>
+    <div>
+      <%= image_tag category.image, alt: "", class: "category-img" if category.image.attached? %>
+      <p class="category-name"><%= category.name %></p>
+    </div>
+  </td>
+  <td>
+    <%= link_to t("edit"), edit_admin_category_path(category.id), class: "btn btn-primary" %>
+    <%= link_to t("delete"), [:admin, category], class: "btn btn-danger", method: :delete, data: { confirm: t("delete_confirm") } %>
+  </td>
+</tr>

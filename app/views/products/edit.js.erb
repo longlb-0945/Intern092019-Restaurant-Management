@@ -1,8 +1,0 @@
-$('#my-modal form').attr('action', '<%= product_path(@product) %>');
-$('#product_name').val('<%= @product.name %>');
-$('#product_category_id option').removeAttr('selected');
-$('#product_category_id option[value=<%= @product.category_id %>]').attr('selected', 'selected');
-$('#product_price').val('<%= @product.price %>');
-$('#product_stock').val('<%= @product.stock %>');
-$('#product_short_description').val('<%= @product.short_description %>');
-$('#my-modal').modal('show');

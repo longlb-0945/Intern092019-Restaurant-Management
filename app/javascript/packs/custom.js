@@ -46,6 +46,15 @@ $('document').ready(function(){
     show_modal(table_id);
   });
 
+  $(document).on('click', '.respond_btn', function(){
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  });
+
   $(document).on('change', '.order-detail-change-quantily', function(){
     let data = $(this).data('id').split('-');
     update_amount(data[0], data[1]);

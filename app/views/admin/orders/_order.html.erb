@@ -1,0 +1,23 @@
+<div class="card order_card_list">
+  <div class="card-header">
+    <h3><%= t "reservation" %>: <%= order.id %></h3>
+  </div>
+  <hr>
+  <div class="card-body">
+    <h5><b class="badge name-item"><%= t "name" %>: </b></h5><div class="order_name"><p><%= order.name %></p></div>
+    <h5><b class="badge phone-item"><%= t "phone" %>: </b></h5><p><%= order.phone %><br></p>
+    <h5><b class="badge count-item"><%= t "person_count" %>: </b></h5><p><%= order.person_number %><br></p>
+    <h5><b class="badge status-item"><%= t "status" %>: </b></h5><p><span class= "<%= check_order_status order %>"><%= order.status %></span></p>
+  </div>
+  <hr>
+  <div class="card-footer">
+    <%= link_to admin_edit_order_path(order), class: "btn-order-edit" do %>
+      <button class="btn btn-primary"><%= t "details" %></button>
+    <% end %>
+    <% if order.accepted? || order.paid? %>
+      <%= link_to admin_order_order_details_path(order), class: "btn-order-edit" do %>
+        <button class="btn btn-success"><%= t "order" %></button>
+      <% end %>
+    <% end %>
+  </div>
+</div>

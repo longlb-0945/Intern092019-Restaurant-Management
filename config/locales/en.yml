@@ -1,4 +1,5 @@
 en:
+  restaurant_name: HUST & SUN
   app_title: Restaurant Manager
   create_table_suc: successfully create table
   made_with: Made with
@@ -38,8 +39,7 @@ en:
   disable: Disable
   restore: Restore
   delete_confirm: Are you sure?
-  edit_table_title: 'Edit table'
-  status: Status
+  edit_table_title: Edit table
   table_not_found: Can't find table
   update_table_suc: Update table success
   update_table_fail: Update table failed!
@@ -47,18 +47,15 @@ en:
   disable_table_fail: Can't disable this table! Something wrong!
   table_number: Table number
   max_size: Max size
-  status: Status
   book: Book
   new_reservation_title: New reservation
   booking: -Booking-
   phone: Phone number
   address: Address
   person_number: Number of person
-  name: Name
   show_order_banner: Listing Orders
   create_reservation: Create reservation
   person_count: Person count
-  status: Status
   details: Details
   order: Order
   edit_order_title: Edit order
@@ -79,7 +76,7 @@ en:
   edit: Edit
   delete: Delete
   add: Add
-  id: "ID"
+  id: ID
   name: Name
   price: Price
   stock: Stock
@@ -104,7 +101,6 @@ en:
   create_product_fail: Create product failed! Something wrong!
   show_product_title: Show product
   list_product_title: List product
-  new_product: New product
   product_not_found: Can't found product
   edit_product: Edit product
   product_update_suc: Update product sucessed!
@@ -112,7 +108,7 @@ en:
   product_disable_suc: Disable product sucessed!
   product_disable_fail: Disable product failed!
   sort: Sort
-  product_sort_param_fail: Param sent not match! Try some!
+  sort_param_fail: Param sent not match! Try some!
   product_search_fail: Search for product name failed!
   currency: VND
   new_category_title: New category
@@ -130,6 +126,7 @@ en:
   create_at_desc: Newest
   create_at_asc: Oldest
   search: Search
+  searched: Searched
   cannot_sort: Can't sort by selected type
   cate_deleted: Category successfully deleted!
   cate_deleted_fail: Fail to delete category!
@@ -138,7 +135,7 @@ en:
   sign_up: Sign up
   welcome: Welcome to out restaurant!
   invalid: Invalid email/password combination
-  login: Login
+  login: Log in
   logout: Logout
   profile: Profile
   history: History
@@ -146,7 +143,6 @@ en:
   remember: Remember password
   newuser: Didn't have account?
   email: Email
-  name: Name
   confirmation: Password confirmation
   new_acc: I'm so hungry. Make me a new account right now!
   user_not_found: Can't find user
@@ -180,7 +176,7 @@ en:
   categories: Categories
   orders: Orders
   reservations: Reservations
-  products: Products
+  product: Product
   tables: Tables
   users: Users
   product_list: List products
@@ -202,8 +198,37 @@ en:
   user_banner: User settings
   created_at_desc: Newest
   created_at_asc: Oldest
-  forgoted: (forgot password)
+  forgoted: Forgot your password?
   errors_blank: can't be blank
   errors_not_a_number: is not a number
   errors_taken: has already been taken
   invalid_errors: is invalid
+  dashboard: Dashboard
+  category_name: Category name
+  search_with_result_cate: "Searched category: [%{search_text}] with %{count} results."
+  search_with_result_product: "Searched category: [%{search_text}] with %{count} results."
+  no_result_found_cate: "No results found with category: [%{search_text}] !!!"
+  no_result_found_product: "No results found with product: [%{search_text}] !!!"
+  edit_category: Edit Category
+  list_category: List Category
+  create_category: Create Category
+  control: Control
+  create_product: Create Product
+  admin: Admin
+  hello: Hello
+  notice_reset_pass: Someone has requested a link to change your password. You can do this through the link below.
+  change_pass: Change my password
+  ignore_email: If you didn't request this, please ignore this email.
+  pass_wont_change: Your password won't change until you access the link above and create a new one.
+  new_pass: New password
+  minimum_pass_length: characters minimum
+  confirm_new_pass: Confirm new password
+  submit_send_reset: Send me reset password instructions
+  note_reset: leave blank if you don't want to change it
+  curr_pass: current_password
+  note_curr_pass: we need your current password to confirm your changes
+  update: Update
+  back: Back
+  resend: Didn't receive confirmation instructions?
+  enable: Enable
+  edit_user: Edit profile
