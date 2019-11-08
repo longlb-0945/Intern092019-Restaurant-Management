@@ -1,22 +1,47 @@
 <% provide :title, t("new_table_title") %>
-<% provide :small_banner, t("manage_banner") %>
-<% provide :big_banner, t("create_table_banner") %>
-<div class="row table-top-banner">
-  <%= link_to t("table_list"), admin_tables_path, class: "stretched-link" %>
-  <span>-> <%= t("new_table") %></span>
-</div>
-<div class="row create_table">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for [:admin, @table] do |f| %>
-      <%= render "shared/error_messages", object: f.object %>
-
-      <%= f.label t "number_table" %>
-      <%= f.number_field :table_number, min: Settings.min_table_number, class: "form-control" %>
-
-      <%= f.label t "table_size" %>
-      <%= f.number_field :max_size, min: Settings.min_table_size, max: Settings.max_table_size, class: "form-control" %>
-
-      <%= f.submit t("submit"), class: "btn btn-primary" %>
-    <% end %>
+<% content_for :content_header do %>
+  <div class="row mb-2">
+    <div class="col-sm-6">
+      <h1 class="m-0 text-dark"><%= t("create_table").upcase %></h1>
+    </div>
+    <div class="col-sm-6">
+      <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item">
+          <%= link_to t("dashboard"), admin_dashboard_path %>
+        </li>
+        <li class="breadcrumb-item">
+          <%= link_to t("table_list"), admin_tables_path %>
+        </li>
+        <li class="breadcrumb-item active"><%= t "create_table" %></li>
+      </ol>
+    </div>
   </div>
-</div>
+<% end %>
+
+<%= form_for [:admin, @table], html: {class: "form-horizontal form-table-new"} do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group row">
+        <div class="col-2 col-form-label">
+           <%= f.label t "number_table" %><span class="input-require">*</span>
+        </div>
+        <div class="col-10">
+         <%= f.number_field :table_number, min: Settings.min_table_number, class: "form-control", placeholder: t("table_number"), required: true %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-2 col-form-label">
+          <%= f.label t "max_size" %><span class="input-require">*</span>
+        </div>
+        <div class="col-10">
+           <%= f.number_field :max_size, min: Settings.min_table_size, max: Settings.max_table_size, class: "form-control", placeholder: t("table_size"), required: true %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer text-center">
+      <%= f.submit t("submit"), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

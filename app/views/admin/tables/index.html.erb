@@ -1,40 +1,55 @@
 <% provide :title, t("show_table_banner") %>
-<% provide :small_banner, t("manage_banner") %>
-<% provide :big_banner, t("show_table_banner") %>
-<div class="row note_table">
-  <% if current_user&.admin? %>
-    <button class="btn btn-primary create_table_button">
-      <%= link_to t("create_table"), new_admin_table_path %>
-    </button>
-  <% end %>
-  <p><%= t "note" %>:
-    <span class="note_available"><%= t "available" %></span>
-    <span class="note_occupied"><%= t "occupied" %></span>
-    <span class="note_disable"><%= t "disable" %></span>
-  </p>
+<% content_for :content_header do %>
+  <div class="row mb-2">
+    <div class="col-sm-6">
+      <h1 class="m-0 text-dark"><%= t("table_list").upcase %></h1>
+    </div>
+    <div class="col-sm-6">
+      <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item">
+          <%= link_to t("dashboard"), admin_dashboard_path %>
+        </li>
+        <li class="breadcrumb-item active"><%= t "table_list" %></li>
+      </ol>
+    </div>
+  </div>
+<% end %>
+
+<div class="text-center">
+  <%= link_to t("create_table"), new_admin_table_path, class: "btn btn-success top-index-new" %>
 </div>
-<div class="row list_table">
-  <%= render @tables %>
-</div>
-<div class="row paginate_row" >
-  <%= paginate @tables %>
-</div>
-<div class="modal fade" id="my-modal" role="dialog">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><%= t "table_info" %></h4>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-tools float-left">
+        <%= form_tag sort_admin_tables_path, class: "form-inline", method: :get do %>
+          <div class="form-group">
+            <%= select_tag :sort, options_for_select(table_sort_list, params[:sort]), class: "custom-select sort-select" %>
+          </div>
+        <% end %>
+        </div>
       </div>
-      <div class="modal-body">
-        <p id="modal-table-number" class="badge"></p><br><hr>
-        <p id="modal-max_size" class="badge"></p><br><hr>
-        <span id="modal-status"></span>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-info btn-modal-edit">
-          <%= link_to t("edit"), "#", id: "modal-edit-link" %>
-        </button>
+
+      <div class="card-body table-responsive p-0">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th><%= t "table_number" %></th>
+              <th><%= t "max_size" %></th>
+              <th><%= t "status" %></th>
+              <th><%= t "control" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @tables %>
+          </tbody>
+        </table>
+        <div class="row paginate_row" >
+          <%= paginate @tables %>
+        </div>
       </div>
     </div>
   </div>

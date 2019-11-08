@@ -1,9 +1,20 @@
 @import 'color_main';
 
+.input-require{
+  color: $red;
+  margin-left: 5px;
+}
+
+// custom form error
+#error_explanation{
+  color: $red;
+}
+
 // admin flash message
 .admin-flash-message{
+  width: 400px;
   text-align: center;
-  margin: 10px;
+  margin: 0 auto;
 }
 
 // paginate
@@ -112,7 +123,7 @@ table .trow td:first-child::before {
 }
 
 // product new
-.form-category-new{
+.form-product-new{
   width: 90%;
   margin: 0 auto;
 }
@@ -128,4 +139,19 @@ table .trow td:first-child::before {
       border: 2px solid $aqua;
     }
   }
+}
+
+// table index
+.table-col-table-num{
+  width: 2em !important;
+}
+
+.control-action-form{
+  display: inline;
+}
+
+// table new
+.form-table-new{
+  width: 70%;
+  margin: 0 auto;
 }

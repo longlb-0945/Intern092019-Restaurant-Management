@@ -40,15 +40,11 @@ en:
   restore: Restore
   delete_confirm: Are you sure?
   edit_table_title: Edit table
-  status: Status
   table_not_found: Can't find table
   update_table_suc: Update table success
   update_table_fail: Update table failed!
-  disable_table_suc: Disabled table!
-  disable_table_fail: Can't disable this table! Something wrong!
   table_number: Table number
   max_size: Max size
-  status: Status
   book: Book
   new_reservation_title: New reservation
   booking: -Booking-
@@ -58,7 +54,6 @@ en:
   show_order_banner: Listing Orders
   create_reservation: Create reservation
   person_count: Person count
-  status: Status
   details: Details
   order: Order
   edit_order_title: Edit order
@@ -111,7 +106,7 @@ en:
   product_disable_suc: Disable product sucessed!
   product_disable_fail: Disable product failed!
   sort: Sort
-  product_sort_param_fail: Param sent not match! Try some!
+  sort_param_fail: Param sent not match! Try some!
   product_search_fail: Search for product name failed!
   currency: VND
   new_category_title: New category
@@ -130,7 +125,6 @@ en:
   create_at_asc: Oldest
   search: Search
   searched: Searched
-  cannot_sort: Can't sort by selected type
   cate_deleted: Category successfully deleted!
   cate_deleted_fail: Fail to delete category!
   cate_confirm: Are you sure you want to delete this category
@@ -167,6 +161,7 @@ en:
   create_user_succ: User created!
   user_confirm: Are you sure you want to delete this user?
   disable: Disable
+  enable: Enable
   no_permision: You don't have permision to do this!
   please_login: Please login!
   user_update_success: Update user successfully

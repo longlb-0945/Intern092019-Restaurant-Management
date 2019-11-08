@@ -1,15 +1,10 @@
 class Admin::TablesController < AdminController
   before_action :check_admin, except: %i(index show)
-  before_action :load_table, except: %i(index new create)
+  before_action :load_table, except: %i(index new create sort)
 
   def index
-    @tables = if current_user&.admin?
-                Table.order_number.page(params[:page])
-                     .per Settings.pagenate_tables
-              else
-                Table.usefull.order_number.page(params[:page])
-                     .per Settings.pagenate_tables
-              end
+    @tables = Table.send(order_key).page(params[:page])
+                   .per Settings.pagenate_tables
   end
 
   def new
@@ -20,9 +15,9 @@ class Admin::TablesController < AdminController
     @table = Table.new table_params
     if @table.save
       flash[:success] = t "create_table_suc"
-      redirect_to admin_tables_path
+      redirect_to admin_tables_path(action_update: "create")
     else
-      flash[:danger] = t "create_table_fail"
+      flash.now[:danger] = t "create_table_fail"
       render :new
     end
   end
@@ -32,15 +27,36 @@ class Admin::TablesController < AdminController
   def update
     if @table.update table_params
       flash[:success] = t "update_table_suc"
-      redirect_to admin_tables_path
+      redirect_to admin_tables_path(action_update: "update")
     else
-      flash[:danger] = t "update_table_fail"
+      flash.now[:danger] = t "update_table_fail"
       render :edit
     end
   end
 
   def show
     respond_to :js
+  end
+
+  def destroy
+    table_occupied
+    if @table.send("#{params[:table_action]}!")
+      flash[:success] = t "update_table_suc"
+    else
+      flash[:danger] = t "update_table_fail"
+    end
+    redirect_to admin_tables_path(action_update: "update")
+  end
+
+  def sort
+    if Table::ORDER_SORT_HASH.values.include? params[:sort]
+      @tables = Table.send(params[:sort])
+                     .page(params[:page]).per Settings.pagenate_tables
+      render :index
+    else
+      flash[:danger] = t "sort_param_fail"
+      redirect_to admin_tables_path
+    end
   end
 
   private
@@ -54,5 +70,22 @@ class Admin::TablesController < AdminController
 
     flash[:danger] = t "table_not_found"
     redirect_to admin_tables_path
+  end
+
+  def table_occupied
+    return unless @table.occupied?
+
+    flash[:danger] = "#{I18n.t('occupied')}!!!"
+    redirect_to admin_tables_path
+  end
+
+  def order_key
+    if params[:action_update].eql?("update")
+      :updated_at_desc
+    elsif params[:action_update].eql?("create")
+      :created_at_desc
+    else
+      :order_status
+    end
   end
 end
