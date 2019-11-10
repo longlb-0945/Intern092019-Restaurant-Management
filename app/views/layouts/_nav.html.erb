@@ -1,182 +1,46 @@
-<div class="container nav_container">
-  <div class="btn-group nav_hover">
-    <div class="attr-nav dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-      <ul>
-        <li class="hover-menu">
-          <i class="fa fa-bars"></i>
-        </li>
-      </ul>
-    </div>
-    <ul class="dropdown-menu main-menu">
-
-      <li class="dropdown-submenu sub-menu">
-        <%= link_to "", class: "dropdown-item menu-item", tabindex: "-1" do %>
-          <p>
-            <i class="fas fa-clipboard-list">&ensp;
-            </i><%= t("product_list") %>  <i class="fas fa-angle-double-right"></i>
-          </p>
-        <% end %>
-        <ul class="dropdown-menu main-menu">
-          <%= render partial: "layouts/cate_nav", collection: load_cate, as: :category %>
-        </ul>
-      </li>
-
-      <li role="separator" class="divider"></li>
-      <li class="dropdown-submenu sub-menu">
-        <%= link_to "", class: "dropdown-item menu-item", tabindex: "-1" do %>
-          <p>
-            <i class="fas fa-newspaper"></i>&ensp;
-            <%= t("about") %>
-          </p>
-        <% end %>
-      </li>
-
-      <li role="separator" class="divider"></li>
-      <li class="dropdown-submenu sub-menu">
-        <%= link_to "", class: "dropdown-item menu-item", tabindex: "-1" do %>
-          <p>
-            <i class="fas fa-phone-volume"></i>&ensp;
-            <%= t("contact") %>
-          </p>
-        <% end %>
-      </li>
-
-      <li role="separator" class="divider"></li>
-        <li class="dropdown-submenu sub-menu">
-          <%= link_to admin_tables_path, class: "dropdown-item menu-item", tabindex: "-1" do %>
-            <p>
-              <i class="fas fa-table"></i>
-              <%= t("tables") %>  <i class="fas fa-angle-double-right"></i>
-            </p>
-          <% end %>
-          <% if current_user&.admin? %>
-            <ul class="dropdown-menu main-menu">
-              <li>
-                <%= link_to new_admin_table_path, class: "dropdown-item menu-item", tabindex: "-1" do %>
-                  <p><i class="fas fa-plus-circle"></i>&ensp;<%= t("new_table_title") %></p>
-                <% end %>
-              </li>
-            </ul>
-          <% end %>
-        </li>
-
-      <% if current_user && !current_user.guest? %>
-        <% if current_user.admin? %>
-          <li role="separator" class="divider"></li>
-          <li class="dropdown-submenu sub-menu">
-            <%= link_to admin_categories_path, class: "dropdown-item menu-item", tabindex: "-1" do %>
-              <p>
-                <i class="fas fa-th-list"></i>
-                <%= t("categories") %>  <i class="fas fa-angle-double-right"></i>
-              </p>
-            <% end %>
-            <ul class="dropdown-menu main-menu">
-              <li>
-                <%= link_to new_admin_category_path, class: "dropdown-item menu-item", tabindex: "-1" do %>
-                  <p><i class="fas fa-plus-circle"></i>&ensp;<%= t("new_category_title") %></p>
-                <% end %>
-              </li>
-            </ul>
-          </li>
-        <% end %>
-
-        <li role="separator" class="divider"></li>
-        <li class="dropdown-submenu sub-menu">
-          <%= link_to admin_orders_path, class: "dropdown-item menu-item", tabindex: "-1" do %>
-            <p>
-              <i class="fas fa-bookmark"></i>
-              <%= t("reservations") %>  <i class="fas fa-angle-double-right"></i>
-            </p>
-          <% end %>
-          <ul class="dropdown-menu main-menu">
-            <li>
-              <%= link_to new_admin_order_path, class: "dropdown-item menu-item", tabindex: "-1" do %>
-                <p><i class="fas fa-plus-circle"></i>&ensp;<%= t("new_reservation_title") %></p>
-              <% end %>
-            </li>
-          </ul>
-        </li>
-
-        <% if current_user.admin? %>
-          <li role="separator" class="divider"></li>
-          <li class="dropdown-submenu sub-menu">
-            <%= link_to admin_products_path, class: "dropdown-item menu-item", tabindex: "-1" do %>
-              <p>
-                <i class="fas fa-cubes"></i>
-                <%= t("products") %>  <i class="fas fa-angle-double-right"></i>
-              </p>
-            <% end %>
-            <ul class="dropdown-menu main-menu">
-              <li>
-                <%= link_to new_admin_product_path, class: "dropdown-item menu-item", tabindex: "-1" do %>
-                  <p><i class="fas fa-plus-circle"></i>&ensp;<%= t("new_product_title") %></p>
-                <% end %>
-              </li>
-            </ul>
-          </li>
-        <% end %>
-
-        <% if current_user.admin? %>
-          <li role="separator" class="divider"></li>
-          <li class="dropdown-submenu sub-menu">
-            <%= link_to admin_users_path, class: "dropdown-item menu-item", tabindex: "-1" do %>
-              <p>
-                <i class="fas fa-user-friends"></i>
-                <%= t("users") %>  <i class="fas fa-angle-double-right"></i>
-              </p>
-            <% end %>
-            <ul class="dropdown-menu main-menu">
-              <li>
-                <%= link_to new_admin_user_path, class: "dropdown-item menu-item", tabindex: "-1" do %>
-                  <p><i class="fas fa-plus-circle"></i>&ensp;<%= t("create_user") %></p>
-                <% end %>
-              </li>
-            </ul>
-          </li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
-
-  <div class="navbar-header">
+<div class="topnav" id="myTopnav">
+  <div class="nav-header">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag Settings.img_logo, alt: "", class: "logo" %>
     <% end %>
   </div>
 
-  <div class="form-group has-feedback has-search search_nav">
-    <span class="glyphicon glyphicon-search form-control-feedback"></span>
-    <input type="text" class="form-control" placeholder="Search">
-  </div>
-
-  <div class="button_book">
-    <%= link_to new_admin_order_path do %>
-      <button class="btn btn-danger book_table">
-        <%= image_tag Settings.reservation_icon, alt: "", class: "reservation_icon" %>
-        <%= t "book", class: "button_book_text" %>
-      </button>
-    <% end %>
-  </div>
-
-
   <div class="pull-right profile">
-    <ul class="nav pull-right profile_ul">
-      <% if logged_in? %>
-        <li class="dropdown dropdown-toggle nav_dropdown" data-toggle="dropdown">
+    <%= form_tag "", class: "nav-item search_form_nav", method: :get do %>
+      <%= text_field_tag :search, params[:search], class: "hover_search form-control", placeholder: "search" %>
+      <%= button_tag(type: "submit", class: "btn btn_search") do %>
+        <i class="glyphicon glyphicon-search"></i>
+      <% end %>
+    <% end %>
+
+    <%= link_to t("home"), "", class: "nav-item nav-link-item" %>
+    <%= link_to t("about"), "", class: "nav-item nav-link-item" %>
+    <%= link_to t("menu"), "", class: "nav-item nav-link-item" %>
+    <%= link_to t("contact"), "", class: "nav-item nav-link-item" %>
+
+    <div class="nav-item">
+      <%= link_to new_order_path, class: "btn btn-danger" do %>
+        <span>Book a table</span>
+      <% end %>
+    </div>
+
+    <ul class="nav profile_ul">
+      <% if user_signed_in? %>
+        <li class="dropdown dropdown-toggle" data-toggle="dropdown">
           <div class="user_name_nav">
             <%= image_tag current_user.image, alt: "", class: "user_icon" if current_user.image.attached? %>
             <div class="user_name"><p><%= current_user.name %></p></div>
           </div>
           <ul class="dropdown-menu">
-            <li><%= link_to t("profile"), [:admin, current_user], method: :get %></li>
+            <li><%= link_to t("profile"), user_path(id: current_user.id), method: :get %></li>
             <li><%= link_to t("history"), "" %></li>
             <li class="divider"></li>
-            <li><%= link_to t("logout"), logout_path, method: :delete %></li>
+            <li><%= link_to t("logout"), destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
       <% else %>
         <li class="li_login_path">
-          <%= link_to login_path, class: "link_to_login" do %>
+          <%= link_to new_user_session_path, class: "link_to_login" do %>
             <button class="btn btn-danger login_btn">
               <%= t "login", class: "login_btn_text" %>
             </button>

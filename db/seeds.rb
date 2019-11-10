@@ -5,7 +5,7 @@ OrderTable.delete_all
 
 
 3.times do |n|
-  table_number = n + 1
+  table_number = n +1
   max_size = 5
   Table.create!(
   id: n+1,
@@ -34,8 +34,10 @@ end
      status: 2)
 end
 
-u = User.create!(id: 1, name: "admin", email: "abc@gmail.com", role: 0, password: "111111", password_confirmation: "111111")
-u.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "default_user.png")), filename: "category.png")
+u = User.create!(id: 1, name: "admin", email: "abc@gmail.com", password: "111111", password_confirmation: "111111", role: 0)
+u.image.attach io: File.open(Rails.root
+  .join("app", "assets", "images", "default_user.png")),
+  filename: "category.png"
 u.save
 
 c = Category.create(id: 1, name: "food")

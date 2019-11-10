@@ -1,5 +1,4 @@
 class Admin::OrdersController < AdminController
-  before_action :not_login
   before_action :guest_not_allow, except: %i(new create)
   before_action :load_order, except: %i(index new create)
 

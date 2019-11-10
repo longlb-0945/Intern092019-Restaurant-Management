@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  include Image
+
   ORDER_SORT_LIST = %w(order_name_asc order_name_desc
     order_category_asc order_category_desc
     order_price_asc order_price_desc order_stock_asc order_stock_desc).freeze

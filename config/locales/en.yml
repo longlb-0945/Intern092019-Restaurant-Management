@@ -43,6 +43,8 @@ en:
   table_not_found: Can't find table
   update_table_suc: Update table success
   update_table_fail: Update table failed!
+  disable_table_suc: Disabled table!
+  disable_table_fail: Can't disable this table! Something wrong!
   table_number: Table number
   max_size: Max size
   book: Book
@@ -125,6 +127,7 @@ en:
   create_at_asc: Oldest
   search: Search
   searched: Searched
+  cannot_sort: Can't sort by selected type
   cate_deleted: Category successfully deleted!
   cate_deleted_fail: Fail to delete category!
   cate_confirm: Are you sure you want to delete this category
@@ -132,7 +135,7 @@ en:
   sign_up: Sign up
   welcome: Welcome to out restaurant!
   invalid: Invalid email/password combination
-  login: Login
+  login: Log in
   logout: Logout
   profile: Profile
   history: History
@@ -161,7 +164,6 @@ en:
   create_user_succ: User created!
   user_confirm: Are you sure you want to delete this user?
   disable: Disable
-  enable: Enable
   no_permision: You don't have permision to do this!
   please_login: Please login!
   user_update_success: Update user successfully
@@ -196,7 +198,7 @@ en:
   user_banner: User settings
   created_at_desc: Newest
   created_at_asc: Oldest
-  forgoted: (forgot password)
+  forgoted: Forgot your password?
   errors_blank: can't be blank
   errors_not_a_number: is not a number
   errors_taken: has already been taken
@@ -213,3 +215,22 @@ en:
   control: Control
   create_product: Create Product
   admin: Admin
+  hello: Hello
+  notice_reset_pass: Someone has requested a link to change your password. You can do this through the link below.
+  change_pass: Change my password
+  ignore_email: If you didn't request this, please ignore this email.
+  pass_wont_change: Your password won't change until you access the link above and create a new one.
+  new_pass: New password
+  minimum_pass_length: characters minimum
+  confirm_new_pass: Confirm new password
+  submit_send_reset: Send me reset password instructions
+  note_reset: leave blank if you don't want to change it
+  curr_pass: current_password
+  note_curr_pass: we need your current password to confirm your changes
+  update: Update
+  back: Back
+  resend: Didn't receive confirmation instructions?
+  enable: Enable
+  edit_user: Edit profile
+  about: About
+  menu: Menu

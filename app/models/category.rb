@@ -1,4 +1,6 @@
 class Category < ApplicationRecord
+  include Image
+
   enum sort_enum: {default: 0, name_asc: 1, name_desc: 2,
                    create_at_asc: 3, create_at_desc: 4}
 

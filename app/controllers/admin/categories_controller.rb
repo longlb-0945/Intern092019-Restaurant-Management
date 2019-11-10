@@ -1,5 +1,4 @@
 class Admin::CategoriesController < AdminController
-  before_action :not_login
   before_action :check_admin
   before_action :load_category, only: %i(edit update destroy)
 
@@ -17,7 +16,7 @@ class Admin::CategoriesController < AdminController
   def create
     @category = Category.new category_params
     if @category.save
-      attach_image
+      @category.attach_image params
       flash[:success] = t "create_category_suc"
       redirect_to admin_categories_path
     else
@@ -30,7 +29,7 @@ class Admin::CategoriesController < AdminController
 
   def update
     if @category.update category_params
-      attach_image
+      @category.attach_image params
       flash[:success] = t "update_category_suc"
       redirect_to admin_categories_path(action_update: "update")
     else
@@ -84,18 +83,6 @@ class Admin::CategoriesController < AdminController
 
     flash[:danger] = t "category_not_found"
     redirect_to admin_categories_path
-  end
-
-  def attach_image
-    if params[:category][:image].blank?
-      if params[:action].eql? "create"
-        @category.image.attach(io: File.open(Rails.root
-          .join("app", "assets", "images", "category.png")),
-          filename: "category.png")
-      end
-    else
-      @category.image.attach params[:category][:image]
-    end
   end
 
   def search_flash_success

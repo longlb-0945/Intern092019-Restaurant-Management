@@ -133,10 +133,12 @@ table .trow td:first-child::before {
   padding: 5px;
   padding-top: 10px;
   img{
+    max-width: 500px;
     height: 280px;
     &:hover{
       height: 320px;
       border: 2px solid $aqua;
+      max-width: 500px;
     }
   }
 }
