@@ -8,6 +8,7 @@ gem "bcrypt"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap-sass"
 gem "config"
+gem "devise"
 gem "figaro"
 gem "i18n-js"
 gem "jbuilder", "~> 2.7"

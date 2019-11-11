@@ -29,7 +29,7 @@
   <td>
     <%= link_to t("edit"), edit_admin_user_path(user.id), class: "btn btn-primary btn_edit" %>
     <% if !user.disable? %>
-      <%= link_to t("disable"), user, class: "btn btn-danger btn_delete", id: "btn_disable_#{user.id}",
+      <%= link_to t("disable"), destroy_user_admin_users_path(user.id), class: "btn btn-danger btn_delete", id: "btn_disable_#{user.id}",
         method: :delete, data: { confirm: t("user_confirm") }, remote: true %>
     <% end %>
   </td>

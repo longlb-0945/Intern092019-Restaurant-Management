@@ -1,5 +1,4 @@
 class Admin::ProductsController < AdminController
-  before_action :not_login, except: :show
   before_action :check_admin, except: :show
   before_action :load_product, only: %i(show edit update destroy)
 
@@ -16,7 +15,7 @@ class Admin::ProductsController < AdminController
 
   def create
     @product = Product.new product_params
-    product_image_attach
+    @product.attach_image params
     if @product.save
       flash[:success] = t "create_product_suc"
       redirect_to admin_product_path(@product)
@@ -34,7 +33,7 @@ class Admin::ProductsController < AdminController
 
   def update
     if @product.update product_params
-      product_image_attach
+      @product.attach_image params
       flash[:success] = t "product_update_suc"
     else
       flash[:dander] = t "product_update_fail"
@@ -86,18 +85,6 @@ class Admin::ProductsController < AdminController
 
     flash[:danger] = t "product_not_found"
     redirect_to admin_products_path
-  end
-
-  def product_image_attach
-    if params[:product][:image].blank?
-      if params[:action].eql? "create"
-        @product.image.attach(io: File.open(Rails.root
-            .join("app", "assets", "images", "default.png")),
-              filename: "product_default.png")
-      end
-    else
-      @product.image.attach(params[:product][:image])
-    end
   end
 
   def search_flash_success
