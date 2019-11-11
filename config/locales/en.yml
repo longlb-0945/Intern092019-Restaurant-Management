@@ -246,3 +246,6 @@ en:
   order_person_number_desc: Number person high to low
   order_total_amount_asc: Total amount low to high
   order_total_amount_desc: Total amount high to low
+  search_with_result_order: "Searched order: [%{search_text}] with %{count} results."
+  paid_success: Paid successed!
+  quantily_negative: Quantily is invalid! Try some!

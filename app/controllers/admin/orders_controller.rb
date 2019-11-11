@@ -36,7 +36,7 @@ class Admin::OrdersController < AdminController
   end
 
   def search
-    @orders = Order.search(params[:search])
+    @orders = Order.search_by_freeword(params[:search])
                    .page(params[:page]).per Settings.pagenate_orders
     if @orders.empty?
       flash.now[:danger] =
@@ -77,6 +77,17 @@ class Admin::OrdersController < AdminController
   rescue ActiveRecord::RecordInvalid
     flash[:danger] = t "cancel_order_fail"
     redirect_to edit_admin_order_path(@order)
+  end
+
+  def paid
+    prevent_paid_params
+    @order.paid!
+    update_order_status if @order.paid?
+    flash[:success] = t "paid_success"
+    redirect_to admin_order_order_details_path(@order)
+  rescue ActiveRecord::RecordInvalid
+    flash[:danger] = t "cancel_order_fail"
+    redirect_to admin_orders_path
   end
 
   private
@@ -147,5 +158,16 @@ class Admin::OrdersController < AdminController
     order_key = arr.size == 2 ? arr[0] : "#{arr[0]}_#{arr[1]}"
     @orders = Order.order_by(order_key, arr.last).page(params[:page])
                    .per Settings.pagenate_products
+  end
+
+  def prevent_paid_params
+    if @order.total_amount <= 0
+      flash[:danger] = "You don't have any product!"
+      redirect_to admin_order_order_details_path(@order)
+    end
+    return unless @order.paid?
+
+    flash[:danger] = "Fail when paid order! Something wrong!"
+    redirect_to admin_order_order_details_path(@order)
   end
 end
