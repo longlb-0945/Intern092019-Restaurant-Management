@@ -1,0 +1,9 @@
+<tr>
+  <td>
+    <%= link_to order.name, admin_order_order_details_path(order.id) %>
+  </td>
+  <td><%= order.phone %></td>
+  <td><%= order.address %></td>
+  <td><%= order.person_number %></td>
+  <td><span class="badge badge-success"><%= order.status %></span></td>
+</tr>

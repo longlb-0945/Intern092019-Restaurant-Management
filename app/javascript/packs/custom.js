@@ -15,6 +15,8 @@ function readURL(input) {
 }
 
 $('document').ready(function(){
+  $('.alert').delay(5000).fadeOut();
+
   $('.dropdown-toggle').on('mouseenter', function () {
     if (!$(this).parent().hasClass('show')) {
         $(this).click();

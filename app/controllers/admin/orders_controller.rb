@@ -3,9 +3,11 @@ class Admin::OrdersController < AdminController
   before_action :load_order, except: %i(index new create search sort)
   before_action :not_accepted, only: %i(update)
   before_action ->{params_for_search Order}, only: %i(index search sort)
+  load_and_authorize_resource :order
 
   def index
-    @orders = Order.page(params[:page]).per Settings.pagenate_orders
+    @orders = Order.order_by(:created_at, :DESC)
+                   .page(params[:page]).per Settings.pagenate_orders
   end
 
   def new

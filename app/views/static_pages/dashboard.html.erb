@@ -1,4 +1,148 @@
 <% provide :title, t("dashboard") %>
-<div style="text-align: center">
-  <h1><%= t "admin" %> <%= t "dashboard" %></h1>
+<div class="row">
+  <div class="col-lg-3 col-6">
+    <div class="small-box bg-info">
+      <div class="inner">
+        <h3><%= order_count %></h3>
+        <p><%= t "card_order" %></p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-bag"></i>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6">
+    <div class="small-box bg-success">
+      <div class="inner">
+        <h3><%= total_revenue %><sup style="font-size: 20px">VND</sup></h3>
+        <p><%= t "sale" %></p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-stats-bars"></i>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6">
+    <div class="small-box bg-warning">
+      <div class="inner">
+        <h3><%= guest_count %></h3>
+        <p><%= t "card_reg" %></p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-person-add"></i>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6">
+    <div class="small-box bg-danger">
+      <div class="inner">
+        <h3><%= uniq_visitors %></h3>
+        <p><%= t "card_uniq" %></p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-pie-graph"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title"><%= t "tbl_newest_mem" %></h3>
+        <div class="card-tools">
+          <span class="badge badge-danger"><%= latest_members.count %> <%= t "members" %></span>
+          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive users-list">
+          <table class="table m-0">
+            <thead>
+            <tr>
+              <th><%= t "name" %></th>
+              <th><%= t "email" %></th>
+              <th><%= t "status" %></th>
+              <th><%= t "join" %></th>
+            </tr>
+            </thead>
+            <tbody>
+              <% latest_members.each do |member| %>
+                <%= render "static_pages/latest_member", member: member %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer text-center">
+        <%= link_to t("view_all"), admin_users_path %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title"><%= t "tbl_count_product" %></h3>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card-body p-0 count_product_by_category">
+        <% count_product_by_category.each do |count_products| %>
+          <div class="info-box mb-3 <%= cate_rand_color %>">
+            <span class="info-box-icon"><i class="fas fa-tag"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text"><%= count_products[0] %></span>
+              <span class="info-box-number"><%= count_products[1] %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="card-footer text-center">
+        <%= link_to t("view_all"), admin_categories_path %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title"><%= t "tbl_latest_order" %></h3>
+        <div class="card-tools">
+          <span class="badge badge-danger"><%= latest_orders.count %> <%= t "orders" %></span>
+          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive users-list">
+          <table class="table m-0">
+            <thead>
+            <tr>
+              <th><%= t "name" %></th>
+              <th><%= t "phone" %></th>
+              <th><%= t "address" %></th>
+              <th><%= t "person_num" %></th>
+              <th><%= t "status" %></th>
+            </tr>
+            </thead>
+            <tbody>
+              <% latest_orders.each do |order| %>
+                <%= render "static_pages/latest_order", order: order %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer text-center">
+        <%= link_to t("view_all"), admin_orders_path %>
+      </div>
+    </div>
+  </div>
 </div>

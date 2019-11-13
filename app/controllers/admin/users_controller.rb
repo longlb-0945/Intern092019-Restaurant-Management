@@ -1,5 +1,8 @@
 class Admin::UsersController < AdminController
   before_action :find_user, except: %i(index new create search sort)
+  before_action ->{params_for_search User}, only: %i(index search sort)
+  before_action :grant_update_role, only: %i(edit update)
+  load_and_authorize_resource :user
 
   def index
     @users = User.page(params[:page]).per Settings.pagenate_user
@@ -15,14 +18,8 @@ class Admin::UsersController < AdminController
     @user = User.new user_params
     @user.attach_image params, :user
     if @user.save
-      if current_user.admin?
-        flash[:success] = t "create_user_succ"
-        redirect_to admin_users_path
-      else
-        log_in @user
-        flash[:success] = t "welcome"
-        redirect_to root_path
-      end
+      flash[:success] = t "create_user_succ"
+      redirect_to admin_users_path
     else
       render :new
     end
@@ -51,8 +48,15 @@ class Admin::UsersController < AdminController
   end
 
   def search
-    @users = User.search(params[:search])
-                 .page(params[:page]).per Settings.pagenate_user
+    @users = @q.result
+               .page(params[:page]).per Settings.pagenate_user
+    if @users.empty?
+      flash.now[:danger] =
+        I18n.t("no_result_found_user",
+               search_text: params[:search])
+    else
+      search_flash_success
+    end
     render :index
   end
 
@@ -78,10 +82,23 @@ class Admin::UsersController < AdminController
     return if @user = User.find_by(id: params[:id])
 
     flash[:danger] = t "user_not_found"
-    redirect_to root_path
+    redirect_to admin_dashboard_path
   end
 
   def rev_user_status
     @user.enable? ? "disable" : "enable"
+  end
+
+  def search_flash_success
+    flash.now[:success] =
+      I18n.t("search_with_result_user",
+             search_text: params[:search], count: @users.size)
+  end
+
+  def grant_update_role
+    return unless current_user.id == params[:id].to_i
+
+    flash[:danger] = t "access_denied"
+    redirect_to admin_dashboard_path
   end
 end

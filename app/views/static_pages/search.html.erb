@@ -19,7 +19,7 @@
 
   <div class="row">
     <% if @products.empty? %>
-      <div class="alert alert-danger"><%= t "category_no_product" %></div>
+      <div class="alert alert-danger no_product"><%= t "category_no_product" %></div>
     <% else %>
       <%= render @products %>
     <% end %>

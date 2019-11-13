@@ -14,6 +14,8 @@ function readURL(input) {
 }
 
 $('document').ready(function(){
+  $('.alert').delay(5000).fadeOut();
+
   $(document).on('change', '.upload-img', function(){
     readURL(this);
   });
@@ -34,6 +36,10 @@ $('document').ready(function(){
       alert("You don't have any product!");
       return false;
     }
+  });
+
+  $('.order-table-select').select2({
+    placeholder: I18n.t('pick_table_placeholder')
   });
 
   setInterval(function(){
@@ -65,8 +71,8 @@ function update_amount(order_id, order_detail_id){
   });
 }
 
-$(document).on('turbolinks:render', function() {
-  console.log('Turbolink render...');
+$(document).on('turbolinks:load', function() {
+  console.log('Turbolink load...');
   $('.order-table-select').select2({
     placeholder: I18n.t('pick_table_placeholder')
   });

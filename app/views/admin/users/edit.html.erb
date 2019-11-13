@@ -24,7 +24,7 @@
     <div class="card-body">
       <div class="form-group row">
         <div class="col-2 col-form-label">
-          <%= f.label t "role" %><span class="input-require">*</span>
+          <%= f.label t "role" %><span class="input-require"></span>
         </div>
         <div class="col-10 select_role">
           <%= f.select(:role, options_for_select(load_role_select, @user.role_before_type_cast), {include_hidden: false}, class: "form-control") %>

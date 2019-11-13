@@ -29,6 +29,10 @@ class User < ApplicationRecord
   scope :created_at_desc, ->{order created_at: :desc}
   scope :created_at_asc, ->{order created_at: :asc}
   scope :default, ->{order id: :asc}
+  scope :latest_members, (lambda do
+    where("created_at >= ? AND role = ?",
+          Settings.latest_record.days.ago, Settings.guest_role)
+  end)
   scope :role_asc, ->{order role: :asc}
 
   VALID_EMAIL_REGEX = Settings.email_regex

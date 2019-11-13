@@ -269,3 +269,30 @@ en:
   order_price_desc: Price high to low
   order_stock_asc: Stock low to high
   order_stock_desc: Stock high to low
+  ago: ago
+  card_order: Total Orders
+  sale: Sale revenue
+  card_reg: User Registrations
+  card_uniq: Unique Visitors
+  tbl_newest_mem: Latest Members
+  members: Members
+  join: Join date
+  view_all: View all
+  tbl_count_product: Product count by categories
+  tbl_latest_order: Latest Orders
+  person_num: Number of person
+  add_cate: New category
+  list_cate: Categories list
+  add_order: New order
+  list_order: Orders list
+  add_table: New table
+  list_table: Tables list
+  products: Products
+  add_product: New product
+  list_product: Products list
+  add_user: New user
+  list_users: Users list
+  unac_order: pending orders
+  no_result_found_user: "No results found with user!!!"
+  search_with_result_user: "Searched user with %{count} results.."
+  manage: Manage

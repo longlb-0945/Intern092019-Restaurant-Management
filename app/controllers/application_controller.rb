@@ -2,8 +2,6 @@ class ApplicationController < ActionController::Base
   before_action :set_locale, :params_for_search_ransack
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_category_nav, if: :admin_controller?
-  load_and_authorize_resource
-  skip_authorize_resource if: :devise_controller?
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:warning] = exception.message

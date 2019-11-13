@@ -10,7 +10,7 @@ class Ability
     when "admin"
       can :manage, :all
     when "staff"
-      can :manage, [OrderDetail, OrderTable, Order]
+      can :manage, [Admin, OrderDetail, OrderTable, Order]
     when "guest"
       can :create, Order
     end

@@ -75,3 +75,6 @@ Rails/ReflectionClassName:
 
 Rails/HelperInstanceVariable:
   Enabled: false
+
+Rails/LexicallyScopedActionFilter:
+  Enabled: false

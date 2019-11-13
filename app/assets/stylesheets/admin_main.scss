@@ -166,7 +166,6 @@ table .trow td:first-child::before {
   width: 50px;
   height: 50px;
   border: 2px solid $yellow;
-  display: block;
 }
 
 .order-person-empty{
@@ -186,6 +185,7 @@ table .trow td:first-child::before {
 }
 
 .order-status-paid{
+  color: $white;
   background-color: $dark-white;
 }
 
@@ -332,4 +332,141 @@ table .trow td:first-child::before {
 .form-user-new{
   width: 90%;
   margin: 0 auto;
+}
+
+.count_product_by_category, .users-list{
+  height: 288px;
+  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: auto
+}
+
+.img_user_dash{
+  width: 50px;
+}
+
+.show_user_icon{
+  border-radius: 50%;
+  width: 15%;
+}
+
+.image_divider{
+  border-color: $darkred;
+  width: 50%;
+}
+
+.row_profile{
+  display: block;
+  text-align: center;
+}
+
+.show_user_table{
+  float: left;
+  position: relative;
+  left: 50%;
+  overflow: visible;
+  width: fit-content;
+
+  tbody{
+    float: left;
+    position: relative;
+    left: -50%;
+  }
+}
+
+.show_user_table th, .show_user_table td{
+  border-top: 0px;
+}
+
+.table_divider{
+  border-color: darkred;
+  width: 170%;
+  margin-left: -35%;
+}
+
+.td_btn_show_profile{
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+border: 1px solid $aquamarine;
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+background: $aquamarine;
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: $info-color;
+}
+
+.order_num{
+  width: 2%;
+}
+
+.order_staff{
+  width: 10%;
+}
+
+.order_cus{
+  width: 10%;
+}
+
+.order_stat{
+  width: 6%;
+}
+
+.order_name{
+  width: 12%;
+}
+
+.order_phone{
+  width: 10%;
+}
+
+.order_addr{
+  width: 10%;
+}
+
+.order_person{
+  width: 10%;
+}
+
+.order_total{
+  width: 7%;
+}
+
+.order_control{
+  width: 25%;
+}
+
+.tbl-order, .tbl-cate, .tbl-product, .tbl-cate{
+  th, td{
+    text-align: center;
+  }
+}
+
+.noti_dash{
+  cursor: pointer;
+}
+
+.select_table{
+  .select2-container{
+    width: 100% !important;
+    min-width: 0px !important;
+  }
+}
+
+.cate_details{
+  div{
+    text-align: left;
+    margin-left: 30%;
+  }
 }
