@@ -23,18 +23,18 @@
   <div class="card">
     <div class="card-body">
       <div class="form-group row">
-        <div class="col-2 col-form-label">
-           <%= f.label t "number_table", class: "input-require" %>
+        <div class="col-3 col-form-label">
+           <%= f.label t("number_table"), class: "input-require" %>
         </div>
-        <div class="col-10">
+        <div class="col-9">
          <%= f.number_field :table_number, min: Settings.min_table_number, class: "form-control", placeholder: t("table_number"), required: true %>
         </div>
       </div>
       <div class="form-group row">
-        <div class="col-2 col-form-label">
-          <%= f.label t "max_size", class: "input-require" %>
+        <div class="col-3 col-form-label">
+          <%= f.label t("max_size"), class: "input-require" %>
         </div>
-        <div class="col-10">
+        <div class="col-9">
            <%= f.number_field :max_size, min: Settings.min_table_size, max: Settings.max_table_size, class: "form-control", placeholder: t("table_size"), required: true %>
         </div>
       </div>

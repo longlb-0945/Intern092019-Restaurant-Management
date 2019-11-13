@@ -1,5 +1,4 @@
 class Admin::TablesController < AdminController
-  before_action :check_admin, except: %i(index show)
   before_action :load_table, except: %i(index new create sort)
 
   def index

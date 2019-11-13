@@ -1,11 +1,7 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :find_user, :correct_user
+  before_action :authenticate_user!, :find_user
 
   def show; end
-
-  def correct_user
-    redirect_to root_path unless current_user&.admin? || current_user == @user
-  end
 
   private
 

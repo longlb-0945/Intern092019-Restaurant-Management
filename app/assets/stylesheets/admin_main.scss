@@ -253,3 +253,83 @@ table .trow td:first-child::before {
 .paid-img{
   width: 200px;
 }
+
+//user
+.user_img{
+  width: 50px;
+}
+
+.users_num{
+  width: 3%;
+}
+
+.users_name{
+  width: 25%;
+}
+
+.users_email{
+  width: 15%;
+}
+
+.users_join{
+  width: 20%;
+}
+
+.users_role{
+  width: 10%;
+}
+
+.users_status{
+  width: 10%;
+}
+
+.users_btn{
+  width: 17%;
+}
+
+.user_img, .user_name{
+  display: inline-block;
+}
+
+.table-user{
+  text-align: center;
+}
+
+.select_role{
+  text-align: center;
+}
+
+.role_admin{
+  background-color: $coral;
+  color: $black;
+}
+
+.role_staff{
+  background-color: $green-yellow;
+  color: $black;
+}
+
+.role_guest{
+  background-color: $palegreen;
+  color: $black;
+}
+
+.status_enable{
+  background-color: $palegreen;
+  color: $black;
+}
+
+.status_disable{
+  background-color: $gray-light;
+  color: $black;
+}
+
+.user_name_content, .user_email_content, .user_join_content, .user_role_content, .user_status_content, .user_btn_content, .user_incre_content{
+  vertical-align: middle !important;
+  margin-top: 1em;
+}
+
+.form-user-new{
+  width: 90%;
+  margin: 0 auto;
+}

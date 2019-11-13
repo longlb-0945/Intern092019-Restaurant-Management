@@ -1,5 +1,4 @@
 class Admin::ProductsController < AdminController
-  before_action :check_admin, except: :show
   before_action :load_product, only: %i(show edit update destroy)
   before_action ->{params_for_search Product}, only: %i(index search)
 

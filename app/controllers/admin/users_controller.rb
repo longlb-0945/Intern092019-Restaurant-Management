@@ -1,6 +1,9 @@
 class Admin::UsersController < AdminController
-  before_action :find_user, only: %i(show edit update correct_user)
-  before_action :correct_user, only: %i(show edit update)
+  before_action :find_user, except: %i(index new create search sort)
+
+  def index
+    @users = User.page(params[:page]).per Settings.pagenate_user
+  end
 
   def show; end
 
@@ -12,7 +15,7 @@ class Admin::UsersController < AdminController
     @user = User.new user_params
     @user.attach_image params
     if @user.save
-      if logged_in? && current_user.admin?
+      if current_user.admin?
         flash[:success] = t "create_user_succ"
         redirect_to admin_users_path
       else
@@ -28,26 +31,18 @@ class Admin::UsersController < AdminController
   def edit; end
 
   def update
-    if @user.update user_params
-      if current_user.admin?
-        set_role
-      else
-        @user.attach_image params
-        flash[:success] = t "user_update_success"
-        redirect_to @user
-      end
+    if params[:user][:role].present? &&
+       @user.update(role: params[:user][:role].to_i)
+      flash[:success] = t "edit_user_succ"
+      redirect_to admin_users_path
     else
       flash[:danger] = t "user_update_fail"
       render :edit
     end
   end
 
-  def correct_user
-    redirect_to root_path unless current_user&.admin? || current_user?(@user)
-  end
-
   def destroy
-    if @user.disable!
+    if @user.send("#{rev_user_status}!")
       respond_to :js
     else
       flash[:danger] = t "user_delete_failed"
@@ -84,5 +79,9 @@ class Admin::UsersController < AdminController
 
     flash[:danger] = t "user_not_found"
     redirect_to root_path
+  end
+
+  def rev_user_status
+    @user.enable? ? "disable" : "enable"
   end
 end

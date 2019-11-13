@@ -3,8 +3,8 @@ Rails.application.routes.draw do
     root "static_pages#home"
 
     get "admin/dashboard", to: "admin#dashboard"
-    devise_for :users, controllers: {registrations: "users/registrations"}
-    resources :users, only: [:show, :edit, :update]
+    devise_for :users, controllers: { registrations: "users/registrations" }
+    resources :users, only: :show
     resources :orders, only: [:new, :create]
 
     namespace :admin do
@@ -43,9 +43,8 @@ Rails.application.routes.draw do
       end
       resources :users do
         collection do
-          delete ":id", to: "admin/users#destroy", as: :destroy_user
-          get :search, to: "admin/users#search"
-          get :sort, to: "admin/users#sort"
+          get :search, to: "users#search"
+          get :sort, to: "users#sort"
         end
       end
     end
