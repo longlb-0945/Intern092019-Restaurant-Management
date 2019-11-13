@@ -1,7 +1,18 @@
 <% if @order.accepted? %>
-  <h1><%= t "table_list" %>:</h1>
+  <%= form_tag order_update_table_admin_order_path(@order), class: "form-horizontal form-order-table-pick" do %>
+    <div class="card">
+      <div class="card-body">
+        <div class="form-group">
+          <label class=""><%= t "table_list" %>:</label>
+          <div class="">
+            <%= select_tag :table_ids, options_for_select(load_order_table(@order), selected: load_order_preselected(@order)), include_hidden: true, id: "order-table-select", class: "form-control", multiple: true %>
+          </div>
+        </div>
+      </div>
 
-  <%= fs.select :table_ids, load_order_table(@order), {include_hidden: true, selected: load_order_preselected(@order)}, id: "order-table-select", multiple: true %>
-
-  <%= fs.submit t("submit"), class: "btn btn-primary" %>
+      <div class="card-footer text-center">
+        <input type="submit" class="btn btn-primary" value="<%= t "submit" %>">
+      </div>
+    </div>
+  <% end %>
 <% end %>

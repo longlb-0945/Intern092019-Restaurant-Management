@@ -20,4 +20,8 @@ $('document').ready(function(){
   $(document).on('change', '.sort-select', function() {
     this.form.submit();
   });
+
+  $('#order-table-select').select2({
+    placeholder: I18n.t('pick_table_placeholder')
+  });
 });

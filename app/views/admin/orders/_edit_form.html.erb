@@ -1,53 +1,83 @@
 <% if @order.accepted? %>
-<div class="row edit-order-row-1">
-  <div class="form-group">
-    <%= fs.label t "name" %>
-    <%= fs.text_field :name, class: "form-control", required: true %>
-  </div>
+  <%# full form | button cancel %>
+  <%= form_for [:admin, @order], html: {class: "form-horizontal form-order-edit"} do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <div class="card">
+      <div class="card-body">
+        <div class="form-group row">
+          <div class="col-2 col-form-label">
+            <%= f.label t "name", class: "input-require" %>
+          </div>
+          <div class="col-10">
+            <%= f.text_field :name, class: "form-control", placeholder: t("name"), required: true %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-2 col-form-label">
+            <%= f.label t "phone", class: "input-require" %>
+          </div>
+          <div class="col-10">
+            <%= f.telephone_field :phone, class: "form-control", placeholder: t("phone"), required: true %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-2 col-form-label">
+            <%= f.label t "address", class: "input-require" %>
+          </div>
+          <div class="col-10">
+            <%= f.text_field :address, class: "form-control", placeholder: t("address"), required: true %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-2 col-form-label">
+            <%= f.label t "person_number", class: "input-require" %>
+          </div>
+          <div class="col-10">
+            <%= f.number_field :person_number, class: "form-control", placeholder: t("person_number"), min: Settings.min_book_size, required: true %>
+          </div>
+        </div>
+      </div>
 
-  <div class="form-group">
-    <%= fs.label t "phone" %>
-    <%= fs.telephone_field :phone, class: "form-control", required: true %>
-  </div>
-
-  <div class="form-group">
-    <%= fs.label t "address" %>
-    <%= fs.text_field :address, class: "form-control" %>
-  </div>
-</div>
-
-<div class="row edit-order-row-2">
-  <div class="form-group">
-    <%= fs.label t "person_number" %>
-    <%= fs.number_field :person_number, min: Settings.min_book_size, class: "form-control", require: true %>
-  </div>
-
-  <div class="form-group">
-    <%= fs.label t "status" %>
-    <span class="<%= check_order_status(@order) %>" id="edit-order-status"><%= @order.status %></span>
-  </div>
-</div>
+      <div class="card-footer text-center">
+        <%= f.submit t("submit"), class: "btn btn-primary" %>
+        <%= link_to t("cancel"), "#", id: "edit-order-btn-cancel", class: "btn btn-danger", "data-id": @order.id %>
+      </div>
+    </div>
+  <% end %>
 <% else %>
-<div class="container edit-order-show-row">
-  <div class="row">
-    <%= fs.label t "name" %>
-    <span class="label label-success"><%= @order.name %></span>
+  <%# pending | cancel | paid %>
+  <div class="table-responsive order-edit-only-show">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th><%= t "status" %></th>
+          <td>
+            <label class="badge <%= check_order_status(@order) %>"><%= @order.status.humanize %></label>
+          </td>
+        </tr>
+        <tr>
+          <th><%= t "name" %></th>
+          <td><%= @order.name %></td>
+        </tr>
+        <tr>
+          <th><%= t "phone" %></th>
+          <td><%= @order.phone %></td>
+        </tr>
+        <tr>
+          <th><%= t "address" %></th>
+          <td><%= @order.address %></td>
+        </tr>
+        <tr>
+          <th><%= t "person_number" %></th>
+          <td><%= @order.person_number %></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="row">
-    <%= fs.label t "phone" %>
-    <span class="label label-success"><%= @order.phone %></span>
-  </div>
-  <div class="row">
-    <%= fs.label t "address" %>
-    <span class="label label-success"><%= @order.address %></span>
-  </div>
-  <div class="row">
-    <%= fs.label t "person_number" %>
-    <span class="label label-success"><%= @order.person_number %></span>
-  </div>
-  <div class="row">
-    <%= fs.label t "status" %>
-    <span class="<%= check_order_status(@order) %>"><%= @order.status %></span>
-  </div>
-</div>
+  <% if @order.pending? %>
+    <div class="text-center top-index-new">
+      <%= link_to t("cancel"), "#", id: "edit-order-btn-cancel", class: "btn btn-danger", "data-id": @order.id %>
+      <%= link_to t("accept"), "#", id: "edit-order-btn-accept", class: "btn btn-success", "data-id": @order.id %>
+    </div>
+  <% end %>
 <% end %>

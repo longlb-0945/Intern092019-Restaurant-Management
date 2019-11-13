@@ -1,9 +1,10 @@
 function update_status(id, action){
   $.ajax({
-    url: '/orders/' + id + '/order_status',
-    data: {do_what: action}
+    url: '/admin/orders/' + id + '/order_status',
+    data: {status_update: action}
   });
 }
+
 $('#edit-order-btn-cancel').on('click', function(){
   let id = $('#edit-order-btn-cancel').attr('data-id');
   update_status(id, 2);
@@ -23,4 +24,3 @@ $('.btn_pay').on('click', function(){
   let id = $('.btn_pay').attr('data-id');
   update_status(id, 3);
 });
-

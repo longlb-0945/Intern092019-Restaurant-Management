@@ -1,6 +1,16 @@
 module OrdersHelper
+  ORDER_SORT_HASH = {status_asc: I18n.t("order_status_asc"),
+                     status_desc: I18n.t("order_status_desc"),
+                     person_number_asc:
+    I18n.t("order_person_number_asc"),
+                     person_number_desc:
+    I18n.t("order_person_number_desc"),
+                     total_amount_asc: I18n.t("order_total_amount_asc"),
+                     total_amount_desc:
+     I18n.t("order_total_amount_desc")}.freeze
+
   def check_order_status order
-    return "status-" + order.status if order
+    "order-status-#{order.status}"
   end
 
   def load_order_table order
@@ -16,5 +26,9 @@ module OrdersHelper
 
   def load_order_preselected order
     order.tables.ids
+  end
+
+  def order_sort_list
+    ORDER_SORT_HASH.map{|key, value| [value, key]}
   end
 end

@@ -1,24 +1,59 @@
 <% provide :title, t("edit_order_title") %>
-<% provide :small_banner, t("manage_banner") %>
-<% provide :big_banner, t("edit_order_title") %>
-<div class="row edit-order-detail-top-row">
-  <%= link_to admin_orders_path do %>
-    <button class="btn btn-info"><%= t "order_list" %></button>
-  <% end %>
-  <%= link_to admin_tables_path do %>
-    <button class="btn btn-danger"><%= t "table_list" %></button>
-  <% end %>
-</div>
-<%= form_for [:admin, @order], html: {class: "form-inline"} do |f| %>
-  <div class="container-fluid">
-    <%= render "shared/error_messages", object: f.object %>
-    <%= render partial: "edit_form", locals: {fs: f} %>
-    <div class="row edit-order-row-3">
-      <%= render "button" %>
+<% content_for :content_header do %>
+  <div class="row mb-2">
+    <div class="col-sm-6">
+      <h1 class="m-0 text-dark"><%= t("edit_order_title").upcase %></h1>
+    </div>
+    <div class="col-sm-6">
+      <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item">
+          <%= link_to t("dashboard"), admin_dashboard_path %>
+        </li>
+        <li class="breadcrumb-item">
+          <%= link_to t("order_list"), admin_orders_path %>
+        </li>
+        <li class="breadcrumb-item active"><%= t "edit_order_title" %></li>
+      </ol>
     </div>
   </div>
-  <div class="row edit-order-table-list">
-    <%= render partial: "table_form", locals: {fs: f} %>
-  </div>
 <% end %>
+
+<div class="row text-center">
+  <div class="col-6">
+    <div class="card order-edit-staff-card">
+      <div class="card-header"><%= t "staff" %></div>
+      <div class="card-body">
+        <% if @order.staff&.image %>
+          <%= image_tag @order.staff_image, class: "rounded-circle" if @order.staff_image.attached? %>
+        <% else %>
+          <span class="order-person-empty">X</span>
+        <% end %>
+      </div>
+      <div class="card-footer">
+        <%= link_to @order.staff_name, admin_user_path(@order.staff) if @order.staff %>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="card order-edit-customer-card">
+      <div class="card-header"><%= t "customer" %></div>
+      <div class="card-body">
+        <% if @order.customer&.image %>
+            <%= image_tag @order.customer_image, class: "rounded-circle" if @order.customer_image.attached? %>
+        <% else %>
+          <span class="order-person-empty">X</span>
+        <% end %>
+      </div>
+      <div class="card-footer">
+        <%= link_to @order.customer_name, admin_user_path(@order.customer) if @order.customer %>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="edit-order-edit-form">
+  <%= render "edit_form" %>
+</div>
+<div id="edit-order-table-form">
+  <%= render "table_form" %>
+</div>
 <%= javascript_pack_tag "edit_order" %>

@@ -1,8 +1,11 @@
 @import 'color_main';
 
 .input-require{
-  color: $red;
   margin-left: 5px;
+  &:after{
+    content: "*";
+    color: $red;
+  }
 }
 
 // custom form error
@@ -154,6 +157,94 @@ table .trow td:first-child::before {
 
 // table new
 .form-table-new{
+  width: 70%;
+  margin: 0 auto;
+}
+
+// order index
+.order-person-img{
+  width: 50px;
+  height: 50px;
+  border: 2px solid $yellow;
+  display: block;
+}
+
+.order-person-empty{
+  color: $red;
+}
+
+.order-status-pending{
+  background-color: $white;
+}
+
+.order-status-accepted{
+ background-color: $success-color;
+}
+
+.order-status-cancel{
+  background-color: $red;
+}
+
+.order-status-paid{
+  background-color: $dark-white;
+}
+
+// order edit
+.form-order-edit{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.order-edit-staff-card, .order-edit-customer-card{
+  width: 10em;
+  height: 200px;
+  img{
+    width: 60px;
+    height: 60px;
+    border: 2px solid $yellow;
+    &:hover{
+      width: 80px;
+      height: 80px;
+      border: 2px solid $success-color;
+    }
+  }
+  .card-footer{
+    a{
+      color: $yellow-middle;
+      &:hover{
+        color: $success-color;
+      }
+    }
+  }
+}
+
+.order-edit-staff-card{
+  float: right;
+}
+.order-edit-customer-card{
+  float: left;
+}
+
+.order-edit-only-show{
+  width: 60%;
+  margin: 0 auto;
+}
+
+.form-order-table-pick{
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  .select2-container{
+    min-width: 1000px;
+    width: auto !important;
+  }
+  li{
+    color: $black !important;
+  }
+}
+
+// order new
+.form-order-new{
   width: 70%;
   margin: 0 auto;
 }

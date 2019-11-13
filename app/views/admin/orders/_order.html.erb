@@ -1,23 +1,35 @@
-<div class="card order_card_list">
-  <div class="card-header">
-    <h3><%= t "reservation" %>: <%= order.id %></h3>
-  </div>
-  <hr>
-  <div class="card-body">
-    <h5><b class="badge name-item"><%= t "name" %>: </b></h5><div class="order_name"><p><%= order.name %></p></div>
-    <h5><b class="badge phone-item"><%= t "phone" %>: </b></h5><p><%= order.phone %><br></p>
-    <h5><b class="badge count-item"><%= t "person_count" %>: </b></h5><p><%= order.person_number %><br></p>
-    <h5><b class="badge status-item"><%= t "status" %>: </b></h5><p><span class= "<%= check_order_status order %>"><%= order.status %></span></p>
-  </div>
-  <hr>
-  <div class="card-footer">
-    <%= link_to admin_edit_order_path(order), class: "btn-order-edit" do %>
-      <button class="btn btn-primary"><%= t "details" %></button>
+<tr class="trow">
+  <td></td>
+  <td>
+    <% if order.staff&.image %>
+      <%= image_tag order.staff_image, class: "order-person-img rounded-circle" if order.staff_image.attached? %>
+      <%= link_to order.staff_name, admin_user_path(order.staff), class: "d-block" %>
+    <% else %>
+      <span class="order-person-empty">X</span>
     <% end %>
+  </td>
+  <td>
+    <% if order.customer&.image %>
+      <%= image_tag order.customer_image, class: "order-person-img rounded-circle" if order.customer_image.attached? %>
+      <%= link_to order.customer_name, admin_user_path(order.customer) %>
+    <% else %>
+      <span class="order-person-empty">X</span>
+    <% end %>
+  </td>
+  <td>
+    <label class="badge <%= check_order_status(order) %>"><%= order.status.humanize %></label>
+  </td>
+  <td><%= order.name %></td>
+  <td><%= order.phone %></td>
+  <td><%= order.address %></td>
+  <td class="text-center"><span class="bagde bg-primary"><%= order.person_number %></span></td>
+  <td class="text-center"><span class="bagde bg-danger"><%= order.total_amount %></span></td>
+  <td>
+    <%# order info, cancel accept order, pick order table %>
+    <%= link_to t("details"), edit_admin_order_path(order), class: "btn btn-info" %>
+    <%# order detail pick product %>
     <% if order.accepted? || order.paid? %>
-      <%= link_to admin_order_order_details_path(order), class: "btn-order-edit" do %>
-        <button class="btn btn-success"><%= t "order" %></button>
-      <% end %>
+      <%= link_to t("order"), admin_order_order_details_path(order), class: "btn btn-warning" %>
     <% end %>
-  </div>
-</div>
+  </td>
+</tr>
