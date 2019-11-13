@@ -1,7 +1,7 @@
 class Admin::OrderDetailsController < AdminController
   before_action :guest_not_allow
   before_action :load_order_detail, only: %i(update_amount destroy)
-  before_action :load_order, only: %i(index)
+  before_action :load_order, only: %i(index create destroy update_amount)
 
   def index
     access_denied if @order.pending? || @order.cancel?
@@ -19,41 +19,42 @@ class Admin::OrderDetailsController < AdminController
   def create
     @order_detail = OrderDetail.new order_detail_params
     create_order_detail_transaction
-  rescue StandardError
+  rescue ActiveRecord::RecordInvalid
     flash[:danger] = t "create_order_detail_fail"
     redirect_to admin_order_order_details_path
   end
 
   def destroy
-    destroy_order_detail_transaction
-    redirect_to admin_order_order_details_path
-  rescue StandardError
-    flash[:danger] = t "create_order_detail_fail"
-    redirect_to admin_order_order_details_path
-  end
-
-  def destroy_order_detail_transaction
     ActiveRecord::Base.transaction do
-      raise StandardError unless @order_detail.destroy
-
-      destroy_update_total_amount
-      flash[:success] = t "del_order_pro_suc"
+      destroy_order_detail_transaction
     end
+
+    flash[:success] = t "del_order_pro_suc"
+    redirect_to admin_order_order_details_path
+  rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordInvalid
+    flash[:danger] = t "del_order_pro_fail"
+    redirect_to admin_order_order_details_path
   end
 
   def update_amount
     ActiveRecord::Base.transaction do
       update_amount_transation
     end
-  rescue StandardError
+  rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordInvalid
     flash[:danger] = t "update_total_create_order_detail_fail"
-    render status: :bad_request
+    flash.keep[:danger]
+    respond_to do |format|
+      format.js do
+        render js: "window.location='#{admin_order_order_details_path(@order)}'"
+      end
+    end
   end
 
   private
   def order_detail_params
+    price = load_product_price
     params.require(:order_detail).permit(OrderDetail::ORDER_DETAIL_PARAMS)
-          .merge(price: load_product_price, amount: load_product_price)
+          .merge(order_id: params[:order_id], price: price, amount: price)
   end
 
   def load_product_price
@@ -84,52 +85,41 @@ class Admin::OrderDetailsController < AdminController
 
   def create_order_detail_transaction
     ActiveRecord::Base.transaction do
-      update_product_stock params[:order_detail][:product_id], -1
-
-      raise StandardError unless @order_detail.save
-
-      total_amount = @order_detail.order.total_amount + @order_detail.amount
-      raise StandardError unless
-      @order_detail.order.update(total_amount: total_amount)
-
+      @order_detail.save!
+      total_amount = @order.total_amount + @order_detail.amount
+      @order.update!(total_amount: total_amount)
       respond_to :js
     end
   end
 
   def update_product_stock product_id, operation
-    raise StandardError unless product = Product.find_by(id: product_id)
+    raise ActiveRecord::RecordNotFound unless product = Product
+                                              .find_by(id: product_id)
 
     current_stock = product.stock
-    raise StandardError unless product.update(stock: current_stock + operation)
-    raise StandardError if product.stock.negative?
+
+    product.update!(stock: current_stock + operation)
   end
 
-  def destroy_update_total_amount
-    total_amount = @order_detail.order.total_amount - @order_detail.amount
-    operation_for_destroy = @order_detail.quantily
-    update_product_stock @order_detail.product_id, operation_for_destroy
-    return if @order_detail.order.update(total_amount: total_amount)
-
-    flash[:danger] = t "update_total_create_order_detail_fail"
-    redirect_to admin_order_order_details_path
+  def destroy_order_detail_transaction
+    total_amount = @order.total_amount - @order_detail.amount
+    update_product_stock @order_detail.product_id, @order_detail.quantily
+    @order.update!(total_amount: total_amount)
+    @order_detail.destroy!
   end
 
   def update_amount_transation
     set_up_stuff
-    raise StandardError unless
-    @order_detail.update(quantily: params[:quantily].to_i, amount: @new_amount)
-
+    @order_detail.update!(quantily: params[:quantily].to_i, amount: @new_amount)
     @new_total_amount += @order_detail.amount
-    raise StandardError unless
-    @order_detail.order.update(total_amount: @new_total_amount)
-
+    @order.update!(total_amount: @new_total_amount)
     render json: {amount: @new_amount, total_amount: @new_total_amount}
   end
 
   def set_up_stuff
     @new_amount = @order_detail.price * params[:quantily].to_i
-    @new_total_amount = @order_detail.order.total_amount - @order_detail.amount
-    @my_opera = @order_detail.quantily > params[:quantily].to_i ? 1 : -1
+    @new_total_amount = @order.total_amount - @order_detail.amount
+    @my_opera = @order_detail.quantily - params[:quantily].to_i
     update_product_stock @order_detail.product_id, @my_opera
   end
 end

@@ -6,12 +6,4 @@ module OrderDetailsHelper
         | #{I18n.t 'stock'} - #{t.stock}", t.id]
     end
   end
-
-  def check_order_paid id
-    order = Order.find_by(id: id)
-    return !order.paid? if order
-
-    flash[:danger] = t "order_not_found"
-    redirect_to orders_path
-  end
 end

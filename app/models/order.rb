@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
-  ORDER_PARAMS = %i(name phone address person_number)
-  
+  ORDER_PARAMS = %i(name phone address person_number).freeze
+
   enum status: {pending: 0, accepted: 1, cancel: 2, paid: 3}
 
   belongs_to :customer, foreign_key: :customer_id,

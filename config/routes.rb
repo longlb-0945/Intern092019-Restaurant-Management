@@ -26,6 +26,7 @@ Rails.application.routes.draw do
         member do
           get :order_status, to: "orders#order_status_change"
           post :order_update_table, to: "orders#order_update_table"
+          post :paid, to: "orders#paid"
         end
       end
       resources :products do

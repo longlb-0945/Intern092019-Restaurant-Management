@@ -1,5 +1,5 @@
 class OrderDetail < ApplicationRecord
-  ORDER_DETAIL_PARAMS = %i(order_id product_id price quantily amount).freeze
+  ORDER_DETAIL_PARAMS = %i(order_id product_id price amount).freeze
 
   belongs_to :order
   belongs_to :product, inverse_of: :order_details
