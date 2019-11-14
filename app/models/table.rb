@@ -26,7 +26,7 @@ class Table < ApplicationRecord
   end
   scope :created_at_desc, ->{order created_at: :desc}
   scope :order_number, ->{order table_number: :asc}
-  scope :usefull, ->{where(status: 0)}
+  scope :not_disable, ->{where.not(status: :disable)}
   scope :updated_at_desc, ->{order updated_at: :desc}
 
   class << self

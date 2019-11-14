@@ -2,7 +2,7 @@ class Admin::OrdersController < AdminController
   include OrdersHelper
   before_action :load_order, except: %i(index new create search sort)
   before_action :not_accepted, only: %i(update)
-  before_action ->{params_for_search Order}, only: %i(index search)
+  before_action ->{params_for_search Order}, only: %i(index search sort)
 
   def index
     @orders = Order.page(params[:page]).per Settings.pagenate_orders
@@ -39,9 +39,7 @@ class Admin::OrdersController < AdminController
     @orders = @q.result
                 .page(params[:page]).per Settings.pagenate_orders
     if @orders.empty?
-      flash.now[:danger] =
-        I18n.t("no_result_found_order",
-               search_text: params[:search])
+      flash.now[:danger] = t "no_result_found_order"
     else
       search_flash_success
     end
@@ -124,9 +122,7 @@ class Admin::OrdersController < AdminController
   end
 
   def search_flash_success
-    flash.now[:success] =
-      I18n.t("search_with_result_order",
-             search_text: params[:search], count: @orders.size)
+    flash.now[:success] = t "search_with_result_order", count: @orders.size
   end
 
   def update_table_setup

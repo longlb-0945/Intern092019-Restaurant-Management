@@ -26,4 +26,24 @@ $('document').ready(function(){
       $(this).children('.dropdown-toggle').first().click();
     }
   });
+
+  $(document).on('change', '.sort-select', function() {
+    this.form.submit();
+  });
+
+  $(document).on('mouseover', '.menu-category', function() {
+    $('#menu-category-dropdown').css('display', 'block');
+  });
+
+  $(document).on('mouseout', '.menu-category', function() {
+    $('#menu-category-dropdown').css('display', 'none');
+  });
+
+  $(document).on('mouseover', '.menu-profile', function() {
+    $('#menu-profile-dropdown').css('display', 'block');
+  });
+
+  $(document).on('mouseout', '.menu-profile', function() {
+    $('#menu-profile-dropdown').css('display', 'none');
+  });
 });

@@ -16,7 +16,7 @@
 <% end %>
 
 <div class="text-center">
-  <%= link_to t("new_product"), new_admin_product_path, class: "btn btn-success top-index-new" %>
+  <%= link_to t("new_product_title"), new_admin_product_path, class: "btn btn-success top-index-new" %>
 </div>
 
 <div class="row">
@@ -37,7 +37,7 @@
         <div class="card-tools float-right">
         <%= form_tag sort_admin_products_path, class: "form-inline", method: :get do %>
           <div class="form-group">
-            <%= select_tag :sort, options_for_select(product_sort_list, params[:sort]), class: "custom-select sort-select" %>
+            <%= select_tag :sort, options_for_select(product_sort_list(Product::ORDER_SORT_HASH), params[:sort]), class: "custom-select sort-select" %>
           </div>
         <% end %>
         </div>

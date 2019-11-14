@@ -10,20 +10,20 @@
             <%= image_tag Settings.img_chicken, alt: "" %>
           </div>
 
-          <h2><%= t "data" %></h2>
-          <p><%= t "data" %></p>
+          <h2><%= t "intro_burger" %></h2>
+          <p><%= t "welcome" %></p>
         </div>
-        <p class="caption"><%= t "data" %></p>
+        <p class="caption"><%= t "addr2" %></p>
       </div>
     </div>
       <div class="col-sm-4">
         <div class="signature">
           <div class="shape">
             <span class="flaticon flaticon-burger"></span>
-            <p><%= t "data" %></p>
+            <p><%= t "sunner" %></p>
           </div>
           <div class="signature_content">
-            <p><%= t "data" %></p>
+            <p><%= t "fresh_food" %></p>
           </div>
         </div>
       </div>
@@ -32,12 +32,11 @@
   <div class="row">
     <div class="col-md-6">
       <div class="classic">
-        <%= link_to t("data"), "", class: "classic_btn" %>
+        <%= link_to t("contact"), "#", class: "classic_btn" %>
         <div class="overlay">
-          <h3><%= t "data" %></h3>
-          <p><%= t "data" %></p>
+          <h3><%= t "customer_is_god" %></h3>
 
-          <p class="overlay_content"><%= t "data" %>
+          <p class="overlay_content"><%= t "serve_everytime" %>
           </p>
         </div>
       </div>
@@ -47,40 +46,30 @@
       <div id="small_carousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#small_carousel" data-slide-to="0" class="active"></li>
-          <li data-target="#small_carousel" data-slide-to="1"></li>
-          <li data-target="#small_carousel" data-slide-to="2"></li>
+          <% category_size_sub(@categories).times do |n| %>
+            <li data-target="#small_carousel" data-slide-to="<%= n+1 %>"></li>
+          <% end %>
         </ol>
 
         <div class="carousel-caption">
-          <h3><%= t "data" %></h3>
-          <hr />
-
-          <ul class="list-unstyled nutrition">
-            <li>
-              <%= link_to t("data"), "", class: "flaticon flaticon-protein" %>
-            </li>
-            <li>
-              <%= link_to t("data"), "", class: "flaticon flaticon-carbohydrate" %>
-            </li>
-            <li>
-              <%= link_to t("data"), "", class: "flaticon flaticon-calories" %>
-            </li>
-          </ul>
-          <div class="info_btn_shadow">
-            <%= link_to t("data"), "", class: "info_btn" %>
-          </div>
+          <h3><%= t "our_category" %></h3>
+          <hr/>
+          <% @categories.each do |category| %>
+            <div class="info_btn_shadow">
+              <%= link_to category.name.humanize, category_path(category), class: "info_btn" %>
+            </div>
+          <% end %>
         </div>
 
         <div class="carousel-inner" role="listbox">
           <div class="item active">
-            <%= image_tag Settings.caro_img, alt: "" %>
+            <%= image_tag "cate_slider_01" %>
           </div>
-          <div class="item">
-            <%= image_tag Settings.caro_img, alt: "" %>
-          </div>
-          <div class="item">
-            <%= image_tag Settings.caro_img, alt: "" %>
-          </div>
+          <% category_size_sub(@categories).times do %>
+            <div class="item">
+              <%= image_tag "cate_slider_02" %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -89,77 +78,55 @@
   <div id="carousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carousel" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel" data-slide-to="1"></li>
-      <li data-target="#carousel" data-slide-to="2"></li>
+      <% category_size_sub(@categories).times do |n| %>
+        <li data-target="#carousel" data-slide-to="<%= n+1 %>"></li>
+      <% end %>
     </ol>
 
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <%= image_tag Settings.caro_big_img, alt: "" %>
-        <div class="carousel-caption">
-          <h2><%= t "data" %></h2>
-          <h3><%= t "data" %></h3>
+    <div class="carousel-inner home-product-slider" role="listbox">
+      <% unless @products.empty? %>
+        <div class="item active">
+          <%= image_tag @products[0].image, class: "mx-auto d-block", alt: @products[0].name.humanize if @products[0].image.attached? %>
+          <div class="carousel-caption">
+            <h3><%= @products[0].name.humanize %></h3>
 
-          <p><%= t "data" %></p>
+            <p><%= @products[0].short_description %></p>
 
-          <div class="info_btn_shadow">
-            <%= link_to t("data"), "", class: "info_btn" %>
+            <div class="info_btn_shadow">
+              <%= link_to "See->#{@products[0].name.humanize}", product_path(@products[0]), class: "info_btn" %>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="item">
-        <%= image_tag Settings.caro_big_img, alt: "" %>
-        <div class="carousel-caption">
-          <h2><%= t "data" %></h2>
-          <h3><%= t "data" %></h3>
+        <% @products.shift; @products.each do |product| %>
+          <div class="item">
+            <%= image_tag product.image, class: "mx-auto d-block", alt: product.name.humanize if product.image.attached? %>
+            <div class="carousel-caption">
+              <h3><%= product.name.humanize %></h3>
 
-          <p><%= t "data" %></p>
+              <p><%= product.short_description %></p>
 
-          <div class="info_btn_shadow">
-            <%= link_to t("data"), "", class: "info_btn" %>
+              <div class="info_btn_shadow">
+                <%= link_to "See->#{product.name.humanize}", product_path(product), class: "info_btn" %>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="item">
-        <%= image_tag Settings.caro_big_img, alt: "" %>
-        <div class="carousel-caption">
-          <h2><%= t "data" %></h2>
-          <h3><%= t "data" %></h3>
-
-          <p><%= t "data" %></p>
-
-          <div class="info_btn_shadow">
-            <%= link_to t("data"), "", class: "info_btn" %>
-          </div>
-        </div>
-      </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 
   <div class="row forth_sec">
-    <div class="col-sm-4">
-      <div class="menu">
-        <div class="inner_content">
-          <span class="flaticon flaticon-burger"></span>
-          <h2><%= t "data" %></h2>
+    <% @categories.take(Settings.three).each do |category| %>
+      <div class="col-sm-4">
+        <div class="menu">
+          <div class="inner_content">
+            <span class="flaticon flaticon-<%= flaticon %>"></span>
+            <%= link_to category_path(category) do %>
+              <h2><%= category.name.humanize %></h2>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="drinks">
-        <div class="inner_content">
-          <span class="flaticon flaticon-drink"></span>
-          <h2><%= t "data" %></h2>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="sides">
-        <div class="inner_content">
-          <span class="flaticon flaticon-food"></span>
-          <h2><%= t "data" %></h2>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>

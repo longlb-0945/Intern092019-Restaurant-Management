@@ -11,7 +11,7 @@ module ProductsHelper
     Product.statuses.keys.map{|w| [w.humanize, w]}
   end
 
-  def product_sort_list
-    Product::ORDER_SORT_HASH.map{|key, value| [key, value]}
+  def product_sort_list select_options
+    select_options.map{|key, value| [value, key]}
   end
 end

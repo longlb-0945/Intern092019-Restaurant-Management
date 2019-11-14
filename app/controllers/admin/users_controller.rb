@@ -13,7 +13,7 @@ class Admin::UsersController < AdminController
 
   def create
     @user = User.new user_params
-    @user.attach_image params
+    @user.attach_image params, :user
     if @user.save
       if current_user.admin?
         flash[:success] = t "create_user_succ"

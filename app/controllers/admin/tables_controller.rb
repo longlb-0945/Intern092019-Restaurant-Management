@@ -74,7 +74,7 @@ class Admin::TablesController < AdminController
   def table_occupied
     return unless @table.occupied?
 
-    flash[:danger] = "#{I18n.t('occupied')}!!!"
+    flash[:danger] = "#{t('occupied')}!!!"
     redirect_to admin_tables_path
   end
 

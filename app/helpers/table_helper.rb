@@ -17,4 +17,8 @@ module TableHelper
   def table_sort_list
     Table::ORDER_SORT_HASH.to_a
   end
+
+  def status_to_image status
+    "table-icon-#{status}.jpg"
+  end
 end
