@@ -249,3 +249,5 @@ en:
   search_with_result_order: "Searched order: [%{search_text}] with %{count} results."
   paid_success: Paid successed!
   quantily_negative: Quantily is invalid! Try some!
+  search_with_result_category: "Searched category: [%{search_text}] with %{count} results.."
+  no_result_found_order: "No results found with category: [%{search_text}] !!!"

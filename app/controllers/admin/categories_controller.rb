@@ -1,6 +1,7 @@
 class Admin::CategoriesController < AdminController
   before_action :check_admin
   before_action :load_category, only: %i(edit update destroy)
+  before_action ->{params_for_search Category}, only: %i(index search)
 
   def index
     order_key = params[:action_update] ? :updated_at_desc : :created_at_desc
@@ -49,8 +50,7 @@ class Admin::CategoriesController < AdminController
   end
 
   def search
-    @categories = Category.search_name(params[:search])
-                          .page(params[:page]).per Settings.pagenate_category
+    @categories = @q.result.page(params[:page]).per Settings.pagenate_category
     if @categories.empty?
       flash.now[:danger] = I18n.t("no_result_found_category",
                                   search_text: params[:search])

@@ -38,7 +38,7 @@ $('document').ready(function(){
 
   setInterval(function(){
     $('.alert').remove();
-  }, 2000);
+  }, 5000);
 });
 
 function update_amount(order_id, order_detail_id){

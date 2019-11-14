@@ -23,9 +23,9 @@
     <div class="card">
       <div class="card-header">
         <div class="card-tools float-left">
-        <%= form_tag search_admin_categories_path, class: "form-inline", method: :get do %>
-          <div class="input-group input-group-sm div-top-search">
-            <input type="text" name="search" class="form-control" placeholder="<%= t "search" %>">
+        <%= search_form_for @q, url: search_admin_categories_path, class: "form-inline" do |f| %>
+            <div class="input-group input-group-sm div-top-search">
+              <%= f.search_field :name_cont, class: "form-control" %>
             <div class="input-group-append">
               <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
             </div>
@@ -60,4 +60,9 @@
       </div>
     </div>
   </div>
+</div>
+
+<br><hr>
+<div>
+  <%= sort_link(@q, :name, 'Last Name', default_order: :desc) %>
 </div>

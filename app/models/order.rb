@@ -34,11 +34,6 @@ class Order < ApplicationRecord
 
   scope :order_by,
         ->(order_key, order_type){order("#{order_key} #{order_type}")}
-  scope :search_by_freeword, (lambda do |search_text|
-    joins(:staff).joins(:customer)
-           .where("users.name LIKE :search OR orders.name LIKE :search
-            OR orders.address LIKE :search", search: "%#{search_text}%")
-  end)
 
   def table_to_available
     tables.each(&:available!)

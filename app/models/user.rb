@@ -30,8 +30,6 @@ class User < ApplicationRecord
   scope :created_at_asc, ->{order created_at: :asc}
   scope :default, ->{order id: :asc}
   scope :role_asc, ->{order role: :asc}
-  scope :search,
-        ->(data){where "name LIKE ? or email LIKE ?", "%#{data}%", "%#{data}%"}
 
   VALID_EMAIL_REGEX = Settings.email_regex
 
@@ -92,7 +90,6 @@ class User < ApplicationRecord
   end
 
   private
-
   def downcase_email
     email.downcase!
   end
