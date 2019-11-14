@@ -1,12 +1,11 @@
 <% if @order.accepted? %>
-  <%# full form | button cancel %>
   <%= form_for [:admin, @order], html: {class: "form-horizontal form-order-edit"} do |f| %>
     <%= render "shared/error_messages", object: f.object %>
     <div class="card">
       <div class="card-body">
         <div class="form-group row">
           <div class="col-2 col-form-label">
-            <%= f.label t "name", class: "input-require" %>
+            <%= f.label t("name"), class: "input-require" %>
           </div>
           <div class="col-10">
             <%= f.text_field :name, class: "form-control", placeholder: t("name"), required: true %>
@@ -14,7 +13,7 @@
         </div>
         <div class="form-group row">
           <div class="col-2 col-form-label">
-            <%= f.label t "phone", class: "input-require" %>
+            <%= f.label t("phone"), class: "input-require" %>
           </div>
           <div class="col-10">
             <%= f.telephone_field :phone, class: "form-control", placeholder: t("phone"), required: true %>
@@ -22,7 +21,7 @@
         </div>
         <div class="form-group row">
           <div class="col-2 col-form-label">
-            <%= f.label t "address", class: "input-require" %>
+            <%= f.label t("address"), class: "input-require" %>
           </div>
           <div class="col-10">
             <%= f.text_field :address, class: "form-control", placeholder: t("address"), required: true %>
@@ -30,7 +29,7 @@
         </div>
         <div class="form-group row">
           <div class="col-2 col-form-label">
-            <%= f.label t "person_number", class: "input-require" %>
+            <%= f.label t("person_number"), class: "input-require" %>
           </div>
           <div class="col-10">
             <%= f.number_field :person_number, class: "form-control", placeholder: t("person_number"), min: Settings.min_book_size, required: true %>
@@ -45,7 +44,6 @@
     </div>
   <% end %>
 <% else %>
-  <%# pending | cancel | paid %>
   <div class="table-responsive order-edit-only-show">
     <table class="table">
       <tbody>

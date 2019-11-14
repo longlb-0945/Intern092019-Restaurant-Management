@@ -37,7 +37,13 @@ end
 u = User.create!(id: 1, name: "admin", email: "abc@gmail.com", password: "111111", password_confirmation: "111111", role: 0)
 u.image.attach io: File.open(Rails.root
   .join("app", "assets", "images", "default_user.png")),
-  filename: "category.png"
+  filename: "default_user.png"
+u.save
+
+u = User.create!(id: 2, name: "staff", email: "abc2@gmail.com", password: "111111", password_confirmation: "111111", role: 1)
+u.image.attach io: File.open(Rails.root
+  .join("app", "assets", "images", "default_user.png")),
+  filename: "default_user.png"
 u.save
 
 c = Category.create(id: 1, name: "food")

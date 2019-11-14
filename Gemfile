@@ -7,6 +7,7 @@ gem "active_storage_validations", "0.8.2"
 gem "bcrypt"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap-sass"
+gem "cancancan"
 gem "config"
 gem "devise"
 gem "figaro"

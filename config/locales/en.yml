@@ -251,3 +251,5 @@ en:
   quantily_negative: Quantily is invalid! Try some!
   search_with_result_category: "Searched category: [%{search_text}] with %{count} results.."
   no_result_found_order: "No results found with category: [%{search_text}] !!!"
+  user_confirm_enable: Are you sure you want to enable this user?
+  new_user: New user

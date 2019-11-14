@@ -1,10 +1,8 @@
 class Admin::OrdersController < AdminController
-  before_action :guest_not_allow
+  include OrdersHelper
   before_action :load_order, except: %i(index new create search sort)
   before_action :not_accepted, only: %i(update)
   before_action ->{params_for_search Order}, only: %i(index search)
-
-  include OrdersHelper
 
   def index
     @orders = Order.page(params[:page]).per Settings.pagenate_orders

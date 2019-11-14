@@ -1,20 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
-
   before_action :configure_permitted_parameters, if: :devise_controller?
+  load_and_authorize_resource
+  skip_authorize_resource if: :devise_controller?
 
-  def check_admin
-    return true if current_user&.admin?
-
-    flash[:danger] = t "access_denied"
-    redirect_to root_path
-  end
-
-  def guest_not_allow
-    return true unless current_user&.guest?
-
-    flash[:danger] = t "access_denied"
-    redirect_to root_path
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:warning] = exception.message
+    redirect_to root_url
   end
 
   protected

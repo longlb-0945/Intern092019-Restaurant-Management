@@ -1,5 +1,4 @@
 class Admin::CategoriesController < AdminController
-  before_action :check_admin
   before_action :load_category, only: %i(edit update destroy)
   before_action ->{params_for_search Category}, only: %i(index search)
 

@@ -1,5 +1,5 @@
 <tr class="trow">
-  <td></td>
+  <td class="user_incre_content"></td>
   <td class="user_name_content">
     <div class="user_name_content">
       <%= image_tag user.image, alt: "", class: "user_img" if user.image.attached? %>
@@ -26,11 +26,9 @@
       <p class="user_status status_<%= check_user_status user %>" id="user_status_<%= user.id %>"><%= user.status %></p>
     </div>
   </td>
-  <td>
-    <%= link_to t("edit"), edit_admin_user_path(user.id), class: "btn btn-primary btn_edit" %>
-    <% if !user.disable? %>
-      <%= link_to t("disable"), destroy_user_admin_users_path(user.id), class: "btn btn-danger btn_delete", id: "btn_disable_#{user.id}",
-        method: :delete, data: { confirm: t("user_confirm") }, remote: true %>
+  <td class="user_btn_content">
+    <%= content_tag :div, class: "cover_btn_user_#{user.id}" do %>
+      <%= render "button", user: user %>
     <% end %>
   </td>
 </tr>
