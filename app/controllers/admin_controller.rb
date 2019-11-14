@@ -8,7 +8,7 @@ class AdminController < ApplicationController
     render "static_pages/dashboard"
   end
 
-  def params_for_search class_name
-    @q = class_name.ransack(params[:q])
+  def params_for_search class_name_s
+    @q = class_name_s.ransack(params[:q])
   end
 end
