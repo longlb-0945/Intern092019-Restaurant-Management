@@ -1,6 +1,7 @@
 class Admin::ProductsController < AdminController
   before_action :check_admin, except: :show
   before_action :load_product, only: %i(show edit update destroy)
+  before_action ->{params_for_search Product}, only: %i(index search)
 
   def index
     order_key = params[:action_update] ? :updated_at_desc : :created_at_desc
@@ -62,8 +63,8 @@ class Admin::ProductsController < AdminController
   end
 
   def search
-    @products = Product.search_by_name(params[:search])
-                       .page(params[:page]).per Settings.pagenate_products
+    @products = @q.result
+                  .page(params[:page]).per Settings.pagenate_products
     if @products.empty?
       flash.now[:danger] =
         I18n.t("no_result_found_product",
