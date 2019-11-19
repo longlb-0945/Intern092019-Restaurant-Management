@@ -51,6 +51,26 @@
           <li><%= link_to t("logout"), destroy_user_session_path, method: :delete %></li>
         </ul>
       </div>
+      <div class="dropdown profile_ul nav-sun-inline" id="menu-notification">
+        <i class="fas fa-bell mr-2 dropdown-toggle user_name_nav noti-bell-icon" data-toggle="dropdown">
+          <% if @notifications_unread %>
+            <span class="badge badge-noti" id="noti-bell-number"><%= @notifications_unread %></span>
+          <% end %>
+        </i>
+        <ul class="dropdown-menu" id="notification-navbar-ul">
+          <% unless @notifications&.empty? %>
+            <li>
+              <span class="noti">Notifications</span>
+              <%= form_tag notifications_path, id: "mark-noti-form", method: :get do %>
+                <span id="mark-noti-submit" class="pull-right label label-success">Mark all read</span>
+              <% end %>
+            </li><hr>
+            <%= render @notifications %>
+          <% else %>
+            <li>No notifications!</li>
+          <% end %>
+        </ul>
+      </div>
     <% else %>
       <ul class="nav profile_ul">
         <li class="li_login_path">

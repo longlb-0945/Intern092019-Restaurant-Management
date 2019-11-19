@@ -21,6 +21,7 @@ class User < ApplicationRecord
   has_many :staff_orders, foreign_key: :staff_id,
     class_name: Order.name, dependent: :destroy,
     inverse_of: :staff
+  has_many :notifications
   has_one_attached :image
 
   SCOPE_SORT.each do |s|

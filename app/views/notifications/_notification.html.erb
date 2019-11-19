@@ -1,0 +1,6 @@
+<%= form_for(notification) do %>
+  <li class="li-notification li-notification-<%= notification.status %>">
+    <span class="label label-warning title"><%= notification.title %> </span>
+    <div class="text"><%= notification.text %> </div>
+  </li><hr>
+<% end %>

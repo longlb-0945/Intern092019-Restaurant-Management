@@ -3,6 +3,7 @@ class Admin::OrdersController < AdminController
   before_action :load_order, except: %i(index new create search sort)
   before_action :not_accepted, only: %i(update)
   before_action ->{params_for_search Order}, only: %i(index search sort)
+  after_action :noti_after_status_change, only: %i(order_status_change paid)
   load_and_authorize_resource :order
 
   def index
@@ -167,5 +168,11 @@ class Admin::OrdersController < AdminController
 
     flash[:danger] = "Fail when paid order! Something wrong!"
     redirect_to admin_order_order_details_path(@order)
+  end
+
+  def noti_after_status_change
+    return unless @order.customer || @order.pending?
+
+    new_notification_job @order.status.humanize, @order.id, @order.customer.id
   end
 end
