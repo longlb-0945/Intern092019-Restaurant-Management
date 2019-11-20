@@ -14,6 +14,11 @@ class Category < ApplicationRecord
   scope :name_asc, ->{order name: :asc}
   scope :search_name, ->(name){where "name LIKE ?", "%#{name}%"}
   scope :updated_at_desc, ->{order updated_at: :desc}
+  scope :products_desc, (lambda do
+                           left_joins(:products)
+                           .group(:id)
+                           .order("COUNT(products.id) DESC")
+                         end)
 
   validates :name, presence: true, uniqueness: true
   validates :image, content_type: {in: %w(image/jpeg image/gif image/png),

@@ -1,6 +1,6 @@
 class Admin::ProductsController < AdminController
   before_action :load_product, only: %i(show edit update destroy)
-  before_action ->{params_for_search Product}, only: %i(index search)
+  before_action ->{params_for_search Product}, only: %i(index search sort)
 
   def index
     order_key = params[:action_update] ? :updated_at_desc : :created_at_desc
@@ -15,7 +15,7 @@ class Admin::ProductsController < AdminController
 
   def create
     @product = Product.new product_params
-    @product.attach_image params
+    @product.attach_image params, :product
     if @product.save
       flash[:success] = t "create_product_suc"
       redirect_to admin_product_path(@product)
@@ -33,7 +33,7 @@ class Admin::ProductsController < AdminController
 
   def update
     if @product.update product_params
-      @product.attach_image params
+      @product.attach_image params, :product
       flash[:success] = t "product_update_suc"
     else
       flash[:dander] = t "product_update_fail"
@@ -65,9 +65,7 @@ class Admin::ProductsController < AdminController
     @products = @q.result
                   .page(params[:page]).per Settings.pagenate_products
     if @products.empty?
-      flash.now[:danger] =
-        I18n.t("no_result_found_product",
-               search_text: params[:search])
+      flash.now[:danger] = t "no_result_found_product"
     else
       search_flash_success
     end
@@ -88,8 +86,7 @@ class Admin::ProductsController < AdminController
   end
 
   def search_flash_success
-    flash.now[:success] =
-      I18n.t("search_with_result_product",
-             search_text: params[:search], count: @products.size)
+    flash.now[:success] = t "search_with_result_product",
+                            count: @products.size
   end
 end

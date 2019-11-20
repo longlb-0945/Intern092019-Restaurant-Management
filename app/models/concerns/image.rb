@@ -1,13 +1,13 @@
 module Image
-  def attach_image params
-    if params[:user][:image].blank?
+  def attach_image params, call_object
+    if params[call_object][:image].blank?
       if params[:action].eql? "create"
         image.attach(io: File.open(Rails.root
           .join("app", "assets", "images", default_image(params))),
           filename: default_image(params))
       end
     else
-      image.attach params[:user][:image]
+      image.attach params[call_object][:image]
     end
   end
 

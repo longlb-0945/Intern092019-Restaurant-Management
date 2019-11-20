@@ -1,6 +1,6 @@
 class Admin::CategoriesController < AdminController
   before_action :load_category, only: %i(edit update destroy)
-  before_action ->{params_for_search Category}, only: %i(index search)
+  before_action ->{params_for_search Category}, only: %i(index search sort)
 
   def index
     order_key = params[:action_update] ? :updated_at_desc : :created_at_desc
@@ -16,7 +16,7 @@ class Admin::CategoriesController < AdminController
   def create
     @category = Category.new category_params
     if @category.save
-      @category.attach_image params
+      @category.attach_image params, :category
       flash[:success] = t "create_category_suc"
       redirect_to admin_categories_path
     else
@@ -29,7 +29,7 @@ class Admin::CategoriesController < AdminController
 
   def update
     if @category.update category_params
-      @category.attach_image params
+      @category.attach_image params, :category
       flash[:success] = t "update_category_suc"
       redirect_to admin_categories_path(action_update: "update")
     else
@@ -51,8 +51,7 @@ class Admin::CategoriesController < AdminController
   def search
     @categories = @q.result.page(params[:page]).per Settings.pagenate_category
     if @categories.empty?
-      flash.now[:danger] = I18n.t("no_result_found_category",
-                                  search_text: params[:search])
+      flash.now[:danger] = t "no_result_found_category"
     else
       search_flash_success
     end
@@ -85,8 +84,7 @@ class Admin::CategoriesController < AdminController
   end
 
   def search_flash_success
-    flash.now[:success] =
-      I18n.t("search_with_result_category",
-             search_text: params[:search], count: @categories.size)
+    flash.now[:success] = t "search_with_result_category",
+             count: @categories.size
   end
 end

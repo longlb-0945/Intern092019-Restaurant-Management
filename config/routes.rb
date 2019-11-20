@@ -3,8 +3,15 @@ Rails.application.routes.draw do
     root "static_pages#home"
 
     get "admin/dashboard", to: "admin#dashboard"
-    devise_for :users, controllers: { registrations: "users/registrations" }
-    resources :users, only: :show
+    get "/search", to: "static_pages#search"
+
+    devise_for :users, controllers: {registations: "users/registrations"}
+    resources :users, only: [:show, :edit, :update] do
+      resources :orders, only: [:index, :destroy]
+    end
+    resources :products, only: [:index, :show]
+    resources :categories, only: [:show]
+    resources :tables, only: :index
     resources :orders, only: [:new, :create]
 
     namespace :admin do

@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+.nav-sun-inline{
+  display: inline;
+}
+
 //flash
 .alert-top{
   margin-top: 25%;
@@ -657,7 +661,7 @@ input[type=number]{
 }
 
 //guest_create_book_form
-.create_order{
+.create_order {
   margin-top: 10px;
   background: url(book-frame.png) no-repeat;
   background-size: contain;
@@ -674,4 +678,119 @@ input[type=number]{
 
 .new_order > #error_explanation > .alert {
   float: none;
+}
+
+// public product show
+.public-product-show {
+  color: $black;
+  width: 80%;
+  margin-top: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: $mid-light;
+  .col-sm-4 {
+    .panel {
+      text-align: center;
+      width: 20em;
+      height: 24em;
+      img {
+        width: 15em;
+        height: 10em;
+        transition: border-radius 0.2s;
+        &:hover{
+          border: 2px solid $yellow;
+          border-radius: 50%;
+        }
+      }
+      .number {
+        text-align: center;
+        margin-bottom: 5px;
+      }
+    }
+  }
+  .pull-right, .pull-left {
+    margin: 20px;
+  }
+
+  .public-product-pull {
+    margin: 10px;
+  }
+}
+
+
+.alert-empty-product {
+  float: none;
+  margin: 0 10px;
+}
+
+// user orders
+.public-order-show {
+  color: $black;
+  text-align: center;
+  width: 90%;
+  margin: 20px 30px 0 30px;
+  padding: 5px;
+  background-color: $mid-light;
+  button {
+    display: block;
+    margin: 5px auto;
+  }
+}
+
+.order-status-pending {
+  background-color: $white !important;
+}
+
+.order-status-accepted {
+ background-color: $success-color !important;
+}
+
+.order-status-cancel {
+  background-color: $red !important;
+}
+
+.order-status-paid {
+  background-color: $dark-white !important;
+}
+
+// public table show
+.public-table-show {
+  color: $black;
+  width: 80%;
+  margin-top: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: $mid-light;
+  .col-sm-4 {
+    .panel {
+      text-align: center;
+    }
+  }
+  .pull-right, .pull-left {
+    margin: 20px;
+  }
+
+  .public-product-pull {
+    margin: 10px;
+  }
+}
+
+// product show
+.product-show {
+  margin: 20px;
+}
+
+.product-show-wrap-img {
+  padding-top: 10px;
+  img {
+    float: right;
+    margin-right: 50px;
+    max-width: 500px;
+    height: 280px;
+    &:hover {
+      height: 290px;
+      border: 2px solid $aqua;
+      max-width: 500px;
+    }
+  }
 }

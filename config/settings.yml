@@ -11,8 +11,6 @@ dtb_css: "https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css"
 dtb_js: "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
 dtb_bs_js: "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"
 img_chicken: "chicken.png"
-caro_img: "small_slider_bg.jpg"
-caro_big_img: "large_slider_img.jpg"
 min_table_number: 1
 max_table_size: 12
 min_table_size: 2
@@ -71,3 +69,8 @@ factories:
 default_password: "111111"
 remember_digest_size: 60
 fake_email: "ABCD@gmail.com"
+category_product_per_page: 2
+flaticon_arr: ["burger", "drink", "food"]
+home_pick_item: 5
+three: 3
+one: 1

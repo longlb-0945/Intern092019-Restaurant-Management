@@ -4,14 +4,24 @@ class Product < ApplicationRecord
   ORDER_SORT_LIST = %w(order_name_asc order_name_desc
     order_category_asc order_category_desc
     order_price_asc order_price_desc order_stock_asc order_stock_desc).freeze
-  ORDER_SORT_HASH = {"Name A->Z": "order_name_asc",
-                     "Name Z->A": "order_name_desc",
-                     "Category A->Z": "order_category_asc",
-                     "Category Z->A": "order_category_desc",
-                     "Price low to high": "order_price_asc",
-                     "Price high to low": "order_price_desc",
-                     "Stock low to high": "order_stock_asc",
-                     "Stock high to low": "order_stock_desc"}.freeze
+  ORDER_SORT_HASH = {
+    order_name_asc: I18n.t("order_name_asc"),
+    order_name_desc: I18n.t("order_name_desc"),
+    order_category_asc: I18n.t("order_category_asc"),
+    order_category_desc: I18n.t("order_category_desc"),
+    order_price_asc: I18n.t("order_price_asc"),
+    order_price_desc: I18n.t("order_price_desc"),
+    order_stock_asc: I18n.t("order_stock_asc"),
+    order_stock_desc: I18n.t("order_stock_desc")
+  }.freeze
+  ORDER_SORT_PUBLIC_HASH = {
+    order_name_asc: I18n.t("order_name_asc"),
+    order_name_desc: I18n.t("order_name_desc"),
+    order_price_asc: I18n.t("order_price_asc"),
+    order_price_desc: I18n.t("order_price_desc"),
+    order_stock_asc: I18n.t("order_stock_asc"),
+    order_stock_desc: I18n.t("order_stock_desc")
+  }.freeze
   ORDER_SORT_LIST_SCOPE = %w(order_name_asc order_name_desc
     order_price_asc order_price_desc order_stock_asc order_stock_desc).freeze
   PRODUCT_PARAMS = %i(name short_description category_id price stock).freeze
@@ -53,4 +63,8 @@ class Product < ApplicationRecord
   scope :search_by_name,
         ->(text){where("LOWER(name) LIKE ?", "%" << text.downcase << "%")}
   scope :available, ->{where("status = 0 AND stock > 0")}
+  scope :best_seller, (lambda do
+    left_joins(:order_details).group(:id)
+                              .order("COUNT(order_details.product_id) DESC")
+  end)
 end

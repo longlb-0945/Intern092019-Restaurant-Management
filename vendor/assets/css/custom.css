@@ -260,6 +260,12 @@ a:hover,a:focus{ text-decoration: none}
   -moz-transition: background .3s ease-in-out;
 }
 
+/* Custom home */
+.home-product-slider{
+  background: url(product_background.jpg) no-repeat;
+  background-size: cover;
+}
+
 /* Header */
 header{
   background: url(header_bg.jpg) no-repeat;
@@ -599,10 +605,9 @@ header .caption {
 }
 .info_btn_shadow {
   background: rgba(0, 0, 0, 0.15) none repeat scroll 0 0;
-  float: left;
   height: 30px;
   margin-left: 10px;
-  margin-top: 55px;
+  margin-top: 10px;
   position: relative;
   width: 154px;
 }

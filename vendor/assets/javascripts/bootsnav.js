@@ -554,6 +554,10 @@
         bootsnav.initialize();
     });
 
+    $(document).on('turbolinks:load', function() {
+        bootsnav.initialize();
+    });
+
     // Reset on resize
     $(window).on("resize", function(){
         bootsnav.hoverDropdown();

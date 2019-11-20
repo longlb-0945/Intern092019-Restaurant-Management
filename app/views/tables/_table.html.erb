@@ -1,0 +1,19 @@
+<div class="col-sm-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= image_tag status_to_image(table.status), alt: "" %>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="pull-left public-table-pull">
+          <button type="button" class="btn btn-primary"><%= t "table_number" %> <span class="badge"><%= table.table_number %></span></button>
+        </div>
+        <div class="pull-right public-table-pull">
+          <button type="button" class="btn btn-danger"><%= t "max_size" %> <span class="badge"><%= table.max_size %></span></button>
+        </div>
+      </div>
+
+      <button class="btn <%= check_table_status table %>"><%= table.status.humanize %></button>
+    </div>
+  </div>
+</div>

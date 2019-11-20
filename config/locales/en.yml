@@ -19,7 +19,7 @@ en:
   contain: Contain
   home: Home
   intro: -introducing-
-  intro_burger: FATTY BURGER
+  intro_burger: HUST5x RESTAURANT
   new_table_title: New Table
   manage_banner: -Manage-
   create_table_banner: Create table
@@ -87,7 +87,6 @@ en:
   image: Image
   total_price: Total price
   stock: Stock
-  order_detail_not_found: Order details not found!
   paying: Pay
   order_list: List orders
   access_denied: Access denied!
@@ -117,6 +116,7 @@ en:
   create_category_suc: Category created successfully!
   create_category_fail: Fail to create category
   show_category_banner: Showing categories
+  category_not_found: Can't found category
   image: Image
   valid_type_img: must be a valid image format
   valid_size_img: should be less than 5MB
@@ -207,10 +207,9 @@ en:
   invalid_errors: is invalid
   dashboard: Dashboard
   category_name: Category name
-  search_with_result_cate: "Searched category: [%{search_text}] with %{count} results."
-  search_with_result_product: "Searched category: [%{search_text}] with %{count} results."
-  no_result_found_cate: "No results found with category: [%{search_text}] !!!"
-  no_result_found_product: "No results found with product: [%{search_text}] !!!"
+  search_with_result_product: "Searched product with %{count} results."
+  no_result_found_category: "No results found with category!!!"
+  no_result_found_product: "No results found with product!!!"
   edit_category: Edit Category
   list_category: List Category
   create_category: Create Category
@@ -238,18 +237,35 @@ en:
   menu: Menu
   customer: Customer
   staff: Staff
-  no_result_found_order: "No results found with order: [%{search_text}] !!!"
-  search_with_result_order: "Searched order: [%{search_text}] with %{count} results.."
+  no_result_found_order: "No results found with order!!!"
   order_status_asc: Status A->Z
   order_status_desc: Status Z->A
   order_person_number_asc: Number person low to high
   order_person_number_desc: Number person high to low
   order_total_amount_asc: Total amount low to high
   order_total_amount_desc: Total amount high to low
-  search_with_result_order: "Searched order: [%{search_text}] with %{count} results."
+  search_with_result_order: "Searched order with %{count} results."
   paid_success: Paid successed!
   quantily_negative: Quantily is invalid! Try some!
-  search_with_result_category: "Searched category: [%{search_text}] with %{count} results.."
-  no_result_found_order: "No results found with category: [%{search_text}] !!!"
   user_confirm_enable: Are you sure you want to enable this user?
   new_user: New user
+  search_with_result_category: "Searched category with %{count} results.."
+  no_result_found_order: "No results found with order!!!"
+  our_category: Our Categories
+  fresh_food: "* Fresh food *"
+  customer_is_god: Customer is GOD
+  serve_everytime: Serving everytime you come!
+  total: Total
+  category_no_product: No product!
+  no_product: All is empty!
+  all_product: All products
+  show: Show
+  our_product: Our product...
+  order_name_asc: Name A->Z
+  order_name_desc: Name Z->A
+  order_category_asc: Category A->Z
+  order_category_desc: Category Z->A
+  order_price_asc: Price low to high
+  order_price_desc: Price high to low
+  order_stock_asc: Stock low to high
+  order_stock_desc: Stock high to low

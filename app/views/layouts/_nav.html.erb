@@ -6,8 +6,8 @@
   </div>
 
   <div class="pull-right profile">
-    <%= form_tag "", class: "nav-item search_form_nav", method: :get do %>
-      <%= text_field_tag :search, params[:search], class: "hover_search form-control", placeholder: "search" %>
+    <%= search_form_for @q, url: search_path, class: "nav-item search_form_nav" do |f| %>
+      <%= f.search_field :name_or_short_description_cont, class: "hover_search form-control", placeholder: t("our_product") %>
       <%= button_tag(type: "submit", class: "btn btn_search") do %>
         <i class="glyphicon glyphicon-search"></i>
       <% end %>
@@ -15,30 +15,39 @@
 
     <%= link_to t("home"), "", class: "nav-item nav-link-item" %>
     <%= link_to t("about"), "", class: "nav-item nav-link-item" %>
-    <%= link_to t("menu"), "", class: "nav-item nav-link-item" %>
+    <div class="dropdown nav-item nav-link-item nav-sun-inline menu-category">
+      <span class="dropdown-toggle" data-toggle="dropdown"><%= t "menu" %><span class="caret"></span></span>
+      <ul class="dropdown-menu" id="menu-category-dropdown">
+        <li class="divider"></li>
+        <% @nav_categories.each do |category| %>
+          <li><%= link_to category[1].humanize, category_path(category[0]) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <%= link_to t("tables"), tables_path, class: "nav-item nav-link-item" %>
+    <%= link_to t("all_product"), products_path, class: "nav-item nav-link-item" %>
     <%= link_to t("contact"), "", class: "nav-item nav-link-item" %>
 
     <div class="nav-item">
       <%= link_to new_order_path, class: "btn btn-danger" do %>
-        <span>Book a table</span>
+        <span><%= t "book" %></span>
       <% end %>
     </div>
-
-    <ul class="nav profile_ul">
-      <% if user_signed_in? %>
-        <li class="dropdown dropdown-toggle" data-toggle="dropdown">
-          <div class="user_name_nav">
-            <%= image_tag current_user.image, alt: "", class: "user_icon" if current_user.image.attached? %>
-            <div class="user_name"><p><%= current_user.name %></p></div>
-          </div>
-          <ul class="dropdown-menu">
-            <li><%= link_to t("profile"), user_path(id: current_user.id), method: :get %></li>
-            <li><%= link_to t("history"), "" %></li>
-            <li class="divider"></li>
-            <li><%= link_to t("logout"), destroy_user_session_path, method: :delete %></li>
-          </ul>
-        </li>
-      <% else %>
+    <% if user_signed_in? %>
+      <div class="dropdown profile_ul nav-sun-inline menu-profile">
+        <span class="dropdown-toggle user_name_nav" data-toggle="dropdown">
+          <%= image_tag current_user.image, alt: "", class: "user_icon" if current_user.image.attached? %>
+          <span class="user_name"><p><%= current_user.name %></p></span>
+        </span>
+        <ul class="dropdown-menu" id="menu-profile-dropdown">
+          <li><%= link_to t("profile"), user_path(id: current_user.id) %></li>
+          <li><%= link_to t("history"), user_orders_path(current_user) %></li>
+          <li class="divider"></li>
+          <li><%= link_to t("logout"), destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </div>
+    <% else %>
+      <ul class="nav profile_ul">
         <li class="li_login_path">
           <%= link_to new_user_session_path, class: "link_to_login" do %>
             <button class="btn btn-danger login_btn">
@@ -46,7 +55,8 @@
             </button>
           <% end %>
         </li>
-      <% end %>
-    </ul>
+      </ul>
+    <% end %>
+
   </div>
 </div>

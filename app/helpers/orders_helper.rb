@@ -15,7 +15,7 @@ module OrdersHelper
 
   def load_order_table order
     result = []
-    Table.usefull.reduce(result){|a, e| a << array_table_item(e)}
+    Table.available.reduce(result){|a, e| a << array_table_item(e)}
     order.tables.reduce(result){|a, e| a << array_table_item(e)}
   end
 
