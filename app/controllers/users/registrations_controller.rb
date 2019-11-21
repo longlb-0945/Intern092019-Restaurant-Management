@@ -1,11 +1,9 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  def create
-    super
-    @user.attach_image params, :user
-  end
+  after_action :attach_regis, only: %i(create update)
 
-  def update
-    super
+  private
+
+  def attach_regis
     @user.attach_image params, :user
   end
 end

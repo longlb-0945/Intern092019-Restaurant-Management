@@ -1,6 +1,7 @@
 class Admin::CategoriesController < AdminController
   before_action :load_category, only: %i(edit update destroy)
   before_action ->{params_for_search Category}, only: %i(index search sort)
+  load_and_authorize_resource :category
 
   def index
     order_key = params[:action_update] ? :updated_at_desc : :created_at_desc
@@ -85,6 +86,6 @@ class Admin::CategoriesController < AdminController
 
   def search_flash_success
     flash.now[:success] = t "search_with_result_category",
-             count: @categories.size
+                            count: @categories.size
   end
 end

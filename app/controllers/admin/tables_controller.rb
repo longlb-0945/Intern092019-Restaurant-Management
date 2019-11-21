@@ -1,5 +1,6 @@
 class Admin::TablesController < AdminController
   before_action :load_table, except: %i(index new create sort)
+  load_and_authorize_resource :table
 
   def index
     @tables = Table.send(order_key).page(params[:page])

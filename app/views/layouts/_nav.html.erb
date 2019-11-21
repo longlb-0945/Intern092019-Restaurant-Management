@@ -26,7 +26,6 @@
     </div>
     <%= link_to t("tables"), tables_path, class: "nav-item nav-link-item" %>
     <%= link_to t("all_product"), products_path, class: "nav-item nav-link-item" %>
-    <%= link_to t("contact"), "", class: "nav-item nav-link-item" %>
 
     <div class="nav-item">
       <%= link_to new_order_path, class: "btn btn-danger" do %>
@@ -41,7 +40,13 @@
         </span>
         <ul class="dropdown-menu" id="menu-profile-dropdown">
           <li><%= link_to t("profile"), user_path(id: current_user.id) %></li>
-          <li><%= link_to t("history"), user_orders_path(current_user) %></li>
+          <% if current_user.guest? %>
+            <li><%= link_to t("history"), user_orders_path(current_user) %></li>
+          <% elsif current_user.staff? %>
+            <li><%= link_to t("manage"), admin_orders_url %></li>
+          <% elsif current_user.admin? %>
+            <li><%= link_to t("manage"), admin_dashboard_url %></li>
+          <% end %>
           <li class="divider"></li>
           <li><%= link_to t("logout"), destroy_user_session_path, method: :delete %></li>
         </ul>

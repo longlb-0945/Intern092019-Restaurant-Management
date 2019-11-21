@@ -32,6 +32,8 @@ class Order < ApplicationRecord
   allow_destroy: true
   accepts_nested_attributes_for :tables, reject_if: :all_blank
 
+  scope :latest_orders,
+        ->{where("created_at >= ?", Settings.latest_record.days.ago)}
   scope :order_by,
         ->(order_key, order_type){order("#{order_key} #{order_type}")}
 

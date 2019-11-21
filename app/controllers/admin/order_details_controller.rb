@@ -1,6 +1,7 @@
 class Admin::OrderDetailsController < AdminController
   before_action :load_order_detail, only: %i(update_amount destroy)
   before_action :load_order, only: %i(index create destroy update_amount)
+  load_and_authorize_resource :order_detail
 
   def index
     access_denied if @order.pending? || @order.cancel?

@@ -23,7 +23,7 @@ pagenate_orders: 8
 paid_img: "paid.png"
 min_quantily: 1
 currency: VND
-pagenate_products: 10
+pagenate_products: 12
 min_price_allow: 1000
 min_stock_allow: 0
 min_price_choosen: 1
@@ -74,3 +74,7 @@ flaticon_arr: ["burger", "drink", "food"]
 home_pick_item: 5
 three: 3
 one: 1
+adminlteimg: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-1/p160x160/31351067_163269287668096_9160397326515278093_n.jpg?_nc_cat=109&_nc_oc=AQmNbxtnpwHzWQwu7J7GwSEroSRMMGabnPrlNDD0sf8UlE8TJtHNGok9dzwEGyrVb0U&_nc_ht=scontent.fhan2-3.fna&oh=c309a02c35d06ddeeea54dabd634ef46&oe=5E476E0E"
+cate_dash: ["bg-success", "bg-warning", "bg-danger", "bg-info", "bg-primary", "bg-indigo", "bg-navy", "bg-pink", "bg-olive", "bg-orange"]
+guest_role: 2
+latest_record: 2

@@ -4,7 +4,7 @@
       <div class="card-body">
         <div class="form-group">
           <label class=""><%= t "table_list" %>:</label>
-          <div class="">
+          <div class="select_table">
             <%= select_tag :table_ids, options_for_select(load_order_table(@order), selected: load_order_preselected(@order)), include_hidden: true, class: "form-control order-table-select", multiple: true %>
           </div>
         </div>

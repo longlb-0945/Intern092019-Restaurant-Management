@@ -23,14 +23,14 @@
     <div class="card">
       <div class="card-header">
         <div class="card-tools float-left">
-        <%= form_tag search_admin_users_path, class: "form-inline", method: :get do %>
-          <div class="input-group input-group-sm div-top-search">
-            <input type="text" name="search" class="form-control" placeholder="<%= t "search" %>">
-            <div class="input-group-append">
-              <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+          <%= search_form_for @q, url: search_admin_users_path, class: "form-inline" do |f| %>
+            <div class="input-group input-group-sm div-top-search">
+                <%= f.search_field :name_or_email_or_role_cont, class: "form-control" %>
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
         </div>
 
         <div class="card-tools float-right">
@@ -45,13 +45,13 @@
         <table class="table table-striped table-hover table-bordered table-user">
           <thead>
              <tr>
-              <th class="users_num"></th>
+              <th class="users_num">#</th>
               <th class="users_name"><%= t "name" %></th>
               <th class="users_email"><%= t "email" %></th>
               <th class="users_join"><%= t "join" %></th>
               <th class="users_role"><%= t "role" %></th>
               <th class="users_status"><%= t "status" %></th>
-              <th class="users_btn"></th>
+              <th class="users_btn"><%= t "control" %></th>
             </tr>
           </thead>
           <tbody>

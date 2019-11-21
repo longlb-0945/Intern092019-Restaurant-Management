@@ -1,6 +1,7 @@
 class Admin::ProductsController < AdminController
   before_action :load_product, only: %i(show edit update destroy)
   before_action ->{params_for_search Product}, only: %i(index search sort)
+  load_and_authorize_resource :product
 
   def index
     order_key = params[:action_update] ? :updated_at_desc : :created_at_desc

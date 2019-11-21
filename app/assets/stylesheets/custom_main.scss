@@ -299,6 +299,7 @@ input[type=number]{
   padding-left: 20px;
   display: inline-block;
   max-width: 25%;
+  cursor: pointer;
 }
 
 //user
@@ -663,9 +664,6 @@ input[type=number]{
 //guest_create_book_form
 .create_order {
   margin-top: 10px;
-  background: url(book-frame.png) no-repeat;
-  background-size: contain;
-  background-position: center;
 }
 
 .create_order_form{
@@ -793,4 +791,8 @@ input[type=number]{
       max-width: 500px;
     }
   }
+}
+
+.no_product{
+  margin-right: 45%;
 }

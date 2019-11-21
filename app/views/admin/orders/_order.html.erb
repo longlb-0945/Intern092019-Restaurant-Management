@@ -22,8 +22,8 @@
   <td><%= order.name %></td>
   <td><%= order.phone %></td>
   <td><%= order.address %></td>
-  <td class="text-center"><span class="bagde bg-primary"><%= order.person_number %></span></td>
-  <td class="text-center"><span class="bagde bg-danger"><%= order.total_amount %></span></td>
+  <td class="text-center"><span class="bagde"><%= order.person_number %></span></td>
+  <td class="text-center"><span class="bagde"><%= order.total_amount %></span></td>
   <td>
     <%# order info, cancel accept order, pick order table %>
     <%= link_to t("details"), edit_admin_order_path(order), class: "btn btn-info" %>

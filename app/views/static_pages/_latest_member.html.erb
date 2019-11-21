@@ -1,0 +1,11 @@
+<tr>
+  <td>
+    <%= image_tag member.image, alt: "", class: "img_user_dash" if member.image.attached? %>
+    <%= link_to member.name, admin_user_path(member.id) %>
+  </td>
+  <td><%= member.email %></td>
+  <td><span class="badge badge-success"><%= member.status %></span></td>
+  <td>
+    <%= time_tag member.created_at %>
+  </td>
+</tr>

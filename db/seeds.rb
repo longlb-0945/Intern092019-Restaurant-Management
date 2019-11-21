@@ -50,9 +50,50 @@ c = Category.create(id: 1, name: "food")
 c.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "category.png")), filename: "default.png")
 c.save
 
-20.times do |n|
+c = Category.create(id: 2, name: "drink")
+c.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "category.png")), filename: "default.png")
+c.save
+
+c = Category.create(id: 3, name: "fast food")
+c.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "category.png")), filename: "default.png")
+c.save
+
+10.times do |n|
 
   p = Product.create(name: "product_" + n.to_s, category_id: 1, price: 1000 + n, stock: 10 + n)
   p.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.png")), filename: "default.png")
   p.save
+end
+
+10.times do |n|
+
+  p = Product.create(name: "product_" + (n+10).to_s, category_id: 2, price: 1000 + n, stock: 10 + n)
+  p.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.png")), filename: "default.png")
+  p.save
+end
+
+10.times do |n|
+
+  p = Product.create(name: "product_" + (n+20).to_s, category_id: 3, price: 1000 + n, stock: 10 + n)
+  p.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.png")), filename: "default.png")
+  p.save
+end
+
+20.times do |n|
+  u = User.create!(id: n+3,name: "user"+n.to_s, email: n.to_s + "abc@gmail.com", password: "111111", password_confirmation: "111111", role: 2)
+  u.image.attach io: File.open(Rails.root
+    .join("app", "assets", "images", "default_user.png")),
+    filename: "default_user.png"
+  u.save
+end
+
+20.times do |n|
+  Order.create!(id: n+1, customer_id: rand(3..23),
+  staff_id: 2,
+  name: "order"+n.to_s,
+  person_number: 10,
+  status: "paid",
+  phone: "11111111",
+  address: "tran khat chan",
+  total_amount: 10000)
 end

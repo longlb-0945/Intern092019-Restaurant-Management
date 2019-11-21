@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!
   before_action :find_user, :correct_user, only: %i(index destroy)
   before_action :check_guest, only: :index
   before_action :find_order, :not_pending, only: :destroy
