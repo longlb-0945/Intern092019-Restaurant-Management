@@ -78,3 +78,4 @@ adminlteimg: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-1/p160x160/31351067_
 cate_dash: ["bg-success", "bg-warning", "bg-danger", "bg-info", "bg-primary", "bg-indigo", "bg-navy", "bg-pink", "bg-olive", "bg-orange"]
 guest_role: 2
 latest_record: 2
+callback_fb: "http://localhost:3000/users/auth/facebook/callback/"

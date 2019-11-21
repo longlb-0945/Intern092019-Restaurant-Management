@@ -296,3 +296,4 @@ en:
   no_result_found_user: "No results found with user!!!"
   search_with_result_user: "Searched user with %{count} results.."
   manage: Manage
+  f_login: Continue with Facebook

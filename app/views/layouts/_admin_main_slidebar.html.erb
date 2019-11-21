@@ -6,7 +6,11 @@
 <div class="sidebar">
   <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <div class="image">
-      <%= image_tag current_user.image, class: "img-circle elevation-2" if current_user.image.attached?  %>
+      <% if current_user.image.attached? %>
+        <%= image_tag current_user.image, class: "img-circle elevation-2" %>
+      <% elsif current_user.fb_ava? %>
+        <%= image_tag current_user.fb_ava, class: "img-circle elevation-2" %>
+      <% end %>
     </div>
     <div class="info">
       <%= link_to current_user.name, admin_user_path(current_user.id), class: "d-block" %>
