@@ -298,7 +298,7 @@ input[type=number]{
   width: fit-content;
   padding-left: 20px;
   display: inline-block;
-  max-width: 25%;
+  max-width: 18%;
   cursor: pointer;
 }
 
@@ -686,19 +686,35 @@ input[type=number]{
   padding: 5px;
   border-radius: 10px;
   background-color: $mid-light;
-  .col-sm-4 {
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .col-sm-3 {
     .panel {
+      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.19);
       text-align: center;
-      width: 20em;
-      height: 24em;
+      width: 15em;
+      height: 22em;
+      &:hover img {
+        opacity: 0.3;
+      }
+      &:hover .middle {
+        opacity: 1;
+      }
       img {
-        width: 15em;
-        height: 10em;
-        transition: border-radius 0.2s;
-        &:hover{
-          border: 2px solid $yellow;
-          border-radius: 50%;
-        }
+        opacity: 1;
+        display: block;
+        height: 100%;
+        height: auto;
+        transition: .5s ease;
+        backface-visibility: hidden;
       }
       .number {
         text-align: center;
@@ -795,4 +811,53 @@ input[type=number]{
 
 .no_product{
   margin-right: 45%;
+}
+
+.login-button {
+  margin-top: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background: $fb_hover;
+}
+
+.login-facebook-icon {
+  background-color: $fb_text;
+  color: $white;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 48px;
+  text-align: center;
+  height: 48px;
+  width: 58px;
+  float: left;
+}
+
+.login-facebook-text {
+  color: $fb_text;
+  font-family: HelveticaNeueW01-55Roma, HelveticaNeueW02-55Roma, HelveticaNeueW10-55Roma, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 46px;
+  text-align: center;
+  width: 239px;
+  height: 46px;
+  padding-left: 58px;
+  border: 1px solid $fb_text;
+}
+
+.product_name_search{
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.product_price_search{
+  padding-top: 5px;
+  color: $red;
+}
+
+.img_panel{
+  padding: 0px;
 }

@@ -2,7 +2,8 @@ class User < ApplicationRecord
   include Image
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook]
 
   SCOPE_SORT = %w(name_asc name_desc email_asc
     email_desc status_asc status_desc).freeze
@@ -63,34 +64,24 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
-  end
 
-  def remember
-    self.remember_token = User.new_token
-    update remember_digest: User.digest(remember_token)
-  end
+    def new_with_session params, session
+      super.tap do |user|
+        if data = session["devise.facebook_data"] &&
+          session["devise.facebook_data"]["extra"]["raw_info"]
+          user.email = data["email"] if user.email.blank?
+        end
+      end
+    end
 
-  def authenticated? token
-    return false if remember_digest.blank?
-
-    BCrypt::Password.new(remember_digest).is_password? token
-  end
-
-  def forget
-    update remember_digest: nil
-  end
-
-  def create_reset_digest
-    self.reset_token = User.new_token
-    update reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now
-  end
-
-  def send_password_reset_email
-    UserMailer.password_reset(self).deliver_now
-  end
-
-  def password_reset_expired?
-    reset_sent_at < Settings.expired_time.hour.ago
+    def from_omniauth auth
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0, 20]
+        user.name = auth.info.name
+        user.fb_ava = auth.info.image
+      end
+    end
   end
 
   private

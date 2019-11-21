@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :find_user, :correct_user, only: %i(index destroy)
   before_action :check_guest, only: :index
   before_action :find_order, :not_pending, only: :destroy
+  before_action :authenticate_user!
 
   def index
     @orders = current_user.customer_orders.page(params[:page])
