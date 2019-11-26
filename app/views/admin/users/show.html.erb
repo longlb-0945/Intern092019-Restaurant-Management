@@ -18,7 +18,11 @@
   </div>
 <% end %>
 <div class="row row_profile">
-  <%= image_tag @user.image, alt: "", class: "show_user_icon" if @user.image.attached? %>
+  <% if @user.image.attached? %>
+    <%= image_tag @user.image, alt: "", class: "show_user_icon" %>
+  <% elsif @user.fb_ava? %>
+    <%= image_tag @user.fb_ava, alt: "", class: "show_user_icon" %>
+  <% end %>
   <hr class="image_divider">
 </div>
 <div class="row show_user">

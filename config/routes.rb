@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
 
     get "admin/dashboard", to: "admin#dashboard"
     get "/search", to: "static_pages#search"
 
-    devise_for :users, controllers: {registations: "users/registrations"}
+    devise_for :users, controllers: { registrations: "users/registrations" }, skip: :omniauth_callbacks
+
     resources :users, only: [:show, :edit, :update] do
       resources :orders, only: [:index, :destroy]
     end
