@@ -78,3 +78,6 @@ Rails/HelperInstanceVariable:
 
 Rails/LexicallyScopedActionFilter:
   Enabled: false
+
+Security/Open:
+  Enabled: false
