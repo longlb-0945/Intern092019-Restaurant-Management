@@ -2,11 +2,7 @@
   <td class="user_incre_content"></td>
   <td class="user_name_content">
     <div class="user_name_content">
-      <% if user.image.attached? %>
-        <%= image_tag user.image, alt: "", class: "user_img" %>
-      <% elsif user&.fb_ava %>
-         <%= image_tag user.fb_ava, alt: "", class: "user_img" %>
-      <% end %>
+      <%= image_tag user.image, alt: "", class: "user_img" if user.image.attached? %>
       <p class="user_name"><%= user.name %></p>
     </div>
   </td>

@@ -121,7 +121,6 @@ ActiveRecord::Schema.define(version: 2019_11_21_081348) do
     t.datetime "remember_created_at"
     t.string "provider"
     t.string "uid"
-    t.text "fb_ava"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

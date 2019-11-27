@@ -25,9 +25,6 @@
       <div class="card-body">
         <% if @order.staff&.image %>
           <%= image_tag @order.staff_image, class: "rounded-circle" if @order.staff_image.attached? %>
-        <% elsif order.staff&.fb_ava %>
-          <%= image_tag order.staff.fb_ava, class: "rounded-circle" %>
-          <%= link_to order.staff_name, admin_user_path(order.staff), class: "d-block" %>
         <% else %>
           <span class="order-person-empty">X</span>
         <% end %>
@@ -43,9 +40,6 @@
       <div class="card-body">
         <% if @order.customer&.image %>
             <%= image_tag @order.customer_image, class: "rounded-circle" if @order.customer_image.attached? %>
-        <% elsif order.customer&.fb_ava %>
-          <%= image_tag order.customer.fb_ava, class: "rounded-circle" %>
-          <%= link_to order.customer_name, admin_user_path(order.customer), class: "d-block" %>
         <% else %>
           <span class="order-person-empty">X</span>
         <% end %>

@@ -35,11 +35,7 @@
     <% if user_signed_in? %>
       <div class="dropdown profile_ul nav-sun-inline menu-profile">
         <span class="dropdown-toggle user_name_nav" data-toggle="dropdown">
-          <% if current_user.image.attached? %>
-            <%= image_tag current_user.image, alt: "", class: "user_icon"  %>
-          <% elsif current_user.fb_ava? %>
-            <%= image_tag current_user.fb_ava, alt: "", class: "user_icon"  %>
-          <% end %>
+          <%= image_tag current_user.image, alt: "", class: "user_icon" if current_user.image.attached? %>
           <span class="user_name"><p><%= current_user.name %></p></span>
         </span>
         <ul class="dropdown-menu" id="menu-profile-dropdown">
