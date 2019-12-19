@@ -204,9 +204,6 @@ input[type=number]{
       width: 80%;
     }
   }
-  div{
-    float: right;
-  }
   fieldset{
     border: 1px solid $palegreen;
     legend{
@@ -742,7 +739,7 @@ input[type=number]{
   color: $black;
   text-align: center;
   width: 90%;
-  margin: 20px 30px 0 30px;
+  margin: 1% 5%;
   padding: 5px;
   background-color: $mid-light;
   button {
@@ -800,12 +797,6 @@ input[type=number]{
     float: right;
     margin-right: 50px;
     max-width: 500px;
-    height: 280px;
-    &:hover {
-      height: 290px;
-      border: 2px solid $aqua;
-      max-width: 500px;
-    }
   }
 }
 
