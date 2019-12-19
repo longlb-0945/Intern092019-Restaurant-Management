@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title) %></title>
+    <% if @notifications_unread&.> 0 %>
+      <title><%= "(#{@notifications_unread}) #{yield(:title)}" %></title>
+    <% else %>
+      <title><%= yield(:title) %></title>
+    <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 

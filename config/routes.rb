@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :categories, only: [:show]
     resources :tables, only: :index
     resources :orders, only: [:new, :create]
+    resources :notifications, only: [:update, :index]
 
     namespace :admin do
       resources :tables do

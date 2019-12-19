@@ -722,12 +722,10 @@ input[type=number]{
   .pull-right, .pull-left {
     margin: 20px;
   }
-
   .public-product-pull {
     margin: 10px;
   }
 }
-
 
 .alert-empty-product {
   float: none;
@@ -800,7 +798,7 @@ input[type=number]{
   }
 }
 
-.no_product{
+.no_product {
   margin-right: 45%;
 }
 
@@ -851,4 +849,61 @@ input[type=number]{
 
 .img_panel {
   padding: 0px;
+}
+
+// notifications
+.noti-bell-icon {
+  font-size: 23px;
+  margin-top: 15px;
+  position: relative;
+  .badge-noti{
+    background: $red;
+    position: absolute;
+    top: -5px;
+    left: 10px;
+  }
+}
+
+#notification-navbar-ul {
+  color: $black;
+  width: 350px;
+  margin-left: -200px;
+  max-width: 400px;
+  max-height: 300px;
+  overflow: auto;
+  .noti {
+    color: $red;
+  }
+  .li-notification {
+    padding: 8px;
+    text-align: center;
+    .title {
+      display: inline;
+      color: $green;
+    }
+    .text {
+      display: block;
+      color: #1bbae1;
+      margin-top: 8px;
+      &:hover {
+        font-size: 18px;
+      }
+    }
+    &:hover {
+      border: 1px solid #cf1d1f;
+    }
+  }
+  .li-notification-read {
+    background-color: #f2f2f2;
+  }
+  .li-notification-unread {
+    background-color: #a3ec81;
+  }
+  hr {
+    margin: 0;
+  }
+}
+
+#mark-noti-form{
+  display: inline;
 }

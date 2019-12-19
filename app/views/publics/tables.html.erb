@@ -1,0 +1,22 @@
+<% provide :title, t("tables") %>
+<% provide :small_banner, t("show_table_bannerr") %>
+<% provide :big_banner, t("table_list") %>
+
+<div class="container-fluid public-table-show">
+  <div class="row">
+    <div class="pull-right">
+      sort
+    </div>
+  <div class="pull-left">
+    <button type="button" class="btn btn-primary"><%= t "total" %> <span class="badge"><%= @tables.size %></span></button>
+  </div>
+</div>
+
+<div class="row">
+  <% @tables.each do |table| %>
+    <%= render "table", table: table %>
+  <% end %>
+</div>
+<div class="row paginate_row" >
+  <%= paginate @tables %>
+</div>
