@@ -20,6 +20,7 @@ gem "puma", "~> 3.11"
 gem "rails", "~> 6.0.0"
 gem "ransack"
 gem "sass-rails", "~> 5"
+gem "sidekiq"
 gem "turbolinks", "~> 5.2.0"
 gem "webpacker", "~> 4.0"
 

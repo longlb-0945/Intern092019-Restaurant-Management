@@ -64,4 +64,6 @@ $('document').ready(function(){
   $(document).on('click', '#mark-noti-submit', function(){
     $('#mark-noti-form').submit();
   });
+
+  $("#datetimepicker2").datetimepicker();
 });

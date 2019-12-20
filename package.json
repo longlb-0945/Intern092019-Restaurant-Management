@@ -9,6 +9,7 @@
     "@venuu/i18n-js-webpack-plugin": "^2.0.0",
     "admin-lte": "^3.0.0",
     "bootstrap": "4.3.1",
+    "bootstrap-datetime-picker": "^2.4.4",
     "datatables": "^1.10.18",
     "datatables.net": "^1.10.20",
     "datatables.net-bs": "^1.10.20",

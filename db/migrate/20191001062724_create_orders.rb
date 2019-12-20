@@ -9,6 +9,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.integer :status, default: 0
       t.integer :person_number
       t.integer :total_amount, default: 0
+      t.datetime :start_time
 
       t.timestamps
     end

@@ -18,6 +18,8 @@ require("javascripts/gmaps.min")
 require("javascripts/main")
 require("select2")
 require("select2/dist/css/select2.css")
+require("moment")
+require("bootstrap-datetime-picker")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag "rails.png" %>)

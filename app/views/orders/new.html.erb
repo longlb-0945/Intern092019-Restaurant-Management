@@ -15,6 +15,14 @@
       <%= f.label t "address" %>
       <%= f.text_field :address, class: "form-control" %>
 
+      <%= f.label "Start time" %>
+      <div class='input-group date' id='datetimepicker2'>
+          <input type='text' name="order[start_time]" class="form-control" />
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+      </div>
+
       <%= f.label t "person_number" %>
       <%= f.number_field :person_number, min: Settings.min_book_size, require: true, class: "form-control" %>
 
