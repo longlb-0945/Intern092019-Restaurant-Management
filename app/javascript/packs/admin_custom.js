@@ -42,9 +42,38 @@ $('document').ready(function(){
     placeholder: I18n.t('pick_table_placeholder')
   });
 
-  setInterval(function(){
-    $('.alert').remove();
-  }, 5000);
+  $("#datetimepicker").datetimepicker({
+    startDate: new Date()
+  });
+
+  $(document).on('click', '#report-btn-day', function(){
+    $('#report-datepicker').datetimepicker('remove');
+    $("#report-datepicker").datetimepicker({
+      // startDate: new Date(),
+      format: "dd/mm/yyyy",
+      startView: 2,
+      minView: 2,
+      minuteStep: 30,
+      autoclose: true
+    });
+
+    $('.report-btn').attr('class', 'btn report-btn');
+    $(this).attr('class', 'btn report-btn report-btn-select');
+  });
+
+  $(document).on('click', '#report-btn-month', function(){
+    $('#report-datepicker').datetimepicker('remove');
+    $('#report-datepicker').val('');
+    $("#report-datepicker").datetimepicker({
+      format: "mm/yyyy",
+      startView: 3,
+      minView: 3,
+      autoclose: true
+    });
+
+    $('.report-btn').attr('class', 'btn report-btn');
+    $(this).attr('class', 'btn report-btn report-btn-select');
+  });
 });
 
 function update_amount(order_id, order_detail_id){
@@ -72,8 +101,21 @@ function update_amount(order_id, order_detail_id){
 }
 
 $(document).on('turbolinks:load', function() {
-  console.log('Turbolink load...');
+  console.log('turbolink load');
   $('.order-table-select').select2({
-    placeholder: I18n.t('pick_table_placeholder')
+    placeholder: "Pick your tables!"
+  });
+
+  $("#datetimepicker").datetimepicker({
+    startDate: new Date()
+  });
+
+  $("#report-datepicker").datetimepicker({
+    // startDate: new Date(),
+    format: "dd/mm/yyyy",
+    startView: 2,
+    minView: 2,
+    minuteStep: 30,
+    autoclose: true
   });
 })

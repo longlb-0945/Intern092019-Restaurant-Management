@@ -470,3 +470,29 @@ background: $info-color;
     margin-left: 30%;
   }
 }
+
+.datepicker {
+  .active {
+    background-color: greenyellow;
+  }
+  td {
+    &:hover {
+      background-color: cadetblue;
+    }
+  }
+}
+
+.report-btn {
+  background-color: #b4d1bd;
+  &:hover {
+    background-color: #8a7771;
+  }
+}
+
+.report-btn-select {
+  background-color: #8a7771;
+}
+
+.nav-item {
+  border-bottom: 1px solid #4f5962;
+}

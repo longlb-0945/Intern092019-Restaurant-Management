@@ -17,7 +17,9 @@ class OrdersController < ApplicationController
     if @order.save
       flash[:success] = t "order_create_suc"
       redirect_to root_path
-      new_notification_job "Created", @order.id, @order.customer.id
+      new_notification_job "Created", @order.id, @order.customer.idww
+
+      CheckOrderTimeJob.set(wait_until: @order.start_time-7*3600).perform_later(@order.id)
     else
       flash[:danger] = t "order_create_fail"
       render :new
@@ -35,7 +37,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit :name, :phone, :address, :person_number
+    params.require(:order).permit :name, :phone, :address, :person_number, :start_time
   end
 
   def assign_params

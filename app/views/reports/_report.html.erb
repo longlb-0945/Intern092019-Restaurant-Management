@@ -1,0 +1,28 @@
+<tr class="trow">
+  <td></td>
+  <td>
+    <% if report.staff&.image %>
+      <%= image_tag report.staff_image, class: "order-person-img rounded-circle" if report.staff_image.attached? %>
+      <%= link_to report.staff_name, admin_user_path(report.staff), class: "d-block" %>
+    <% else %>
+      <span class="order-person-empty">X</span>
+    <% end %>
+  </td>
+  <td>
+    <% if report.customer&.image %>
+      <%= image_tag report.customer_image, class: "order-person-img rounded-circle" if report.customer_image.attached? %>
+      <%= link_to report.customer_name, admin_user_path(report.customer) %>
+    <% else %>
+      <span class="order-person-empty">X</span>
+    <% end %>
+  </td>
+  <td>
+    <label class="badge <%= check_order_status(report) %>"><%= report.status.humanize %></label>
+  </td>
+  <td><%= report.name %></td>
+  <td><%= report.phone %></td>
+  <td><%= report.address %></td>
+  <td><%= report.start_time.strftime("%H:%M (%d/%m/%Y)") %></td>
+  <td class="text-center"><span class="bagde"><%= report.person_number %></span></td>
+  <td class="text-center"><span class="bagde"><%= report.total_amount %></span></td>
+</tr>

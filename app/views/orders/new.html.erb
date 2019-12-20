@@ -7,13 +7,21 @@
       <%= render "shared/error_messages", object: f.object %>
 
       <%= f.label t "name" %>
-      <%= f.text_field :name, class: "form-control" %>
+      <%= f.text_field :name, class: "form-control", value: current_user.name.humanize %>
 
       <%= f.label t "phone" %>
       <%= f.text_field :phone, class: "form-control" %>
 
       <%= f.label t "address" %>
       <%= f.text_field :address, class: "form-control" %>
+
+      <%= f.label "Start time" %>
+      <div class='input-group date' id='datetimepicker'>
+          <%= f.text_field :start_time, class: "form-control", readonly: true %>
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+      </div>
 
       <%= f.label t "person_number" %>
       <%= f.number_field :person_number, min: Settings.min_book_size, require: true, class: "form-control" %>
