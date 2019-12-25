@@ -87,13 +87,13 @@ end
   u.save
 end
 
-20.times do |n|
-  Order.create!(id: n+1, customer_id: rand(3..23),
-  staff_id: 2,
-  name: "order"+n.to_s,
-  person_number: 10,
-  status: "paid",
-  phone: "11111111",
-  address: "tran khat chan",
-  total_amount: 10000)
-end
+# 20.times do |n|
+#   Order.create!(id: n+1, customer_id: rand(3..23),
+#   staff_id: 2,
+#   name: "order"+n.to_s,
+#   person_number: 10,
+#   status: "paid",
+#   phone: "11111111",
+#   address: "tran khat chan",
+#   total_amount: 10000)
+# end

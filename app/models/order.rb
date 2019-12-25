@@ -22,6 +22,8 @@ class Order < ApplicationRecord
   validates :staff_id, numericality: {only_integer: true}, allow_nil: true
   validates :name, presence: true
   validates :phone, presence: true
+  validates :start_time, presence: true
+  validate :start_time_around
   validates :address, presence: true
   validates :total_amount, numericality: {only_integer: true}, allow_nil: true
   validates :person_number, presence: true,
@@ -39,5 +41,12 @@ class Order < ApplicationRecord
 
   def table_to_available
     tables.each(&:available!)
+  end
+
+  private
+  def start_time_around
+    if !start_time || !start_time.hour.between?(8, 20)
+      errors.add(:start_time, "Start hour must in 8 and 20!")
+    end
   end
 end

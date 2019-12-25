@@ -20,6 +20,8 @@ class OrdersController < ApplicationController
       redirect_to root_path
       new_notification_job "Created", @order.id, @order.customer.id
       ActionCable.server.broadcast("noti_channel_admin_staff", abc: 1)
+
+      CheckOrderJob.set(wait_until: @order.start_time).perform_later(@order.id)
     else
       flash[:danger] = t "order_create_fail"
       render :new
@@ -37,7 +39,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit :name, :phone, :address, :person_number
+    params.require(:order).permit :name, :phone, :address, :person_number, :start_time
   end
 
   def assign_params
