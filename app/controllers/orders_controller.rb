@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
       flash[:success] = t "order_create_suc"
       redirect_to root_path
       new_notification_job "Created", @order.id, @order.customer.id
+      ActionCable.server.broadcast("noti_channel_admin_staff", abc: 1)
     else
       flash[:danger] = t "order_create_fail"
       render :new

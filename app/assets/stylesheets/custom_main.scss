@@ -907,3 +907,29 @@ input[type=number]{
 #mark-noti-form{
   display: inline;
 }
+
+.st1_td_his {
+  text-align: left !important;
+}
+
+.st2_td_his{
+  text-align: center !important;
+  .order-status-pending{
+    background-color: $dark_yellow !important;
+  }
+
+  p {
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.tbl_his {
+  border-bottom:0px !important;
+}
+
+.tbl_his th, .tbl_his td {
+  border: 1px !important;
+}
