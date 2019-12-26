@@ -1,0 +1,18 @@
+<div class="col-sm-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3><%= t "order" %>: <%= order.status.humanize %></h3>
+    </div>
+    <div class="panel-body">
+      <button type="button" class="btn btn-primary"><%= t "name" %> <span class="badge"><%= order.name.humanize %></span></button>
+      <button type="button" class="btn btn-secondary"><%= t "phone" %> <span class="badge"><%= order.phone %></span></button>
+      <button type="button" class="btn btn-success"><%= t "person_number" %> <span class="badge"><%= order.person_number %></span></button>
+      <button type="button" class="btn <%= check_order_status order %>"><%= t "status" %> <span class="badge"><%= order.status.humanize %></span></button>
+      <% if order.pending? %>
+        <%= form_tag user_order_path(current_user, id: order.id), method: :delete do %>
+          <button type="submit" class="btn btn-danger" data-confirm="<%= t "delete_confirm" %>"><%= t "cancel" %></button>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

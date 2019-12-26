@@ -1,0 +1,23 @@
+<tr class="trow">
+  <td></td>
+  <td>
+    <%= image_tag order_detail.product_image, alt: "", class: "product-img" if order_detail.product_image.attached? %>
+    <%= link_to order_detail.product_name, admin_product_path(order_detail.product) %>
+  </td>
+  <td><%= order_detail.price %></td>
+  <td>
+  <% if @order.paid? %>
+    <span class="badge bg-danger"><%= order_detail.quantily %></span>
+  <% else %>
+    <input type="number" class="order-detail-change-quantily form-control" id="order-detail-quantily-<%= order_detail.id %>" min="<%= Settings.min_quantily %>"
+      value="<%= order_detail.quantily %>" data-id="<%= "#{params[:order_id]}-#{order_detail.id}" %>">
+  <% end %>
+  </td>
+  <td id="order-detail-amount-<%= order_detail.id %>"><%= order_detail.amount %></td>
+  <td>
+  <% unless @order.paid? %>
+    <%= link_to t("delete"), admin_order_order_detail_url(id: order_detail.id), method: :delete,
+      data: {confirm: t("delete_confirm")}, class: "btn btn-danger" %>
+  <% end %>
+  </td>
+</tr>

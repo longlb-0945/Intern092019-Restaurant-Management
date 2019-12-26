@@ -1,0 +1,34 @@
+<tr class="trow">
+  <td class="user_incre_content"></td>
+  <td class="user_name_content">
+    <div class="user_name_content">
+      <%= image_tag user.image, alt: "", class: "user_img" if user.image.attached? %>
+      <p class="user_name"><%= user.name %></p>
+    </div>
+  </td>
+  <td class="user_email_content">
+    <div class="user_email_content">
+      <p class="user_email"><%= user.email %></p>
+    </div>
+  </td>
+  <td class="user_join_content">
+    <div class="user_join_content">
+      <p class="user_join"><%= time_tag user.created_at %></p>
+    </div>
+  </td>
+  <td class="user_role_content">
+    <div class="user_role_content">
+      <p class="user_role role_<%= check_user_role user %>"><%= user.role %></p>
+    </div>
+  </td>
+  <td class="user_status_content">
+    <div class="user_status_content">
+      <p class="user_status status_<%= check_user_status user %>" id="user_status_<%= user.id %>"><%= user.status %></p>
+    </div>
+  </td>
+  <td class="user_btn_content">
+    <%= content_tag :div, class: "cover_btn_user_#{user.id}" do %>
+      <%= render "button", user: user %>
+    <% end %>
+  </td>
+</tr>

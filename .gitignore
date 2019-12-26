@@ -23,6 +23,7 @@
 !/storage/.keep
 
 /public/assets
+/public/javascripts/*/**
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
@@ -34,3 +35,16 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+/test
+/config/database.yml
+/config/cable.yml
+/config/credentials.yml.enc
+/config/storage.yml
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+
+# Ignore application configuration
+/config/application.yml
+/bin/*

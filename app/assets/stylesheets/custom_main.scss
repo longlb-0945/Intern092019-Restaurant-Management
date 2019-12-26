@@ -1,0 +1,893 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'color_main';
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.nav-sun-inline{
+  display: inline;
+}
+
+//flash
+.alert-top{
+  margin-top: 25%;
+}
+
+.alert{
+  float: right;
+  text-align: center;
+  font-size: 18px;
+  z-index:99;
+}
+
+//search_box
+.has-search {
+  width: 40%;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.form-control-feedback {
+  right: initial;
+  left: 0;
+  color: $solid-white;
+}
+
+.has-search .form-control {
+  border: 0px;
+  padding-right: 12px;
+  padding-left: 34px;
+  background-color: transparent;
+  color: $white;
+}
+
+//profile
+.profile{
+  text-align: right;
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  padding: 10px 0px;
+  width: 85%;
+}
+
+.dropdown > p{
+  padding-top: 20%;
+}
+
+//paginate
+.pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: $white;
+  border: 1px solid $solid-white-2;
+  border-left-width: 0;
+}
+
+.paginate_row{
+  text-align: center;
+  margin: 0 2%;
+}
+
+.pagination {
+  border-left: 1px solid $solid-white-3;
+  color: $black;
+  .first{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .prev {
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .page{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .next{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .last{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+}
+
+//book button
+.button_book{
+  padding: 0% 1%;
+  width: 15%;
+  display: inline-block;
+}
+
+.book_table{
+  font-size: 20px;
+  width: 100%;
+}
+
+.reservation_icon {
+  height: 30px;
+  width: 30px;
+}
+
+.button_book_text {
+  color: $white;
+}
+
+//pay
+.new_order_detail{
+  display: inline-block;
+  width: 85%;
+}
+
+.pay{
+  height: 50px;
+  width: 10%;
+  display: inline-block;
+}
+
+.btn_pay{
+  height: 100%;;
+  width: 100%;
+}
+
+.paid{
+  margin-top: 2%;
+  height: 10%;
+  width: 15%;
+}
+
+.paid_img{
+  height: 100%;
+  width: 100%;
+}
+
+.edit-order-detail-top-row{
+  text-align: center;
+  margin: 0% 9%;
+  a{
+    button{
+      margin: 10px;
+    }
+  }
+}
+
+.total-amount{
+  text-align: center;
+  color: $black;
+  margin: 0% 9%;
+}
+
+input[type=number]{
+  text-align: center;
+  border-radius: 5px;
+}
+
+.edit-oder-show-row{
+  width: 50%;
+  text-align: center;
+}
+
+.table-top-banner, .order-top-banner{
+  margin-left: 330px;
+  margin-top: 20px;
+  color: $black;
+}
+
+.product-show-image{
+  text-align: center;
+  .product-image{
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+    padding: 2px;
+  }
+}
+
+.product-show-info{
+  color: $black;
+  margin-top: 20px;
+  table{
+    td[class=content]{
+      width: 80%;
+    }
+  }
+  div{
+    float: right;
+  }
+  fieldset{
+    border: 1px solid $palegreen;
+    legend{
+      width: 24%;
+    }
+    p{
+      text-align: justify;
+      text-indent: 20px;
+    }
+  }
+}
+
+.cate_name{
+  display: inline-block;
+}
+
+.cates_num{
+  width: 10%;
+}
+
+.cates_name{
+  width: 60%;
+}
+
+.cates_btn{
+  width: 30%;
+}
+
+.cate_img{
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+.add_cate{
+  margin: 2% 30%;
+  text-align: center;
+}
+
+.add_cate_btn{
+  color: $white;
+}
+
+.btn_edit{
+  display: inline-block;
+}
+
+.btn_delete{
+  display: inline-block;
+}
+
+.preview_img{
+  height: 150px;
+  width: 150px;
+  margin-bottom: 1%;
+  display: flex;
+  background: url(not_found_img.jpg) no-repeat;
+  background-size: cover;
+}
+
+.product_mini_img, .product_mini_name{
+  display: inline-block;
+}
+
+.product_mini_img{
+  width: 40px;
+  height: 40px;
+}
+
+  //edit vendor nav
+.nav_hover{
+  width: 6%;
+}
+
+.navbar-header{
+  width: 15%;
+}
+
+.search_nav{
+  width: 40%;
+}
+
+.button_book{
+  width: 15%;
+}
+
+.profile_ul{
+  vertical-align: middle;
+  width: fit-content;
+  padding-left: 20px;
+  display: inline-block;
+  max-width: 18%;
+  cursor: pointer;
+}
+
+//user
+#session_remember_me {
+  width: 60%;
+}
+
+.login_signup{
+  text-align: center;
+  color: $black;
+}
+
+.li_login_path{
+  text-align: left;
+}
+
+.link_to_login{
+  width: fit-content;
+  padding: 0px !important;
+}
+
+.nav_dropdown{
+  margin: 4% 0%;
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  p {
+    padding-top: 0%;
+  }
+}
+
+.user_name_nav{
+  width: 100%;
+  height: 44px;
+  padding-top: 1%;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  max-width: 200px;
+}
+
+.user_icon{
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+}
+
+.user_name{
+  width: 70%;
+  height: 90%;
+  display: inline-block;
+  vertical-align: sub;
+  p{
+    width: 100%;
+    margin-bottom: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+  }
+}
+
+//show user
+.show_user{
+  margin: 0% 9%;
+}
+
+.show_user_header{
+  text-align: center;
+  margin-top: -6%;
+}
+
+.image_divider{
+  border-color: $darkred;
+  width: 50%;
+}
+
+.table_divider{
+  border-color: $darkred;
+}
+
+.show_user_icon{
+  width: 15%;
+  border-radius: 50%;
+}
+
+.show_user_table{
+  color: $black;
+  width: 51%;
+  margin: 0px auto;
+  font-size: 18px;
+  td {
+    border-top: 0px !important;
+    height: 20px;
+  }
+
+  .show_user_label{
+    color: $darkred;
+  }
+
+  .td_btn_show_profile{
+    text-align: center;
+    .btn {
+      width: 30%;
+    }
+  }
+}
+
+//list user
+.list_user{
+  margin: 1% 5%;
+  width: 90%;
+
+  table {
+    counter-reset: rowNumber;
+    width: 100%;
+  }
+
+  table th {
+    color: $black;
+    background-color: $gray;
+    text-align: center;
+  }
+
+  table .trow {
+    counter-increment: rowNumber;
+  }
+
+  table .trow td {
+    color: $black;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  table .trow td:first-child::before {
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
+  }
+
+  table.table-bordered{
+    border: 1px solid $gray-light;
+    margin-top: 20px;
+  }
+
+  table.table-bordered > thead > tr > th{
+    border: 1px solid $gray-light;
+  }
+
+  table.table-bordered > tbody > tr > td{
+    border: 1px solid $gray-light;
+  }
+
+  .user_name_content{
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: left;
+  }
+}
+
+.user_name{
+  display: inline-block;
+}
+
+.users_num{
+  width: 5%;
+}
+
+.users_name{
+  width: 25%;
+}
+
+.users_email{
+  width: 25%;
+}
+
+.users_join{
+  width: 10%;
+}
+
+.users_role{
+  width: 10%;
+}
+
+.users_status{
+  width: 10%;
+}
+
+.users_btn{
+  width: 15%;
+}
+
+.user_img{
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+.add_user{
+  margin: 2% 30%;
+  text-align: center;
+}
+
+.add_user_btn{
+  color: $white;
+}
+
+.role_admin{
+  background-color: $red;
+  color: $dark-white;
+}
+
+.role_staff{
+  background-color: $yellow;
+  color: $dark-white;
+}
+
+.role_guest{
+  background-color: $palegreen;
+  color: $dark-white;
+}
+
+.status_enable{
+  background-color: $palegreen;
+  color: $dark-white;
+}
+
+.status_disable{
+  background-color: $gray-light;
+  color: $dark-white;
+}
+
+//other
+.new_category, .create_order, .create_product, .create_table, .create_user {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.order-top-banner, .product-index-top, .table-top-banner{
+  margin-right: 0px !important;
+}
+
+.fas{
+  width: 20px;
+}
+
+.edit_user{
+  height: fit-content;
+}
+
+.alert-notice {
+  color: $alert-notice;
+  background-color: $alert-background;
+  border-color: $alert-border;
+}
+
+.alert-alert {
+  color: $alert-alert-color;
+  background-color: $alert-alert-background;
+  border-color: $alert-alert-border;
+}
+
+.remem_check {
+  width: fit-content;
+}
+
+.remem_label {
+  width: 80%;
+  margin-left: 1%;
+}
+
+.remem_field {
+  display: inline-flex;
+  width: 100%;
+}
+
+.topnav {
+  width: 82%;
+  height: 100%;
+  margin: 0% 9%;
+}
+
+.nav-item {
+  display: inline-block;
+  color: $white !important;
+  padding: 5px 0px;
+}
+
+.nav-item + .nav-item {
+  padding-left: 20px;
+}
+
+.nav-header{
+  display: inline-block;
+}
+
+.hover_search{
+  margin: 0px;
+  display: inline-block;
+  border-width: 0px;
+  width: fit-content;
+  border-radius: 10px;
+  margin-right: -17%;
+  padding-right: 17%;
+}
+
+.search_form_nav{
+  margin: 0px;
+}
+
+.glyphicon-search{
+  display: inline-block;
+}
+
+.btn_search{
+  color: $light-blue;
+  height: 100%;
+  background-color: $white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-width: 0px;
+}
+
+.btn-nav{
+  background-color: $light-blue;
+}
+
+.new_user, .edit_user, .new_order{
+  line-height: 30px;
+  padding-top: 15px;
+  color: $black;
+
+  .actions{
+    padding-top: 10px;
+  }
+
+  .btn{
+    width: 100%;
+    margin-top: 15px;
+  }
+}
+
+#error_explanation {
+  font-size: 18px !important;
+  color: $red;
+  ul {
+    color: $red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+//guest_create_book_form
+.create_order {
+  margin-top: 10px;
+}
+
+.create_order_form{
+  padding: 2% 7%;
+}
+
+.create_order_form > form, .create_order_form > form > input, .create_order_form > form > .field_with_errors > input{
+  text-align: center;
+}
+
+.new_order > #error_explanation > .alert {
+  float: none;
+}
+
+// public product show
+.public-product-show {
+  color: $black;
+  width: 80%;
+  margin-top: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: $mid-light;
+  .col-sm-4 {
+    .panel {
+      text-align: center;
+      width: 20em;
+      height: 24em;
+      img {
+        width: 15em;
+        height: 10em;
+        transition: border-radius 0.2s;
+        &:hover{
+          border: 2px solid $yellow;
+          border-radius: 50%;
+        }
+      }
+      .number {
+        text-align: center;
+        margin-bottom: 5px;
+      }
+    }
+  }
+  .pull-right, .pull-left {
+    margin: 20px;
+  }
+  .public-product-pull {
+    margin: 10px;
+  }
+}
+
+.alert-empty-product {
+  float: none;
+  margin: 0 10px;
+}
+
+// user orders
+.public-order-show {
+  color: $black;
+  text-align: center;
+  width: 90%;
+  margin: 20px 30px 0 30px;
+  padding: 5px;
+  background-color: $mid-light;
+  button {
+    display: block;
+    margin: 5px auto;
+  }
+}
+
+.order-status-pending {
+  background-color: $white !important;
+}
+
+.order-status-accepted {
+ background-color: $success-color !important;
+}
+
+.order-status-cancel {
+  background-color: $red !important;
+}
+
+.order-status-paid {
+  background-color: $dark-white !important;
+}
+
+// public table show
+.public-table-show {
+  color: $black;
+  width: 80%;
+  margin-top: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: $mid-light;
+  .col-sm-4 {
+    .panel {
+      text-align: center;
+    }
+  }
+  .pull-right, .pull-left {
+    margin: 20px;
+  }
+
+  .public-product-pull {
+    margin: 10px;
+  }
+}
+
+// product show
+.product-show {
+  margin: 20px;
+}
+
+.product-show-wrap-img {
+  padding-top: 10px;
+  img {
+    float: right;
+    margin-right: 50px;
+    max-width: 500px;
+    height: 280px;
+    &:hover {
+      height: 290px;
+      border: 2px solid $aqua;
+      max-width: 500px;
+    }
+  }
+}
+
+.no_product {
+  margin-right: 45%;
+}
+
+.login-button {
+  margin-top: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background: $fb_hover;
+}
+
+.login-facebook-icon {
+  background-color: $fb_text;
+  color: $white;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 48px;
+  text-align: center;
+  height: 48px;
+  width: 58px;
+  float: left;
+}
+
+.login-facebook-text {
+  color: $fb_text;
+  font-family: HelveticaNeueW01-55Roma, HelveticaNeueW02-55Roma, HelveticaNeueW10-55Roma, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 46px;
+  text-align: center;
+  width: 239px;
+  height: 46px;
+  padding-left: 58px;
+  border: 1px solid $fb_text;
+}
+
+// notifications
+.noti-bell-icon {
+  font-size: 23px;
+  margin-top: 15px;
+  position: relative;
+  .badge-noti{
+    background: $red;
+    position: absolute;
+    top: -5px;
+    left: 10px;
+  }
+}
+
+#notification-navbar-ul {
+  color: $black;
+  width: 350px;
+  margin-left: -200px;
+  max-width: 400px;
+  max-height: 300px;
+  overflow: auto;
+  .noti {
+    color: $red;
+  }
+  .li-notification {
+    padding: 8px;
+    text-align: center;
+    .title {
+      display: inline;
+      color: $green;
+    }
+    .text {
+      display: block;
+      color: #1bbae1;
+      margin-top: 8px;
+      &:hover {
+        font-size: 18px;
+      }
+    }
+    &:hover {
+      border: 1px solid #cf1d1f;
+    }
+  }
+  .li-notification-read {
+    background-color: #f2f2f2;
+  }
+  .li-notification-unread {
+    background-color: #a3ec81;
+  }
+  hr {
+    margin: 0;
+  }
+}
+
+#mark-noti-form{
+  display: inline;
+}
+
+.datetimepicker {
+  color: black !important;
+}

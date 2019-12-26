@@ -1,0 +1,8 @@
+ <% if table.available? %>
+  <input type="hidden" name="table_action" value="disable">
+  <input type="submit" value="<%= t "disable" %>" class="btn btn-danger">
+<% end %>
+<% if table.disable? %>
+  <input type="hidden" name="table_action" value="available">
+  <input type="submit" value="<%= t "enable" %>" class="btn btn-primary">
+<% end %>

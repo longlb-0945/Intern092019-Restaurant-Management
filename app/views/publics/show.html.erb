@@ -1,0 +1,30 @@
+<% provide :title, t("show_product_title") %>
+<% provide :small_banner, t("list_product_title") %>
+<% provide :big_banner, t("search") %>
+
+<div class="container-fluid public-product-show shadow">
+  <div class="row">
+    <div class="pull-right">
+      <%= form_tag search_path, class: "form-inline", method: :get do %>
+        <div class="form-group">
+          <input type="hidden", name="q[name_or_short_description_cont]", value="<%= params[:q][:name_or_short_description_cont] %>">
+          <%= select_tag :sort, options_for_select(product_sort_list(Product::ORDER_SORT_HASH), params[:sort]), class: "form-control sort-select" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="pull-left">
+      <button type="button" class="btn btn-primary"><%= t "total" %> <span class="badge"><%= @products.size %></span></button>
+    </div>
+  </div><hr>
+
+  <div class="row">
+    <% if @products.empty? %>
+      <div class="alert alert-danger"><%= t "category_no_product" %></div>
+    <% else %>
+      <%= render @products %>
+    <% end %>
+  </div><hr>
+  <div class="row paginate_row" >
+    <%= paginate @products %>
+  </div>
+</div>

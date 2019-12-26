@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Intern092019RestaurantManagement</title>
+    <% if @notifications_unread&.> 0 %>
+      <title><%= "(#{@notifications_unread}) #{yield(:title)}" %></title>
+    <% else %>
+      <title><%= yield(:title) %></title>
+    <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag Settings.bs3_css %>
+    <%= stylesheet_link_tag Settings.awesome_font %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag Settings.jquery_1 %>
+    <%= javascript_include_tag Settings.bs3_js %>
+    <%= stylesheet_link_tag Settings.awesome_icon, integrity: "sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ", crossorigin: "anonymous" %>
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar bootsnav no-background navbar-fixed black">
+      <%= render "layouts/nav" %>
+    </nav>
+
+    <header id="top_header">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-top alert-<%= message_type %>"><p><%= message %></p></div>
+      <% end %>
+      <%= render "layouts/top_header" %>
+    </header>
+
+    <section id="block">
+      <%= yield %>
+    </section>
+
+    <footer>
+      <%= render "layouts/footer" %>
+    </footer>
+
+    <%= render "layouts/scrollup" %>
   </body>
 </html>

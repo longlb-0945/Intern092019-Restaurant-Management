@@ -1,0 +1,39 @@
+<% provide :title, t("edit_user") %>
+<% content_for :content_header do %>
+  <div class="row mb-2">
+    <div class="col-sm-6">
+      <h1 class="m-0 text-dark"><%= t("edit_user").upcase %></h1>
+    </div>
+    <div class="col-sm-6">
+      <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item">
+          <%= link_to t("dashboard"), admin_dashboard_path %>
+        </li>
+        <li class="breadcrumb-item">
+          <%= link_to t("list_user_banner"), admin_users_path %>
+        </li>
+        <li class="breadcrumb-item active"><%= t "edit_user" %></li>
+      </ol>
+    </div>
+  </div>
+<% end %>
+
+<%= form_for [:admin, @user], html: {class: "form-horizontal form-table-new"} do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group row">
+        <div class="col-2 col-form-label">
+          <%= f.label t "role" %><span class="input-require"></span>
+        </div>
+        <div class="col-10 select_role">
+          <%= f.select(:role, options_for_select(load_role_select, @user.role_before_type_cast), {include_hidden: false}, class: "form-control") %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer text-center">
+      <%= f.submit t("submit"), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

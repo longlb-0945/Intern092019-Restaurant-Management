@@ -1,0 +1,45 @@
+<div class="footer_container">
+  <div class="row" id="lock">
+    <h2><%= t "serving" %></h2>
+    <p><%= t "check_addr" %></p>
+  </div>
+  <div class="row" id="content">
+    <div class="col-lg-3 col-sm-4 col-xs-12 col-lg-offset-1 pull-right">
+      <div class="subscribe">
+        <h4><%= t "thanks" %></h4>
+        <p><%= t "sun_quote" %></p>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-sm-4 col-xs-12 col-lg-offset-1 pull-right">
+      <div class="contact_us">
+        <h4><%= t "contact" %></h4>
+        <%= link_to Settings.contact_link, "" %>
+        <address>
+          <%= t "addr1" %><br />
+          <%= t "addr2" %><br />
+          <%= t "ađdr3" %><br />
+        </address>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-4 col-xs-12 pull-right">
+      <div class="basic_info">
+        <%= link_to "" do %>
+          <%= image_tag Settings.footer_logo_link, alt: "", class: "footer_logo" %>
+        <% end %>
+
+        <div class="footer-copyright">
+          <p class="wow fadeInRight" data-wow-duration="1s">
+            <%= t "made_with" %>
+            <i class="fa fa-heart"></i>
+            <%= t "by" %>
+            <%= link_to t("sunner"), Settings.sun_link, target: "_blank" %>
+            <br/>
+            <%= t "allright" %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+sun_link: "https://sun-asterisk.vn"
+img_logo: "logo.png"
+contact_link: "info@junkyburget.com"
+footer_logo_link: "footer_logo.png"
+img_stamp: "stamp.png"
+bs3_css: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+awesome_font: "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+jquery_1: "http://code.jquery.com/jquery-1.12.1.min.js"
+bs3_js: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+dtb_css: "https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css"
+dtb_js: "https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
+dtb_bs_js: "https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"
+img_chicken: "chicken.png"
+min_table_number: 1
+max_table_size: 12
+min_table_size: 2
+icon_table: "table-icon.png"
+pagenate_tables: 9
+reservation_icon: "reservation-icon.png"
+min_book_size: 1
+img_book_frame: "book-frame.png"
+pagenate_orders: 8
+paid_img: "paid.png"
+min_quantily: 1
+currency: VND
+pagenate_products: 12
+min_price_allow: 1000
+min_stock_allow: 0
+min_price_choosen: 1
+pagenate_categories: 3
+imgsize5: 5
+pagenate_category: 3
+maximum_name_length: 50
+email_regex: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i'
+maximum_email_length: 255
+minimum_password_length: 6
+pagenate_user: 10
+awesome_icon: "https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+expired_time: 2
+factories:
+  products:
+    price_min_invalid: 999
+    stock_min_invalid: -1
+    price_faker: 10000
+    status_faker: 0
+    stock_faker: 10
+    total_rate_faker: 0
+  orders:
+    status_faker: 0
+    person_number_faker: 6
+    total_amount_faker: 0
+    person_number_min_invalid: 0
+  order_details:
+    random_price_faker: 1000
+    random_quantily_faker: 100
+    random_amount_faker: 100000
+  tables:
+    table_number_faker: 1
+    max_size_faker: 6
+    status_faker: 0
+    table_number_greater_invalid: 0
+    max_size_greater_invalid: 1
+    max_size_less_invalid: 13
+    table_number_unique: 10
+  user:
+    name_max_length_invalid: 100
+    password_min_length_invalid: 5
+    fake_remember: "abcdef"
+default_password: "111111"
+remember_digest_size: 60
+fake_email: "ABCD@gmail.com"
+category_product_per_page: 2
+flaticon_arr: ["burger", "drink", "food"]
+home_pick_item: 5
+three: 3
+one: 1
+adminlteimg: "https://scontent.fhan2-3.fna.fbcdn.net/v/t1.0-1/p160x160/31351067_163269287668096_9160397326515278093_n.jpg?_nc_cat=109&_nc_oc=AQmNbxtnpwHzWQwu7J7GwSEroSRMMGabnPrlNDD0sf8UlE8TJtHNGok9dzwEGyrVb0U&_nc_ht=scontent.fhan2-3.fna&oh=c309a02c35d06ddeeea54dabd634ef46&oe=5E476E0E"
+cate_dash: ["bg-success", "bg-warning", "bg-danger", "bg-info", "bg-primary", "bg-indigo", "bg-navy", "bg-pink", "bg-olive", "bg-orange"]
+guest_role: 2
+latest_record: 2
+callback_fb: "http://localhost:3000/users/auth/facebook/callback/"

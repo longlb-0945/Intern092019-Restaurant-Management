@@ -1,0 +1,4 @@
+console.log("work?");
+$('tbody tr:first').before('<%= j render(@order_detail) %>');
+$('option[value=<%= params[:order_detail][:product_id] %>]').remove();
+$('#order-total-amount').html(<%= @order.total_amount %>);

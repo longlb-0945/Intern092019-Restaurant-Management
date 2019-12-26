@@ -1,0 +1,142 @@
+<%= link_to admin_dashboard_url, class: "brand-link" do %>
+  <%= image_tag Settings.adminlteimg, alt: "", class: "brand-image img-circle elevation-3" %>
+  <span class="brand-text font-weight-light"><%= t "restaurant_name" %></span>
+<% end %>
+
+<div class="sidebar">
+  <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="image">
+      <%= image_tag current_user.image, class: "img-circle elevation-2" if current_user.image.attached? %>
+    </div>
+    <div class="info">
+      <%= link_to current_user.name, admin_user_path(current_user.id), class: "d-block" %>
+    </div>
+  </div>
+
+  <nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <li class="nav-item has-treeview">
+        <%= link_to admin_orders_path, class: "nav-link" do %>
+          <i class="nav-icon fa fa-bookmark"></i>
+          <p>
+            <%= t "orders" %>
+            <i class="fas fa-angle-left right"></i>
+          </p>
+        <% end %>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <%= link_to new_admin_order_path, class: "nav-link" do %>
+              <i class="nav-icon fa fa-plus-square"></i>
+              <p><%= t "add_order" %></p>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to admin_orders_path, class: "nav-link" do %>
+              <i class="fa fa-list nav-icon"></i>
+              <p><%= t "list_order" %></p>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+
+      <% if current_user.admin? %>
+        <li class="nav-item has-treeview">
+          <%= link_to admin_categories_path, class: "nav-link" do %>
+            <i class="nav-icon fa fa-list-alt"></i>
+            <p>
+              <%= t "categories" %>
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          <% end %>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <%= link_to new_admin_category_path, class: "nav-link" do %>
+                <i class="nav-icon fa fa-plus-square"></i>
+                <p><%= t "add_cate" %></p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to admin_categories_path, class: "nav-link" do %>
+                <i class="fa fa-list nav-icon"></i>
+                <p><%= t "list_cate" %></p>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-treeview">
+          <%= link_to admin_tables_path, class: "nav-link" do %>
+            <i class="nav-icon fas fa-table"></i>
+            <p>
+              <%= t "tables" %>
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          <% end %>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <%= link_to new_admin_table_path, class: "nav-link" do %>
+                <i class="nav-icon fa fa-plus-square"></i>
+                <p><%= t "add_table" %></p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to admin_tables_path, class: "nav-link" do %>
+                <i class="fa fa-list nav-icon"></i>
+                <p><%= t "list_table" %></p>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-treeview">
+          <%= link_to admin_products_path, class: "nav-link" do %>
+            <i class="nav-icon fa fa-wine-glass"></i>
+            <p>
+              <%= t "products" %>
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          <% end %>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <%= link_to new_admin_product_path, class: "nav-link" do %>
+                <i class="nav-icon fa fa-plus-square"></i>
+                <p><%= t "add_product" %></p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to admin_products_path, class: "nav-link" do %>
+                <i class="fa fa-list nav-icon"></i>
+                <p><%= t "list_product" %></p>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-treeview">
+          <%= link_to admin_users_path, class: "nav-link" do %>
+            <i class="nav-icon fa fa-user-tie"></i>
+            <p>
+              <%= t "users" %>
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          <% end %>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <%= link_to new_admin_user_path, class: "nav-link" do %>
+                <i class="nav-icon fa fa-plus-square"></i>
+                <p><%= t "add_user" %></p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to admin_users_path, class: "nav-link" do %>
+                <i class="fa fa-list nav-icon"></i>
+                <p><%= t "list_user" %></p>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+</div>
+</aside>

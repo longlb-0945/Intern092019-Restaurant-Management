@@ -1,0 +1,10 @@
+<% provide :title, t("order_list") %>
+<% provide :small_banner, t("show_order_banner") %>
+<% provide :big_banner, @user.name.humanize %>
+
+<div class="row public-order-show">
+  <%= render @orders %>
+</div>
+<div class="row paginate_row" >
+  <%= paginate @orders %>
+</div>
