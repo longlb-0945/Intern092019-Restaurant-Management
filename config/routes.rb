@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  require "sidekiq/web"
+  mount Sidekiq::Web => "/sidekiq"
   devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
@@ -18,6 +20,12 @@ Rails.application.routes.draw do
     resources :notifications, only: [:update, :index]
 
     namespace :admin do
+      resources :reports, only: [:index] do
+        collection do
+          post :report
+          get :report, to: "reports#index"
+        end
+      end
       resources :tables do
         collection do
           get :sort, to: "tables#sort"
