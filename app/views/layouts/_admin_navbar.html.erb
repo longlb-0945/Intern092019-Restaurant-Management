@@ -13,12 +13,12 @@
   <li class="nav-item dropdown">
     <div data-toggle="dropdown" class="nav-link noti_dash" >
       <i class="far fa-bell"></i>
-      <span class="badge badge-warning navbar-badge"><%= count_pending_orders %></span>
+      <span class="badge badge-warning navbar-badge admin-noti"><%= count_pending_orders %></span>
     </div>
 
     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
       <%= link_to admin_orders_path, class:"nav-link" do %>
-        <i class="fas fa-file mr-2"></i> <%= count_pending_orders %> <%= t "unac_order" %>
+        <i class="fas fa-file mr-2"></i> <span class="admin-noti"><%= count_pending_orders %></span> <%= t "unac_order" %>
       <% end %>
     </div>
   </li>

@@ -27,16 +27,16 @@
       <tbody>
         <tr>
           <td><%= t "name" %></td>
-          <td class="content"><label class="bagde bg-primary"><%= @product.name %></label></td>
+          <td class="content"><label class=""><%= @product.name %></label></td>
         </tr>
         <tr>
           <td><%= t "category" %></td>
-          <td class="content"><label class="bagde bg-info"><%= @product.category_name %></label></td>
+          <td class="content"><label class=""><%= @product.category_name %></label></td>
         </tr>
         <tr>
           <td><%= t "price" %></td>
           <td class="content">
-            <label class="bagde bg-info"> <%= number_with_delimiter(@product.price, delimiter: ",") %></label>
+            <label class=""> <%= number_with_delimiter(@product.price, delimiter: ",") %></label>
             <span><%= t "currency" %></span>
           </td>
         </tr>

@@ -115,18 +115,4 @@
     </div>
   </div>
 
-  <div class="row forth_sec">
-    <% @categories.take(Settings.three).each do |category| %>
-      <div class="col-sm-4">
-        <div class="menu">
-          <div class="inner_content">
-            <span class="flaticon flaticon-<%= flaticon %>"></span>
-            <%= link_to category_path(category) do %>
-              <h2><%= category.name.humanize %></h2>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
 </div>

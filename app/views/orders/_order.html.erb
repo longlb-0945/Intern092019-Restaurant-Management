@@ -4,10 +4,40 @@
       <h3><%= t "order" %>: <%= order.status.humanize %></h3>
     </div>
     <div class="panel-body">
-      <button type="button" class="btn btn-primary"><%= t "name" %> <span class="badge"><%= order.name.humanize %></span></button>
-      <button type="button" class="btn btn-secondary"><%= t "phone" %> <span class="badge"><%= order.phone %></span></button>
-      <button type="button" class="btn btn-success"><%= t "person_number" %> <span class="badge"><%= order.person_number %></span></button>
-      <button type="button" class="btn <%= check_order_status order %>"><%= t "status" %> <span class="badge"><%= order.status.humanize %></span></button>
+      <table class="table table-respondsive table-hover tbl_his table-borderless">
+        <tr>
+          <td class="st1_td_his">
+            <%= t "name" %>
+          </td>
+          <td class="st2_td_his">
+            <%= order.name.humanize %>
+          </td>
+        </tr>
+        <tr>
+          <td class="st1_td_his">
+            <%= t "phone" %>
+          </td>
+          <td class="st2_td_his">
+            <%= order.phone %>
+          </td>
+        </tr>
+        <tr>
+          <td class="st1_td_his">
+            <%= t "person_number" %>
+          </td>
+          <td class="st2_td_his">
+            <%= order.person_number %>
+          </td>
+        </tr>
+        <tr>
+          <td class="st1_td_his">
+            <%= t "status" %>
+          </td>
+          <td class="st2_td_his">
+            <span class="badge <%= check_order_status order %>"><%= order.status.humanize %></span>
+          </td>
+        </tr>
+      </table>
       <% if order.pending? %>
         <%= form_tag user_order_path(current_user, id: order.id), method: :delete do %>
           <button type="submit" class="btn btn-danger" data-confirm="<%= t "delete_confirm" %>"><%= t "cancel" %></button>

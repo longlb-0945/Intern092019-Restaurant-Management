@@ -18,12 +18,12 @@
   </td>
   <td class="user_role_content">
     <div class="user_role_content">
-      <p class="user_role role_<%= check_user_role user %>"><%= user.role %></p>
+      <label class="badge user_role role_<%= check_user_role user %>"><%= user.role %></label>
     </div>
   </td>
   <td class="user_status_content">
     <div class="user_status_content">
-      <p class="user_status status_<%= check_user_status user %>" id="user_status_<%= user.id %>"><%= user.status %></p>
+      <label class="badge user_status status_<%= check_user_status user %>" id="user_status_<%= user.id %>"><%= user.status %></label>
     </div>
   </td>
   <td class="user_btn_content">

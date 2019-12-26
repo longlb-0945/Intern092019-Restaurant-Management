@@ -61,21 +61,21 @@ c.save
 10.times do |n|
 
   p = Product.create(name: "product_" + n.to_s, category_id: 1, price: 1000 + n, stock: 10 + n)
-  p.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.png")), filename: "default.png")
+  p.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.jpg")), filename: "default.jpg")
   p.save
 end
 
 10.times do |n|
 
   p = Product.create(name: "product_" + (n+10).to_s, category_id: 2, price: 1000 + n, stock: 10 + n)
-  p.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.png")), filename: "default.png")
+  p.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.jpg")), filename: "default.jpg")
   p.save
 end
 
 10.times do |n|
 
   p = Product.create(name: "product_" + (n+20).to_s, category_id: 3, price: 1000 + n, stock: 10 + n)
-  p.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.png")), filename: "default.png")
+  p.image.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.jpg")), filename: "default.jpg")
   p.save
 end
 

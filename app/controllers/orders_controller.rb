@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :find_user, :correct_user, only: %i(index destroy)
   before_action :check_guest, only: :index
   before_action :find_order, :not_pending, only: :destroy
+  before_action :authenticate_user!
 
   def index
     @orders = current_user.customer_orders.page(params[:page])
@@ -18,6 +19,8 @@ class OrdersController < ApplicationController
       flash[:success] = t "order_create_suc"
       redirect_to root_path
       new_notification_job "Created", @order.id, @order.customer.id
+
+      ActionCable.server.broadcast("noti_channel_admin_staff", abc: 1)
 
       CheckOrderTimeJob.set(wait_until: @order.start_time-7*3600).perform_later(@order.id)
     else

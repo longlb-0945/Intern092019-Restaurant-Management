@@ -23,6 +23,7 @@ gem "sass-rails", "~> 5"
 gem "sidekiq"
 gem "turbolinks", "~> 5.2.0"
 gem "webpacker", "~> 4.0"
+gem "axlsx_rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

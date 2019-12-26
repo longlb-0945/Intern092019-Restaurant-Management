@@ -13,7 +13,7 @@
       <% end %>
     <% end %>
 
-    <%= link_to t("home"), "", class: "nav-item nav-link-item" %>
+    <%= link_to t("home"), root_path, class: "nav-item nav-link-item" %>
     <%= link_to t("about"), "", class: "nav-item nav-link-item" %>
     <div class="dropdown nav-item nav-link-item nav-sun-inline menu-category">
       <span class="dropdown-toggle" data-toggle="dropdown"><%= t "menu" %><span class="caret"></span></span>
@@ -24,7 +24,6 @@
         <% end %>
       </ul>
     </div>
-    <%= link_to t("tables"), tables_path, class: "nav-item nav-link-item" %>
     <%= link_to t("all_product"), products_path, class: "nav-item nav-link-item" %>
 
     <div class="nav-item">

@@ -204,9 +204,6 @@ input[type=number]{
       width: 80%;
     }
   }
-  div{
-    float: right;
-  }
   fieldset{
     border: 1px solid $palegreen;
     legend{
@@ -686,19 +683,35 @@ input[type=number]{
   padding: 5px;
   border-radius: 10px;
   background-color: $mid-light;
-  .col-sm-4 {
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .col-sm-3 {
     .panel {
+      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.19);
       text-align: center;
-      width: 20em;
-      height: 24em;
+      width: 15em;
+      height: 22em;
+      &:hover img {
+        opacity: 0.3;
+      }
+      &:hover .middle {
+        opacity: 1;
+      }
       img {
-        width: 15em;
-        height: 10em;
-        transition: border-radius 0.2s;
-        &:hover{
-          border: 2px solid $yellow;
-          border-radius: 50%;
-        }
+        opacity: 1;
+        display: block;
+        height: 100%;
+        height: auto;
+        transition: .5s ease;
+        backface-visibility: hidden;
       }
       .number {
         text-align: center;
@@ -724,7 +737,7 @@ input[type=number]{
   color: $black;
   text-align: center;
   width: 90%;
-  margin: 20px 30px 0 30px;
+  margin: 1% 5%;
   padding: 5px;
   background-color: $mid-light;
   button {
@@ -782,12 +795,6 @@ input[type=number]{
     float: right;
     margin-right: 50px;
     max-width: 500px;
-    height: 280px;
-    &:hover {
-      height: 290px;
-      border: 2px solid $aqua;
-      max-width: 500px;
-    }
   }
 }
 
@@ -829,6 +836,19 @@ input[type=number]{
   height: 46px;
   padding-left: 58px;
   border: 1px solid $fb_text;
+}
+
+.product_name_search{
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.product_price_search{
+  padding-top: 5px;
+  color: $red;
+}
+
+.img_panel {
+  padding: 0px;
 }
 
 // notifications
@@ -886,6 +906,32 @@ input[type=number]{
 
 #mark-noti-form{
   display: inline;
+}
+
+.st1_td_his {
+  text-align: left !important;
+}
+
+.st2_td_his{
+  text-align: center !important;
+  .order-status-pending{
+    background-color: $dark_yellow !important;
+  }
+
+  p {
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.tbl_his {
+  border-bottom:0px !important;
+}
+
+.tbl_his th, .tbl_his td {
+  border: 1px !important;
 }
 
 .datetimepicker {

@@ -3,9 +3,15 @@ console.log("Notification?");
 
 consumer.subscriptions.create("NotificationsChannel", {
   received(data){
-    $("#notification-navbar-ul li:first").after(render_list(data));
-    $(document).attr("title", new_title);
-    $("#noti-bell-number").html(parseInt($("#noti-bell-number").html()) + 1);
+    if(data.noti){
+      $("#notification-navbar-ul li:first").after(render_list(data));
+      $(document).attr("title", new_title);
+      $("#noti-bell-number").html(parseInt($("#noti-bell-number").html()) + 1);
+    }else{
+      $(document).attr("title", new_title);
+      var current_title = $(".admin-noti").text();
+      $(".admin-noti").html(parseInt($(".admin-noti").html()) + 1)
+    }
   }
 });
 
