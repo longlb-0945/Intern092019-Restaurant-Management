@@ -65,5 +65,7 @@ $('document').ready(function(){
     $('#mark-noti-form').submit();
   });
 
-  $("#datetimepicker").datetimepicker();
+  $("#datetimepicker").datetimepicker({
+    startDate: new Date()
+  });
 });

@@ -42,9 +42,9 @@ $('document').ready(function(){
     placeholder: I18n.t('pick_table_placeholder')
   });
 
-  $("#datetimepicker").datetimepicker({
-    startDate: new Date()
-  });
+  // $("#datetimepicker").datetimepicker({
+  //   startDate: new Date()
+  // });
 
   $(document).on('click', '#report-btn-day', function(){
     $('#report-datepicker').datetimepicker('remove');

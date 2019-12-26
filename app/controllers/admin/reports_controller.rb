@@ -2,7 +2,7 @@ class Admin::ReportsController < AdminController
   before_action :check_report_param, only: :report
   def index
     report_date = DateTime.now
-    @reports = Order.paid.where("start_time BETWEEN ? AND ?", report_date.beginning_of_day, report_date.end_of_day)
+    @reports = Order.paid.where("day(start_time) BETWEEN ? AND ?", report_date.day, report_date.day)
   end
 
   def report

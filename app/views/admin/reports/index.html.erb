@@ -19,23 +19,23 @@
 <% end %>
 
 <%= form_tag report_admin_reports_path, method: :post, id: "report-form" do %>
-<div class="row mb-2">
-  <div class="col-sm-8 float-left">
-    <span class="btn report-btn report-btn-select" id="report-btn-day">Day</span>
-    <span class="btn report-btn" id="report-btn-month">Month</span>
-  </div>
-  <div class="col-sm-4">
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <i class="far fa-hourglass"></i>
-        </span>
+  <div class="row mb-2">
+    <div class="col-sm-8 float-left">
+      <span class="btn report-btn report-btn-select" id="report-btn-day">Day</span>
+      <span class="btn report-btn" id="report-btn-month">Month</span>
+    </div>
+    <div class="col-sm-4">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="far fa-hourglass"></i>
+          </span>
+        </div>
+        <input type="text" name="report_date" class="form-control float-right" id="report-datepicker" readonly>
+        <button type="submit" class="far fa-folder-open btn btn-success">Report</button>
       </div>
-      <input type="text" name="report_date" class="form-control float-right" id="report-datepicker" readonly>
-      <button type="submit" class="far fa-folder-open btn btn-success">Report</button>
     </div>
   </div>
-</div>
 <% end %><hr><br>
 
 <div class="row">
