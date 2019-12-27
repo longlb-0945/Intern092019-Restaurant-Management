@@ -1,0 +1,10 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Report.xlsx") do |sheet|
+  t=0
+  sheet.add_row ["Customer's name", "Staff's name", "Order name", "Phone", "Address", "status", "Person number", "Total money", "Time", "Created at", "Updated at"]
+  @reports.each do |report|
+  t += report.total_amount
+    sheet.add_row [report.customer.name, report.staff.name, report.name, report.phone, report.address, report.status, report.person_number, report.total_amount, report.start_time, report.created_at, report.updated_at]
+  end
+  sheet.add_row ["Total revenue", t]
+end

@@ -83,6 +83,11 @@
 
         </div>
       </div>
+      <br>
+      <%= form_tag admin_admin_export_path, method: :post, class: "export-form" do %>
+        <%= hidden_field_tag :data, get_date_data %>
+        <button type="submit" class="fa fa-download btn btn-primary float-right">Export to xlsx</button>
+      <% end %>
     </div>
   </div>
 </div>

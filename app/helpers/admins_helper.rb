@@ -36,4 +36,19 @@ module AdminsHelper
   def count_pending_orders
     Order.pending.size
   end
+
+  def report_to_a reports
+    a_reports = []
+    reports.map{ |i| a_reports << i }
+    byebug
+    return a_reports
+  end
+
+  def get_date_data
+    if @report_date
+      @report_date.to_date.strftime("%d/%m/%Y")
+    elsif @report_month
+      @report_month.to_date.strftime("%m/%Y")
+    end
+  end
 end

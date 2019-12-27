@@ -23,7 +23,7 @@ gem "sass-rails", "~> 5"
 gem "sidekiq"
 gem "turbolinks", "~> 5.2.0"
 gem "webpacker", "~> 4.0"
-gem "axlsx_rails"
+gem 'caxlsx_rails'
 gem "sinatra", github: "sinatra/sinatra"
 
 group :development, :test do

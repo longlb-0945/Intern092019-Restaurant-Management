@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :notifications, only: [:update, :index]
 
     namespace :admin do
+      post "admin/export", to: "reports#export_xsl"
       resources :reports, only: [:index] do
         collection do
           post :report
